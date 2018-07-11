@@ -21,3 +21,18 @@ fetch(request(API_URL + "films", 'GET'))
     .then(films => {
 console.log(films);
     });
+
+
+    fetch(request(API_URL + "rooms", 'GET'))
+    .then(res => res.json())
+    .then(rooms => {
+console.log(rooms);
+    });
+
+
+
+    fetch(request(API_URL + "prices", 'GET'))
+    .then(res => res.json())
+    .then(prices => {
+console.log(prices);
+    });
