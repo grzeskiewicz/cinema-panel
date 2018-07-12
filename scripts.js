@@ -16,10 +16,14 @@ function request(url, method, dataset,headerz) {
 }
 
 
+
+
 fetch(request(API_URL + "films", 'GET'))
     .then(res => res.json())
     .then(films => {
 console.log(films);
+const filmSelector=document.querySelectr('#film-selector');
+console.log(filmSelector.options);
     });
 
 
