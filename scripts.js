@@ -73,5 +73,15 @@
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     console.log(`${filmSelector.value} ${priceSelector.value}`);
+     const showing = {
+         film: filmSelector.value,
+         price: priceSelector.value,
+         room: roomSelector.value
+     };
+     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+     fetch(request(`${API_URL}newshowing`, 'POST', showing))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         }).catch(error => Promise.reject(new Error(error)));
  });
