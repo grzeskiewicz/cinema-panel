@@ -26,7 +26,7 @@
 
          for (const film of films) {
              const opt = document.createElement("option");
-             opt.text = JSON.stringify(film);
+             opt.text = `ID: ${film.id} Film:${film.title} Director: ${film.director} Genre:${film.genre} Length:${film.length}`;
              filmSelector.options.add(opt);
          }
 
