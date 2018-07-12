@@ -82,6 +82,6 @@
      fetch(request(`${API_URL}newshowing`, 'POST', showing))
          .then(res => res.json())
          .then(result => {
-             console.log(result);
+             console.log(JSON.stringify(result));
          }).catch(error => Promise.reject(new Error(error)));
  });
