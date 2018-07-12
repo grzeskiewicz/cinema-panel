@@ -22,7 +22,7 @@ fetch(request(API_URL + "films", 'GET'))
     .then(res => res.json())
     .then(films => {
 console.log(films);
-const filmSelector=document.querySelectr('#film-selector');
+const filmSelector=document.querySelector('#film-select');
 console.log(filmSelector.options);
     });
 
