@@ -26,7 +26,7 @@
 
          for (const film of films) {
              const opt = document.createElement("option");
-             opt.text = film;
+             opt.text = JSON.stringify(film);
              filmSelector.options.add(opt);
          }
 
