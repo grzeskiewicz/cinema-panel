@@ -26,7 +26,8 @@
 
          for (const film of films) {
              const opt = document.createElement("option");
-             opt.text = `ID: ${film.id} Film: ${film.title} Director: ${film.director} Genre: ${film.genre} Length: ${film.length}`;
+             opt.value=film.id;
+             opt.text = `ID: ${film.id} || Film: ${film.title} Director: ${film.director} Genre: ${film.genre} Length: ${film.length}`;
              filmSelector.options.add(opt);
          }
 
@@ -43,7 +44,8 @@
 
          for (const room of rooms) {
              const opt = document.createElement("option");
-             opt.text = `Room No.: ${room.id} Seats: ${room.seats}`;
+             opt.value=room.id;
+             opt.text = `${room.id} Seats: ${room.seats}`;
              roomSelector.options.add(opt);
          }
      });
@@ -58,6 +60,7 @@
 
          for (const price of prices) {
              const opt = document.createElement("option");
+             opt.value=price.id;
              opt.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
              priceSelector.options.add(opt);
          }
