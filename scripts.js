@@ -26,7 +26,7 @@
 
          for (const film of films) {
              const opt = document.createElement("option");
-             opt.text = `ID: ${film.id} Film:${film.title} Director: ${film.director} Genre:${film.genre} Length:${film.length}`;
+             opt.text = `ID: ${film.id} Film: ${film.title} Director: ${film.director} Genre: ${film.genre} Length: ${film.length}`;
              filmSelector.options.add(opt);
          }
 
@@ -43,7 +43,7 @@
 
          for (const room of rooms) {
              const opt = document.createElement("option");
-             opt.text = JSON.stringify(room);
+             opt.text = `Room No.: ${room.id} Seats: ${room.seats}`;
              roomSelector.options.add(opt);
          }
      });
@@ -58,7 +58,7 @@
 
          for (const price of prices) {
              const opt = document.createElement("option");
-             opt.text = JSON.stringify(price);
+             opt.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
              priceSelector.options.add(opt);
          }
      });
