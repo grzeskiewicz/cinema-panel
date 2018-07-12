@@ -73,5 +73,5 @@
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     console.log('lawl');
+     console.log(`${filmSelector.value} ${priceSelector.value}`);
  });
