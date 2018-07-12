@@ -69,6 +69,7 @@
 
      const showingCreate=document.querySelector('#showing-create');
 
-     showingCreate.addEventListener('submit', function() {
+     showingCreate.addEventListener('submit', function(e) {
+        e.preventDefault();
 alert('hehe');
      });
