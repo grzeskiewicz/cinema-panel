@@ -65,3 +65,10 @@
              priceSelector.options.add(opt);
          }
      });
+
+
+     const showingCreate=document.querySelector('#showing-create');
+
+     showingCreate.addEventListener('submit', function() {
+alert('hehe');
+     });
