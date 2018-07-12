@@ -39,6 +39,13 @@
      .then(res => res.json())
      .then(rooms => {
          console.log(rooms);
+         const roomSelector = document.querySelector('#room-select');
+
+         for (const room of rooms) {
+             const opt = document.createElement("option");
+             opt.text = JSON.stringify(room);
+             roomSelector.options.add(opt);
+         }
      });
 
 
@@ -47,4 +54,11 @@
      .then(res => res.json())
      .then(prices => {
          console.log(prices);
+         const priceSelector = document.querySelector('#price-select');
+
+         for (const price of prices) {
+             const opt = document.createElement("option");
+             opt.text = JSON.stringify(price);
+             priceSelector.options.add(opt);
+         }
      });
