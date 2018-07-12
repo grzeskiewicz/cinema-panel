@@ -71,5 +71,5 @@
 
      showingCreate.addEventListener('submit', function(e) {
         e.preventDefault();
-alert('hehe');
+console.log(this);
      });
