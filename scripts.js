@@ -123,7 +123,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
      const time=document.querySelector('#appt-time');
-     console.log( moment(time.value) );
+     console.log( moment(time.value,'HH:mm') );
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
