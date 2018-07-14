@@ -32,7 +32,7 @@
                          day2.classList.remove('date-clicked');
                      }
                  }
-document.querySelector('#date-cal').innerHTML= pickedDate;
+document.querySelector('#date-cal').innerHTML= moment(pickedDate).format();
 
              });
          }
