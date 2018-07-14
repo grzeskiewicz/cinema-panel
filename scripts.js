@@ -1,3 +1,4 @@
+ import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
 
  const headers = new Headers({
@@ -19,7 +20,7 @@
  const filmSelector = document.querySelector('#film-select');
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
-
+ let calendarTable = renderCalendar(calendard);
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
      .then(films => {
