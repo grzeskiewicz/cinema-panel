@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <div id="film">
+    <fieldset id="film">
+        <legend>Create film</legend>
         <form id='film-create'>
             <input type="text" name="title" placeholder="Title" required autofocus>
             <input type="text" name="director" placeholder="Director" required>
@@ -21,15 +22,16 @@
             <button type='submit'>Create film</button>
         </form>
         <label id="register-status"></label>
-    </div>
-    <div id="price">
+    </fieldset>
+    <fieldset id="price">
+        <legend>Create price</legend>
         <form id='price-create'>
             <input type="text" name="normal-price" placeholder="Normal price" required>
             <input type="text" name="discount-price" placeholder="Discount price" required>
             <button type='submit'>Create prices</button>
         </form>
         <label id="register-status"></label>
-    </div>
+    </fieldset>
     <div id="showing">
         <form id='showing-create'>
             <select name='film-select' id='film-select'>
