@@ -1,33 +1,16 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* CALENDAR CSS */
+
 #time-select {
-    display:flex;
+    display: flex;
     flex-direction: column;
-width:40vh;
+    width: 40vh;
 }
 
 
 #calendar {
-   /* display: flex-inline;*/
+    /* display: flex-inline;*/
     margin: 1rem;
-    /*text-align: center;*/
+    text-align: center;
     line-height: 2;
 }
 
@@ -75,11 +58,14 @@ td.after {
     color: #999;
 }
 
-#next:hover, #previous:hover{
+#next:hover,
+#previous:hover {
     background-color: orange;
 }
 
+
 /* TIME */
+
 legend {
     background-color: #000;
     color: #fff;
