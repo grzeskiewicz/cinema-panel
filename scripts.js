@@ -122,7 +122,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     const time=document.querySelector('appt-time');
+     const time=document.querySelector('#appt-time');
      console.log(time.value);
      const showing = {
          film: filmSelector.value,
