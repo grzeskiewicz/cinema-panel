@@ -18,10 +18,6 @@
 
 /* CALENDAR CSS */
 
-#week {
-    margin: 1rem;
-}
-
 #calendar {
     display: flex-inline;
     margin: 1rem;
