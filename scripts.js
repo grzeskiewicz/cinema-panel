@@ -17,10 +17,69 @@
  }
 
 
+ let selectedMonthCopy = selectedMonth;
+
+ const calendarCtrl = {
+     initListeners(calendarTable) {
+
+         const daysArray = calendarTable.querySelectorAll('tbody td');
+         for (const day of daysArray) {
+             day.addEventListener('click', function() {
+                 const pickedDate = new Date(this.dataset.date);
+                 view.hide(showlist);
+                 view.hide(details);
+                 const showings = showingsCtrl.calendarShowings(pickedDate);
+                 showlist.innerHTML = '';
+                 seats.innerHTML = '';
+                 view.show(showlist);
+                 if (showings.length > 0) {
+                     view.show(showingsWrapper);
+                 } else {
+                     view.hide(showingsWrapper);
+                 }
+                 day.classList.add('date-clicked')
+                 for (const day2 of daysArray) {
+                     if (day2.classList.contains('date-clicked') && day2 !== day) {
+                         day2.classList.remove('date-clicked');
+                     }
+                 }
+
+
+             });
+         }
+
+
+     },
+     initListenersMonths() {
+         const previous = document.querySelector('#previous');
+         const next = document.querySelector('#next');
+         selectedMonthCopy <= monthNow ? previous.style.display = 'none' : previous.style.display = 'inline';
+         previous.addEventListener('click', function() {
+             calendarDiv.innerHTML = '';
+             let calendarTable = renderCalendar(createCalendar(yearNow, --selectedMonthCopy));
+             calendarCtrl.initListeners(calendarTable);
+             calendarCtrl.initListenersMonths();
+         });
+         next.addEventListener('click', function() {
+             calendarDiv.innerHTML = '';
+             let calendarTable = renderCalendar(createCalendar(yearNow, ++selectedMonthCopy));
+             calendarCtrl.initListeners(calendarTable);
+             calendarCtrl.initListenersMonths();
+         });
+     },
+     initCalendar() {
+
+         let calendarTable = renderCalendar(calendard);
+         this.initListeners(calendarTable);
+         this.initListenersMonths();
+     }
+ }
+
+
  const filmSelector = document.querySelector('#film-select');
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
- let calendarTable = renderCalendar(calendard);
+ calendarCtrl.initCalendar();
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
      .then(films => {
