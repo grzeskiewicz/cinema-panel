@@ -28,7 +28,7 @@ flex-direction: column;
 #calendar {
    /* display: flex-inline;*/
     margin: 1rem;
-    text-align: center;
+    /*text-align: center;*/
     line-height: 2;
 }
 
