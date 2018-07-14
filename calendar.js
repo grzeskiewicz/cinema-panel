@@ -45,7 +45,7 @@ export function renderCalendar(calendar) {
 
     // create month name
     p.innerHTML = `<span id="previous"><<</span>  ${MONTH_NAMES[selectedMonth]} <span id="next"> >> </span>`;
-
+p.id="month";
     // create thead
     thead.innerHTML = '<tr><td>' + 'Mo Tu We Th Fr Sa Su'.split(' ').join('</td><td>') + '</td></tr>';
 
