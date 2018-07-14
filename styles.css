@@ -17,7 +17,9 @@
 
 
 /* CALENDAR CSS */
-
+#time-select {
+    
+}
 #calendar {
    /* display: flex-inline;*/
     margin: 1rem;
@@ -74,8 +76,6 @@ td.after {
 }
 
 /* TIME */
-
-
 legend {
     background-color: #000;
     color: #fff;
@@ -84,13 +84,6 @@ legend {
 
 .time-control {
     margin: 1rem 0;
-}
-
-label {
-    display: inline-block;
-    text-align: right;
-    font-size: .8rem;
-    width: 20%;
 }
 
 .hours {

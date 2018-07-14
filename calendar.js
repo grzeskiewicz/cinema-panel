@@ -45,7 +45,7 @@ export function renderCalendar(calendar) {
 
     // create month name
     p.innerHTML = `<span id="previous"><<</span>  ${MONTH_NAMES[selectedMonth]} <span id="next"> >> </span>`;
-p.id="month";
+    p.id = "month";
     // create thead
     thead.innerHTML = '<tr><td>' + 'Mo Tu We Th Fr Sa Su'.split(' ').join('</td><td>') + '</td></tr>';
 
@@ -58,9 +58,9 @@ p.id="month";
     calendarDiv.appendChild(p);
     // mount table to container
     calendarDiv.appendChild(table);
-   // p2.textContent = '▼';
-   // p2.id="roll";
-   // calendarDiv.appendChild(p2);
+    // p2.textContent = '▼';
+    // p2.id="roll";
+    // calendarDiv.appendChild(p2);
 
 
     return table;
