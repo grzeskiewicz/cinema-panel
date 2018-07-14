@@ -19,7 +19,7 @@
 /* CALENDAR CSS */
 
 #calendar {
-    display: flex-inline;
+   
     margin: 1rem;
     text-align: center;
     line-height: 2;
@@ -74,9 +74,7 @@ td.after {
 }
 
 /* TIME */
-.output {
-    font: 1rem 'Fira Sans', sans-serif;
-}
+
 
 legend {
     background-color: #000;
