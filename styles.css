@@ -18,7 +18,12 @@
 
 /* CALENDAR CSS */
 #time-select {
-    
+    display:flex;
+
+}
+
+#time-select > * {
+  flex: 1 100%;
 }
 #calendar {
    /* display: flex-inline;*/
