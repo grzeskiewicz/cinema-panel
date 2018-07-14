@@ -126,7 +126,8 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
      const momentTime=moment(time.value,'HH:mm');
      const hour=momentTime.hour();
      const minute=momentTime.minute();
-     console.log( hour, minute );
+     pickedDate.set({'hour': hour, 'minute': minute});
+     console.log( pickedDate );
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
