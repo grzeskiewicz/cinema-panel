@@ -22,9 +22,7 @@
 flex-direction: column;
 }
 
-#time-select > * {
-  flex: 1 50%;
-}
+
 #calendar {
    /* display: flex-inline;*/
     margin: 1rem;
