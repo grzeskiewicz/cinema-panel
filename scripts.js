@@ -26,17 +26,6 @@
          for (const day of daysArray) {
              day.addEventListener('click', function() {
                  const pickedDate = new Date(this.dataset.date);
-                 view.hide(showlist);
-                 view.hide(details);
-                 const showings = showingsCtrl.calendarShowings(pickedDate);
-                 showlist.innerHTML = '';
-                 seats.innerHTML = '';
-                 view.show(showlist);
-                 if (showings.length > 0) {
-                     view.show(showingsWrapper);
-                 } else {
-                     view.hide(showingsWrapper);
-                 }
                  day.classList.add('date-clicked')
                  for (const day2 of daysArray) {
                      if (day2.classList.contains('date-clicked') && day2 !== day) {
