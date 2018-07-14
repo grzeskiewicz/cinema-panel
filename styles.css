@@ -19,7 +19,7 @@
 /* CALENDAR CSS */
 #time-select {
     display:flex;
-
+flex-direction: column;
 }
 
 #time-select > * {
