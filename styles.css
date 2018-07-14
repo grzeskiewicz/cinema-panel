@@ -23,7 +23,7 @@
 }
 
 #time-select > * {
-  flex: 1 100%;
+  flex: 1 50%;
 }
 #calendar {
    /* display: flex-inline;*/
