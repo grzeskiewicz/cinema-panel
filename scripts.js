@@ -18,14 +18,14 @@
 
 
  let selectedMonthCopy = selectedMonth;
-
+let pickedDate=undefined;
  const calendarCtrl = {
      initListeners(calendarTable) {
 
          const daysArray = calendarTable.querySelectorAll('tbody td');
          for (const day of daysArray) {
              day.addEventListener('click', function() {
-                 const pickedDate = new Date(this.dataset.date);
+                pickedDate = new Date(this.dataset.date);
                  day.classList.add('date-clicked')
                  for (const day2 of daysArray) {
                      if (day2.classList.contains('date-clicked') && day2 !== day) {
@@ -123,7 +123,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
      const time=document.querySelector('#appt-time');
-     console.log(time.value);
+     console.log( pickedDate + " " + time.value );
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
