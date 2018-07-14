@@ -127,7 +127,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
      const hour=momentTime.hour();
      const minute=momentTime.minute();
     const dateFixed= moment(pickedDate).set({'hour': hour, 'minute': minute});
-     console.log( pickedDate );
+     console.log( dateFixed );
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
