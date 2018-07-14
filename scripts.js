@@ -131,7 +131,8 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
-         room: roomSelector.value
+         room: roomSelector.value,
+         date: dateFixed
      };
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newshowing`, 'POST', showing))
