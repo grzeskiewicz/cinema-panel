@@ -15,6 +15,7 @@ flex-wrap:nowrap;
 #time-select {
     display:flex;
     flex-direction: column;
+    flex-wrap:wrap;
 }
 #time-select > * {
     flex-basis: 50%;
