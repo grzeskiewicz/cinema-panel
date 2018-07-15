@@ -11,6 +11,11 @@ flex-wrap:nowrap;
     flex-basis:15%;
 }
 
+
+#time-select {
+    display:flex;
+    flex-direction: column;
+}
 #time-select > * {
     flex-basis: 50%;
 }
