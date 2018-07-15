@@ -21,6 +21,7 @@ form > * {
 
 fieldset {
     margin:2rem;
+    width:50vw;
 }
 
 #calendar {
