@@ -15,7 +15,12 @@ form{
 }
 
 form > * {
-    width:34vw;
+    width:50vw;
+}
+
+
+fieldset {
+    margin:2rem;
 }
 
 #calendar {
