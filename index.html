@@ -36,6 +36,7 @@
     </fieldset>
 </div>
     <div id="showing">
+        <fieldset id="time-select">
         <form id='showing-create'>
             <select name='film-select' id='film-select'>
             </select>
@@ -43,16 +44,17 @@
             </select>
             <select name='price-select' id='price-select'>
             </select>
-            <fieldset id="time-select">
+            
                  <legend>Appointment details</legend>
                 <div id="calendar"></div>
                 <p id="date-cal"></p>
                 <div class="time-control">
                     <input type="time" id="appt-time" name="appt-time" min="9:00" max="23:00" required />
                 </div>
-            </fieldset>
+            
             <button type='submit'>Create showing</button>
         </form>
+        </fieldset>
     </div>
     <script src='scripts.js' type='module'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
