@@ -1,12 +1,5 @@
 /* CALENDAR CSS */
 
-#time-select {
-    display: flex;
-    flex-direction: column;
-    width: 40vh;
-    justify-content:center;
-    align-items: center;
-}
 
 
 form{
