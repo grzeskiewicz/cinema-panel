@@ -11,6 +11,10 @@ flex-wrap:nowrap;
     flex-basis:15%;
 }
 
+#showing > * {
+    flex-basis: 50%;
+}
+
 form{
    display: flex;
    flex-direction: column;
