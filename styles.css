@@ -14,6 +14,10 @@ form{
    flex-direction: column;
 }
 
+form > * {
+    flex-basis:50%;
+}
+
 #calendar {
 
     /* display: flex-inline;*/
