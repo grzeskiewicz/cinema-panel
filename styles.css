@@ -1,6 +1,12 @@
 /* CALENDAR CSS */
 
 
+#first-row{
+display: flex;
+flex-direction: row;
+flex-wrap:nowrap;
+}
+
 
 form{
    display: flex;
@@ -14,7 +20,6 @@ form > * {
 
 fieldset {
     margin:2rem;
-    width:50vw;
 }
 
 #calendar {
