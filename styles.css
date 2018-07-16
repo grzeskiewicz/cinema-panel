@@ -5,6 +5,8 @@
 display: flex;
 flex-direction: row;
 flex-wrap:nowrap;
+justify-content: center;
+align-items: flex-start;
 }
 
 #first-row > * {
@@ -24,7 +26,6 @@ flex-wrap:nowrap;
 
 #time-select > * {
 display:flex;
-
 justify-content: center;
     flex-basis: 30vw;
 }
