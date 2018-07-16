@@ -22,11 +22,11 @@ flex-wrap:nowrap;
 #time-select > * {
     flex-basis: 30%;
 }
-
+/*
 form{
    display: flex;
    flex-direction: column;
-}
+}*/
 
 form > * {
     
