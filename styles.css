@@ -23,12 +23,11 @@ flex-wrap:nowrap;
 
     flex-basis: 30vw;
 }
-/*
+
 form{
    display: flex;
    flex-direction: column;
-}*/
-
+}
 form > * {
     
 }
