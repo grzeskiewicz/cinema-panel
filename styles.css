@@ -14,7 +14,7 @@ align-items: flex-start;
 }
 
 form {
-
+display:flex;
 }
 
 /*#time-select {
