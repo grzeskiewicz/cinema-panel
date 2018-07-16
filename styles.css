@@ -17,14 +17,14 @@ flex-wrap:nowrap;
     display:flex;
     flex-direction: column;
     flex-wrap:nowrap;
-    align-items: center;
+   
     justify-content: center;
 }
 
 
 #time-select > * {
 display:flex;
-align-items:center;
+
 justify-content: center;
     flex-basis: 30vw;
 }
