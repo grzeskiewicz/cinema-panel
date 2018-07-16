@@ -10,51 +10,47 @@
 </head>
 
 <body>
-
     <div id="first-row">
-    <fieldset id="film">
-        <legend>Create film</legend>
-        <form id='film-create'>
-            <input type="text" name="title" placeholder="Title" required autofocus>
-            <input type="text" name="director" placeholder="Director" required>
-            <input type="text" name="genre" placeholder="Genre" required>
-            <input type="text" name="length" placeholder="Length" required>
-            <input type="text" name="category" placeholder="Category" required="">
-            <input type="text" name="imageurl" placeholder="Imageurl" required="">
-            <button type='submit'>Create film</button>
-        </form>
-        <label id="register-status"></label>
-    </fieldset>
-    <fieldset id="price">
-        <legend>Create price</legend>
-        <form id='price-create'>
-            <input type="text" name="normal-price" placeholder="Normal price" required>
-            <input type="text" name="discount-price" placeholder="Discount price" required>
-            <button type='submit'>Create prices</button>
-        </form>
-        <label id="register-status"></label>
-    </fieldset>
-</div>
+        <fieldset id="film">
+            <legend>Create film</legend>
+            <form id='film-create'>
+                <input type="text" name="title" placeholder="Title" required autofocus>
+                <input type="text" name="director" placeholder="Director" required>
+                <input type="text" name="genre" placeholder="Genre" required>
+                <input type="text" name="length" placeholder="Length" required>
+                <input type="text" name="category" placeholder="Category" required="">
+                <input type="text" name="imageurl" placeholder="Imageurl" required="">
+                <button type='submit'>Create film</button>
+            </form>
+            <label id="register-status"></label>
+        </fieldset>
+        <fieldset id="price">
+            <legend>Create price</legend>
+            <form id='price-create'>
+                <input type="text" name="normal-price" placeholder="Normal price" required>
+                <input type="text" name="discount-price" placeholder="Discount price" required>
+                <button type='submit'>Create prices</button>
+            </form>
+            <label id="register-status"></label>
+        </fieldset>
+    </div>
     <div id="showing">
         <fieldset id="time-select">
-              <legend>Appointment details</legend>
-        <form id='showing-create'>
-            <select name='film-select' id='film-select'>
-            </select>
-            <select name='room-select' id='room-select'>
-            </select>
-            <select name='price-select' id='price-select'>
-            </select>
-            
-               
+            <legend>Appointment details</legend>
+            <form id='showing-create'>
+                <select name='film-select' id='film-select'>
+                </select>
+                <select name='room-select' id='room-select'>
+                </select>
+                <select name='price-select' id='price-select'>
+                </select>
                 <div id="calendar"></div>
                 <p id="date-cal"></p>
                 <div class="time-control">
                     <input type="time" id="appt-time" name="appt-time" min="9:00" max="23:00" required />
                 </div>
-            
-            <button type='submit'>Create showing</button>
-        </form>
+                <button type='submit'>Create showing</button>
+            </form>
         </fieldset>
     </div>
     <script src='scripts.js' type='module'></script>
