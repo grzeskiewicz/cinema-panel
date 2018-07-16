@@ -41,7 +41,9 @@ fieldset {
 
 /* CALENDAR CSS */
 #calendar {
-
+display:flex;
+flex-direction: column;
+justify-content: center;
     /* display: flex-inline;*/
     margin: 1rem;
     text-align: center;
