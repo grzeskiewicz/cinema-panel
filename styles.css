@@ -10,7 +10,7 @@ align-items: flex-start;
 }
 
 #first-row > * {
-    flex-basis:15%;
+    flex-basis:30%;
 }
 
 
@@ -27,7 +27,6 @@ align-items: flex-start;
 #time-select > * {
 display:flex;
 justify-content: center;
-    flex-basis: 30vw;
 }
 
 form{
