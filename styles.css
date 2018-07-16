@@ -20,7 +20,9 @@ flex-wrap:nowrap;
     justify-content: center;
 }
 #time-select > * {
-
+display:flex;
+align-items:center;
+justify-content: center;
     flex-basis: 30vw;
 }
 
