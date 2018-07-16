@@ -33,6 +33,7 @@ justify-content: center;
 form{
    display: flex;
    flex-direction: column;
+   justify-content: center;
 }
 form > * {
     
