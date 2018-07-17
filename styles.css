@@ -19,7 +19,7 @@ justify-content: center;
 
 
 form button {
-    flex-basis:10%;
+    width:150px;
 }
 
 fieldset {
