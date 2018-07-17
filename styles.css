@@ -55,8 +55,7 @@ flex-wrap:wrap;
 }
 
 #calendar * > {
-    display: flex;
-    justify-content: center;
+margin:auto;
 }
 
 .today {
