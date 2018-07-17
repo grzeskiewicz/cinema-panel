@@ -44,7 +44,7 @@ fieldset {
 display:flex;
 flex-direction: column;
 justify-content: center;
-    /* display: flex-inline;*/
+flex-wrap:wrap;
     margin: 1rem;
     text-align: center;
     line-height: 2;
