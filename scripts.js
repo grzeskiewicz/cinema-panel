@@ -68,6 +68,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
  const filmSelector = document.querySelector('#film-select');
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
+ const showingsDiv=document.querySelector('#showings');
  calendarCtrl.initCalendar();
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
@@ -115,6 +116,25 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
              opt.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
              priceSelector.options.add(opt);
          }
+     });
+
+
+
+ fetch(request(API_URL + "showings", 'GET'))
+     .then(res => res.json())
+     .then(showings => {
+
+
+         for (const showing of showings) {
+             const opt = document.createElement("p");
+             p.innerHTML=JSON.stringify(showing);
+            // opt.value = film.id;
+             //opt.text = `ID: ${film.id} || Film: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
+             showingsDiv.appendChild(opt);
+         }
+
+
+         //console.log(filmSelector.options);
      });
 
 
