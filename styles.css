@@ -18,8 +18,8 @@ justify-content: center;
 }
 
 
-form button {
-    width:150px;
+form > *{
+    margin:auto;
 }
 
 fieldset {
