@@ -1,6 +1,4 @@
 
-
-
 #first-row{
 display: flex;
 flex-direction: row;
@@ -19,20 +17,10 @@ flex-direction: column;
 justify-content: center;
 }
 
-/*#time-select {
-    display:flex;
-    flex-direction: column;
-   
-    justify-content: center;
+
+form button {
+    flex-basis:10%;
 }
-
-
-#time-select > * {
-
-}*/
-
-
-
 
 fieldset {
     margin:2rem;
@@ -41,10 +29,6 @@ fieldset {
 
 /* CALENDAR CSS */
 #calendar {
-/*display:flex;
-flex-direction: column;
-justify-content: center;
-flex-wrap:wrap;*/
     margin: auto;
     text-align: center;
     line-height: 2;
@@ -54,9 +38,6 @@ flex-wrap:wrap;*/
     font-weight: 300;
 }
 
-/*#calendar * > {
-margin:0 auto;
-}*/
 
 .today {
     background-color: orange;
