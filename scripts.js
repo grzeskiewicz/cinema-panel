@@ -127,7 +127,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
 console.log(showings);
          for (const showing of showings) {
              const opt = document.createElement("p");
-             p.innerHTML=JSON.stringify(showing);
+             opt.innerHTML=JSON.stringify(showing);
             // opt.value = film.id;
              //opt.text = `ID: ${film.id} || Film: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
              showingsDiv.appendChild(opt);
