@@ -54,6 +54,11 @@ flex-wrap:wrap;
     font-weight: 300;
 }
 
+#calendar table {
+    display: flex;
+    justify-content: center;
+}
+
 .today {
     background-color: orange;
 }
