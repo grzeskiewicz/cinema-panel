@@ -124,7 +124,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
      .then(res => res.json())
      .then(showings => {
 
-
+console.log(showings);
          for (const showing of showings) {
              const opt = document.createElement("p");
              p.innerHTML=JSON.stringify(showing);
