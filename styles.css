@@ -45,7 +45,7 @@ fieldset {
     margin:0.5rem;
 }
 
-#showings div p {
+#showings div * > {
     margin:0.5rem;
 }
 
