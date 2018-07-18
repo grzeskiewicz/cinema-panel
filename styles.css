@@ -41,6 +41,7 @@ fieldset {
     display: flex;
     flex-direction: row;
     flex-flow:nowrap;
+    justify-content:space-between;
     border:1px solid grey;
     margin:0.5rem;
 }
