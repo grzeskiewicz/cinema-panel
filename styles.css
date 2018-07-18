@@ -34,6 +34,10 @@ fieldset {
     
 }
 
+#showings div {
+    border:1px solid grey;
+}
+
 /* CALENDAR CSS */
 #calendar {
     margin: auto;

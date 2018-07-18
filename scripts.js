@@ -127,6 +127,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
 console.log(showings);
          for (const showing of showings) {
             const optDiv=document.createElement("div");
+            optDiv.id=showing.id;
              const opt = document.createElement("p");
              opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
 
