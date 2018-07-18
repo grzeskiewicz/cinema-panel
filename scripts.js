@@ -129,9 +129,12 @@ console.log(showings);
             const optDiv=document.createElement("div");
             optDiv.id=showing.id;
              const opt = document.createElement("p");
-             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}     <i class="fa fa-trash"></i>`;
+             const span=document.createElement("span");
+             span.innerHTML=`<i class="fa fa-trash"></i>`
+             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
 
              optDiv.appendChild(opt);
+             optDiv.appendChild(span);
              showingsDiv.appendChild(optDiv);
          }
 
