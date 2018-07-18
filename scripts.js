@@ -129,7 +129,7 @@ console.log(showings);
             const optDiv=document.createElement("div");
             optDiv.id=showing.id;
              const opt = document.createElement("p");
-             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}     <i class="fa fa-trash"></i>`;
 
              optDiv.appendChild(opt);
              showingsDiv.appendChild(optDiv);
