@@ -127,7 +127,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
 console.log(showings);
          for (const showing of showings) {
              const opt = document.createElement("p");
-             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format()}`;
+             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
             // opt.value = film.id;
              //opt.text = `ID: ${film.id} || Film: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
              showingsDiv.appendChild(opt);
