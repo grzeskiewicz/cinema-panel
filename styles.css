@@ -42,6 +42,10 @@ fieldset {
     margin:0.5rem;
 }
 
+#showings div p {
+    margin:0.5rem;
+}
+
 /* CALENDAR CSS */
 #calendar {
     margin: auto;
