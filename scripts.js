@@ -134,7 +134,7 @@ console.log(showings);
              opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
 
              optDiv.appendChild(opt);
-             optDIv.appendChild(span);
+             //optDIv.appendChild(span);
              showingsDiv.appendChild(optDiv);
          }
 
