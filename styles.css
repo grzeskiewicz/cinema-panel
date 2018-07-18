@@ -35,6 +35,7 @@ fieldset {
 }
 #showings {
     display:flex;
+    flex-direction: column;
 }
 #showings div {
     border:1px solid grey;
