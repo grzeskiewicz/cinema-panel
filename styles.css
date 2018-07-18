@@ -34,7 +34,7 @@ fieldset {
     
 }
 #showings {
-    display:flex;
+     display: inline-flex;
     flex-direction: column;
 }
 #showings div {
