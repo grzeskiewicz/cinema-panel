@@ -46,6 +46,10 @@ fieldset {
     margin:0.5rem;
 }
 
+span:hover {
+    cursor: :pointer;
+}
+
 #showings div p, #showings div span {
     margin:0.5rem;
 }
