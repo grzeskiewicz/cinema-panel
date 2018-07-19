@@ -80,7 +80,7 @@
          for (const film of films) {
              const opt = document.createElement("option");
              opt.value = film.id;
-             opt.text = `ID: ${film.id} || Film: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
+             opt.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
              filmSelector.options.add(opt);
          }
 

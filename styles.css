@@ -35,6 +35,10 @@ fieldset {
     flex-direction: row;
     flex-flow:nowrap;
 }
+
+#second-row p{
+    text-align:center;
+}
 #showings, #films {
      display: inline-flex;
     flex-direction: column;
