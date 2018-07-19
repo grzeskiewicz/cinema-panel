@@ -120,7 +120,8 @@
 
 
 const deleteShowing = function(id) {
-     fetch(request(API_URL + "delete", 'POST', id))
+    console.log("hehehehehaxdsad");
+     fetch(request(API_URL + "deleteshowing", 'POST', id))
          .then(res => res.json())
          .then(result => {
              console.log(result);
@@ -146,7 +147,7 @@ const deleteShowing = function(id) {
              showingsDiv.appendChild(optDiv);
 
              span.addEventListener('click', function() {
-                 console.log(this.dataset.id);
+                 //console.log(this.dataset.id);
                  deleteShowing(this.dataset.id);
              });
 
