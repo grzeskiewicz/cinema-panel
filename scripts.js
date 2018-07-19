@@ -149,9 +149,11 @@ const deleteShowing = function(id) {
              showingsDiv.appendChild(optDiv);
 
              span.addEventListener('click', function() {
-                 //console.log(this.dataset.id);
+if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                  deleteShowing(this.dataset.id);
                  showingsDiv.removeChild(optDiv);
+             } else {}
+
              });
 
          }
