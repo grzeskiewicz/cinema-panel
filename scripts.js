@@ -18,21 +18,21 @@
 
 
  let selectedMonthCopy = selectedMonth;
-let pickedDate=undefined;
+ let pickedDate = undefined;
  const calendarCtrl = {
      initListeners(calendarTable) {
 
          const daysArray = calendarTable.querySelectorAll('tbody td');
          for (const day of daysArray) {
              day.addEventListener('click', function() {
-                pickedDate = new Date(this.dataset.date);
+                 pickedDate = new Date(this.dataset.date);
                  day.classList.add('date-clicked')
                  for (const day2 of daysArray) {
                      if (day2.classList.contains('date-clicked') && day2 !== day) {
                          day2.classList.remove('date-clicked');
                      }
                  }
-document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.YYYY');
+                 document.querySelector('#date-cal').innerHTML = moment(pickedDate).format('DD.MM.YYYY');
 
              });
          }
@@ -68,7 +68,7 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
  const filmSelector = document.querySelector('#film-select');
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
- const showingsDiv=document.querySelector('#showings');
+ const showingsDiv = document.querySelector('#showings');
  calendarCtrl.initCalendar();
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
@@ -119,26 +119,35 @@ document.querySelector('#date-cal').innerHTML= moment(pickedDate).format('DD.MM.
      });
 
 
+ const delete = function(id) {
+     fetch(request(API_URL + "delete", 'POST', id))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         });
+ }
+
 
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
 
-console.log(showings);
+         console.log(showings);
          for (const showing of showings) {
-            const optDiv=document.createElement("div");
-            optDiv.id=showing.id;
+             const optDiv = document.createElement("div");
+             optDiv.id = showing.id;
              const opt = document.createElement("p");
-             const span=document.createElement("span");
-             span.dataset.id=showing.id;
-             span.innerHTML=`<i class="fa fa-trash"></i>`;
-             opt.innerHTML=`${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+             const span = document.createElement("span");
+             span.dataset.id = showing.id;
+             span.innerHTML = `<i class="fa fa-trash"></i>`;
+             opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
              optDiv.appendChild(opt);
              optDiv.appendChild(span);
              showingsDiv.appendChild(optDiv);
 
-             span.addEventListener('click', function () {
-console.log(this.dataset.id);
+             span.addEventListener('click', function() {
+                 console.log(this.dataset.id);
+                 delete(this.dataset.id);
              });
 
          }
@@ -152,12 +161,12 @@ console.log(this.dataset.id);
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     const time=document.querySelector('#appt-time');
-     const momentTime=moment(time.value,'HH:mm');
-     const hour=momentTime.hour();
-     const minute=momentTime.minute();
-    const dateFixed= moment(pickedDate).set({'hour': hour, 'minute': minute});
-     console.log( dateFixed );
+     const time = document.querySelector('#appt-time');
+     const momentTime = moment(time.value, 'HH:mm');
+     const hour = momentTime.hour();
+     const minute = momentTime.minute();
+     const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
+     console.log(dateFixed);
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
