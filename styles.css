@@ -46,7 +46,7 @@ fieldset {
     margin:0.5rem;
 }
 
-span:hover {
+span i:hover {
     cursor: :pointer;
 }
 
