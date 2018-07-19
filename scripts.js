@@ -136,6 +136,11 @@ console.log(showings);
              optDiv.appendChild(opt);
              optDiv.appendChild(span);
              showingsDiv.appendChild(optDiv);
+
+             span.addEventListener('click', function () {
+console.log(this.dataset.id);
+             });
+
          }
 
 
