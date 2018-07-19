@@ -35,7 +35,7 @@ fieldset {
     flex-direction: row;
     flex-flow:nowrap;
     justify-content:space-between;
-    font-size:0.7rem;
+    font-size:0.8rem;
 }
 
 #second-row p{
@@ -59,7 +59,7 @@ fieldset {
 }
 
 #showings div p, #showings div span,#films div p, #films div span {
-    margin:0.3rem;
+    margin:0.45rem;
 }
 
 
