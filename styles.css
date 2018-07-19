@@ -31,13 +31,15 @@ fieldset {
 
 
 #second-row {
-    
+    display:flex;
+    flex-direction: row;
+    flex-flow:nowrap;
 }
-#showings {
+#showings, #films {
      display: inline-flex;
     flex-direction: column;
 }
-#showings div {
+#showings div, #films div {
     display: flex;
     flex-direction: row;
     flex-flow:nowrap;
@@ -46,13 +48,16 @@ fieldset {
     margin:0.5rem;
 }
 
-#showings div span:hover {
+#showings div span:hover,#films div span:hover  {
     cursor:pointer;
 }
 
-#showings div p, #showings div span {
+#showings div p, #showings div span,#films div p, #films div span {
     margin:0.5rem;
 }
+
+
+
 
 /* CALENDAR CSS */
 #calendar {
