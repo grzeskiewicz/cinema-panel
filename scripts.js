@@ -151,6 +151,7 @@ const deleteShowing = function(id) {
              span.addEventListener('click', function() {
                  //console.log(this.dataset.id);
                  deleteShowing(this.dataset.id);
+                 showingsDiv.removeChild(optDiv);
              });
 
          }
