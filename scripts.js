@@ -119,7 +119,7 @@
      });
 
 
- const delete = function(id) {
+const deleteShowing = function(id) {
      fetch(request(API_URL + "delete", 'POST', id))
          .then(res => res.json())
          .then(result => {
@@ -147,7 +147,7 @@
 
              span.addEventListener('click', function() {
                  console.log(this.dataset.id);
-                 delete(this.dataset.id);
+                 deleteShowing(this.dataset.id);
              });
 
          }
