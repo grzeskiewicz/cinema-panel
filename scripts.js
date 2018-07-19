@@ -69,6 +69,7 @@
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
  const showingsDiv = document.querySelector('#showings');
+  const filmsDiv = document.querySelector('#films');
  calendarCtrl.initCalendar();
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
@@ -152,6 +153,40 @@ const deleteShowing = function(id) {
 if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                  deleteShowing(this.dataset.id);
                  showingsDiv.removeChild(optDiv);
+             } else {}
+
+             });
+
+         }
+
+
+         //console.log(filmSelector.options);
+     });
+
+
+
+
+ fetch(request(API_URL + "films", 'GET'))
+     .then(res => res.json())
+     .then(films => {
+
+
+         for (const film of films) {
+             const optDiv = document.createElement("div");
+             optDiv.id = film.id;
+             const opt = document.createElement("p");
+             const span = document.createElement("span");
+             span.dataset.id = film.id;
+             span.innerHTML = `<i class="fa fa-trash"></i>`;
+             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+             optDiv.appendChild(opt);
+             optDiv.appendChild(span);
+             filmsDiv.appendChild(optDiv);
+
+             span.addEventListener('click', function() {
+if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
+                // deleteShowing(this.dataset.id);
+                 filmsDiv.removeChild(optDiv);
              } else {}
 
              });
