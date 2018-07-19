@@ -34,7 +34,7 @@ fieldset {
     display:flex;
     flex-direction: row;
     flex-flow:nowrap;
-    justify-content:space-between;
+    justify-content:flex-start;
     font-size:0.8rem;
 }
 
