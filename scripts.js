@@ -69,8 +69,10 @@
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
  const showingsDiv = document.querySelector('#showings');
-  const filmsDiv = document.querySelector('#films');
+ const filmsDiv = document.querySelector('#films');
  calendarCtrl.initCalendar();
+
+
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
      .then(films => {
@@ -85,7 +87,28 @@
          }
 
 
-         //console.log(filmSelector.options);
+         for (const film of films) {
+             const optDiv = document.createElement("div");
+             optDiv.id = film.id;
+             const opt = document.createElement("p");
+             const span = document.createElement("span");
+             span.dataset.id = film.id;
+             span.innerHTML = `<i class="fa fa-trash"></i>`;
+             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+             optDiv.appendChild(opt);
+             optDiv.appendChild(span);
+             filmsDiv.appendChild(optDiv);
+
+             span.addEventListener('click', function() {
+                 if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
+                     // deleteShowing(this.dataset.id);
+                     filmsDiv.removeChild(optDiv);
+                 } else {}
+
+             });
+
+         }
+
      });
 
 
@@ -120,18 +143,23 @@
      });
 
 
-const deleteShowing = function(id) {
-    console.log("hehehehehaxdsad");
-    const show={showid: id };
+ const deleteShowing = function(id) {
+     const show = { showid: id };
      fetch(request(API_URL + "deleteshowing", 'POST', show))
          .then(res => res.json())
          .then(result => {
              console.log(result);
          });
-    
+
  }
 
 
+
+
+
+
+//SHOWINGS 
+//
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
@@ -150,10 +178,10 @@ const deleteShowing = function(id) {
              showingsDiv.appendChild(optDiv);
 
              span.addEventListener('click', function() {
-if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                 deleteShowing(this.dataset.id);
-                 showingsDiv.removeChild(optDiv);
-             } else {}
+                 if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
+                     deleteShowing(this.dataset.id);
+                     showingsDiv.removeChild(optDiv);
+                 } else {}
 
              });
 
@@ -163,39 +191,6 @@ if (confirm("Are you sure you want to delete this showing? All the purchased tic
          //console.log(filmSelector.options);
      });
 
-
-
-
- fetch(request(API_URL + "films", 'GET'))
-     .then(res => res.json())
-     .then(films => {
-
-
-         for (const film of films) {
-             const optDiv = document.createElement("div");
-             optDiv.id = film.id;
-             const opt = document.createElement("p");
-             const span = document.createElement("span");
-             span.dataset.id = film.id;
-             span.innerHTML = `<i class="fa fa-trash"></i>`;
-             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
-             optDiv.appendChild(opt);
-             optDiv.appendChild(span);
-             filmsDiv.appendChild(optDiv);
-
-             span.addEventListener('click', function() {
-if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                // deleteShowing(this.dataset.id);
-                 filmsDiv.removeChild(optDiv);
-             } else {}
-
-             });
-
-         }
-
-
-         //console.log(filmSelector.options);
-     });
 
 
  const showingCreate = document.querySelector('#showing-create');
