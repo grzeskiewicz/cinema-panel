@@ -121,11 +121,13 @@
 
 const deleteShowing = function(id) {
     console.log("hehehehehaxdsad");
-     fetch(request(API_URL + "deleteshowing", 'POST', id))
+    const show={showid: id };
+     fetch(request(API_URL + "deleteshowing", 'POST', show))
          .then(res => res.json())
          .then(result => {
              console.log(result);
          });
+    }
  }
 
 
