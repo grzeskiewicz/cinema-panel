@@ -127,7 +127,7 @@ const deleteShowing = function(id) {
          .then(result => {
              console.log(result);
          });
-    }
+    
  }
 
 
