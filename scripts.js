@@ -70,6 +70,7 @@
  const priceSelector = document.querySelector('#price-select');
  const showingsDiv = document.querySelector('#showings');
  const filmsDiv = document.querySelector('#films');
+ const pricesDiv = document.querySelector('#prices');
  calendarCtrl.initCalendar();
 
 
@@ -89,7 +90,7 @@
 
          for (const film of films) {
              const optDiv = document.createElement("div");
-             optDiv.id = film.id;
+             //optDiv.id = film.id;
              const opt = document.createElement("p");
              const span = document.createElement("span");
              span.dataset.id = film.id;
@@ -101,7 +102,7 @@
 
              span.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     // deleteShowing(this.dataset.id);
+                     // deleteFilm(this.dataset.id);
                      filmsDiv.removeChild(optDiv);
                  } else {}
 
@@ -140,6 +141,28 @@
              opt.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
              priceSelector.options.add(opt);
          }
+
+
+         for (const price of prices) {
+             const optDiv = document.createElement("div");
+             const opt = document.createElement("p");
+             const span = document.createElement("span");
+             span.dataset.id = price.id;
+             span.innerHTML = `<i class="fa fa-trash"></i>`;
+             opt.innerHTML = `${price.id} || Film : ${price.normal}  || ${price.discount}`;
+             optDiv.appendChild(opt);
+             optDiv.appendChild(span);
+             pricesDiv.appendChild(optDiv);
+
+             span.addEventListener('click', function() {
+                 if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
+                     // deletePrice(this.dataset.id);
+                     pricesDiv.removeChild(optDiv);
+                 } else {}
+
+             });
+
+         }
      });
 
 
@@ -154,12 +177,34 @@
  }
 
 
+ const deleteFilm = function(id) {
+     const film = { filmid: id };
+     fetch(request(API_URL + "deletefilm", 'POST', film))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         });
+
+ }
+
+
+ const deletePrice = function(id) {
+     const price = { priceid: id };
+     fetch(request(API_URL + "deleteprice", 'POST', price))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         });
+
+ }
 
 
 
 
-//SHOWINGS 
-//
+
+
+ //SHOWINGS 
+ //
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
@@ -167,7 +212,7 @@
          console.log(showings);
          for (const showing of showings) {
              const optDiv = document.createElement("div");
-             optDiv.id = showing.id;
+             //optDiv.id = showing.id;
              const opt = document.createElement("p");
              const span = document.createElement("span");
              span.dataset.id = showing.id;
