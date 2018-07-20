@@ -102,7 +102,7 @@
 
              span.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     // deleteFilm(this.dataset.id);
+                      deleteFilm(this.dataset.id);
                      filmsDiv.removeChild(optDiv);
                  } else {}
 
