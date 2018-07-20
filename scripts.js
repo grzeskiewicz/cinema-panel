@@ -261,3 +261,24 @@
              console.log(JSON.stringify(result));
          }).catch(error => Promise.reject(new Error(error)));
  });
+
+const filmCreate = document.querySelector('#film-create');
+
+  filmCreate.addEventListener('submit', function(e) {
+     e.preventDefault();
+
+     const film = {
+         title: filmCreate.title.value,
+         director: filmCreate.director.value,
+         genre: filmCreate.genre.value,
+         length: filmCreate.length.value,
+         category:filmCreate.category.value,
+         imageurl:filmCreate.imageurl.value
+     };
+     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+     fetch(request(`${API_URL}newfilm`, 'POST', film))
+         .then(res => res.json())
+         .then(result => {
+             console.log(JSON.stringify(result));
+         }).catch(error => Promise.reject(new Error(error)));
+ });
