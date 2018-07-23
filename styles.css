@@ -58,7 +58,7 @@ fieldset {
     cursor:pointer;
 }
 
-#showings div p, #showings div span,#films div p, #films div span, #prices div p, #prices div span {
+#showings div , #showings div span,#films div , #films div span, #prices div , #prices div span {
     margin:0.45rem;
 }
 
