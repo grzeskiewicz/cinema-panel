@@ -45,7 +45,7 @@ fieldset {
      display: inline-flex;
     flex-direction: column;
 }
-#showings div, #films div {
+#showings div, #films div, #prices div {
     display: flex;
     flex-direction: row;
     flex-flow:nowrap;
@@ -54,11 +54,11 @@ fieldset {
     margin:0.5rem;
 }
 
-#showings div span:hover,#films div span:hover  {
+#showings div span:hover,#films div span:hover, #prices div span:hover  {
     cursor:pointer;
 }
 
-#showings div p, #showings div span,#films div p, #films div span {
+#showings div p, #showings div span,#films div p, #films div span, #prices div p, #prices div span {
     margin:0.45rem;
 }
 

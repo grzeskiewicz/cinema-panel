@@ -149,7 +149,7 @@
              const span = document.createElement("span");
              span.dataset.id = price.id;
              span.innerHTML = `<i class="fa fa-trash"></i>`;
-             opt.innerHTML = `${price.id} || Film : ${price.normal}  || ${price.discount}`;
+             opt.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
              optDiv.appendChild(opt);
              optDiv.appendChild(span);
              pricesDiv.appendChild(optDiv);
