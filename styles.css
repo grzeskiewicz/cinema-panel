@@ -41,6 +41,10 @@ fieldset {
 #second-row p{
     text-align:center;
 }
+#second-row div {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
 #showings, #films {
      display: inline-flex;
     flex-direction: column;
