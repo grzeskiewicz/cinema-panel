@@ -51,16 +51,12 @@ fieldset {
     flex-flow:nowrap;
     justify-content:space-between;
     border:1px solid grey;
-    margin:0.5rem;
 }
 
 #showings div span:hover,#films div span:hover, #prices div span:hover  {
     cursor:pointer;
 }
 
-#showings div , #showings div span,#films div , #films div span, #prices div , #prices div span {
-    margin:0.45rem;
-}
 
 
 
