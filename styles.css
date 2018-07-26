@@ -78,7 +78,7 @@ fieldset {
 
 
 .today {
-    background-color: orange;
+    background-color: lightgreen;
 }
 
 table {
@@ -119,7 +119,7 @@ td.after {
 
 #next:hover,
 #previous:hover {
-    background-color: lightgreen;
+    background-color: orange;
 }
 
 .date-clicked {
