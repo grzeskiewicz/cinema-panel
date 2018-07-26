@@ -98,7 +98,7 @@
              const opt = document.createElement("p");
              const span = document.createElement("span");
              span.dataset.id = film.id;
-             span.innerHTML = `<i class="fa fa-trash"></i>`;
+             span.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
              opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
              optDiv.appendChild(opt);
              optDiv.appendChild(span);
