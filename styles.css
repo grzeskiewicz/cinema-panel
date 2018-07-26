@@ -128,7 +128,7 @@ td.after {
 
 .not-selectable {
          background-color: lightgrey;
-     cursor: not-allowed;
+     cursor: none;
 }
 
 /* TIME */

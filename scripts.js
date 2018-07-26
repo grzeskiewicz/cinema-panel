@@ -24,6 +24,7 @@
 
          const daysArray = calendarTable.querySelectorAll('tbody td');
          for (const day of daysArray) {
+            console.log(day);
              day.addEventListener('click', function() {
                  pickedDate = new Date(this.dataset.date);
                  day.classList.add('date-clicked')
