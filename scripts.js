@@ -96,15 +96,16 @@
              const optDiv = document.createElement("div");
              //optDiv.id = film.id;
              const opt = document.createElement("p");
-             const span = document.createElement("span");
-             span.dataset.id = film.id;
-             span.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             const modDiv = document.createElement("span");
+             modDiv.dataset.id = film.id;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.classList.add('modify');
              opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
              optDiv.appendChild(opt);
-             optDiv.appendChild(span);
+             optDiv.appendChild(modDiv);
              filmsDiv.appendChild(optDiv);
 
-             span.addEventListener('click', function() {
+             modDiv.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
                      deleteFilm(this.dataset.id);
                      filmsDiv.removeChild(optDiv);
