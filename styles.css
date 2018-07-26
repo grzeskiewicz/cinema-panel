@@ -128,9 +128,11 @@ td.after {
 
 .not-selectable {
          background-color: lightgrey;
-     cursor: none;
-}
 
+}
+.not-selectable:hover{
+    cursor:not-allowed;
+}
 /* TIME */
 
 legend {
