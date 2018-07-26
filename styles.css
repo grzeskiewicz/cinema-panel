@@ -57,6 +57,13 @@ fieldset {
     border:1px solid grey;
 }
 
+#films .modify {
+    display:flex;
+    flex-direction: row;
+    flex-flow:nowrap;
+     justify-content:space-between;
+}
+
 #showings div span:hover,#films div span:hover, #prices div span:hover  {
     cursor:pointer;
 }
