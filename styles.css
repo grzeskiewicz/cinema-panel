@@ -126,6 +126,11 @@ td.after {
     background-color:orange;
 }
 
+.not-selectable {
+         background-color: #ddd;
+     cursor: not-allowed;
+}
+
 /* TIME */
 
 legend {
