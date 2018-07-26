@@ -24,18 +24,21 @@
 
          const daysArray = calendarTable.querySelectorAll('tbody td');
          for (const day of daysArray) {
-            console.log(day.classList);
-             day.addEventListener('click', function() {
-                 pickedDate = new Date(this.dataset.date);
-                 day.classList.add('date-clicked')
-                 for (const day2 of daysArray) {
-                     if (day2.classList.contains('date-clicked') && day2 !== day) {
-                         day2.classList.remove('date-clicked');
+             console.log(day.classList);
+             if (!day.classList.contains('not-selectable')) {
+                 day.addEventListener('click', function() {
+                     pickedDate = new Date(this.dataset.date);
+                     day.classList.add('date-clicked')
+                     for (const day2 of daysArray) {
+                         if (day2.classList.contains('date-clicked') && day2 !== day) {
+                             day2.classList.remove('date-clicked');
+                         }
                      }
-                 }
-                 document.querySelector('#date-cal').innerHTML = moment(pickedDate).format('DD.MM.YYYY');
+                     document.querySelector('#date-cal').innerHTML = moment(pickedDate).format('DD.MM.YYYY');
 
-             });
+                 });
+             }
+
          }
 
 
@@ -103,7 +106,7 @@
 
              span.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                      deleteFilm(this.dataset.id);
+                     deleteFilm(this.dataset.id);
                      filmsDiv.removeChild(optDiv);
                  } else {}
 
@@ -263,9 +266,9 @@
          }).catch(error => Promise.reject(new Error(error)));
  });
 
-const filmCreate = document.querySelector('#film-create');
+ const filmCreate = document.querySelector('#film-create');
 
-  filmCreate.addEventListener('submit', function(e) {
+ filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
 
      const film = {
@@ -273,8 +276,8 @@ const filmCreate = document.querySelector('#film-create');
          director: filmCreate.director.value,
          genre: filmCreate.genre.value,
          length: filmCreate.length.value,
-         category:filmCreate.category.value,
-         imageurl:filmCreate.imageurl.value
+         category: filmCreate.category.value,
+         imageurl: filmCreate.imageurl.value
      };
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newfilm`, 'POST', film))
