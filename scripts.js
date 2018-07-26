@@ -96,7 +96,7 @@
              const optDiv = document.createElement("div");
              //optDiv.id = film.id;
              const opt = document.createElement("p");
-             const modDiv = document.createElement("span");
+             const modDiv = document.createElement("div");
              modDiv.dataset.id = film.id;
              modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
              modDiv.classList.add('modify');
