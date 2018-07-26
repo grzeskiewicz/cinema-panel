@@ -127,7 +127,7 @@ td.after {
 }
 
 .not-selectable {
-         background-color: #ddd;
+         background-color: green;
      cursor: not-allowed;
 }
 
