@@ -31,7 +31,7 @@ export function renderCalendar(calendar) {
             td.textContent = day.date.getDate();
             td.dataset.date = day.date;
             if (day.date.getMonth() === today.getMonth() && day.date.getDate() === today.getDate()) td.classList.add('today');
-
+if (day.date.getDate() < today.getDate()) { td.classList('not-selectable');}
             // add before/after class
             day.before && td.classList.add('before');
             day.after && td.classList.add('after');
