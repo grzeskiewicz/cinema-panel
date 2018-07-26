@@ -128,7 +128,7 @@ td.after {
 }
 
 .not-selectable {
-         background-color: lightgrey;
+         background-color: #FFFFF0;
 
 }
 .not-selectable:hover{
