@@ -62,6 +62,7 @@ fieldset {
     flex-direction: row;
     flex-flow:nowrap;
      justify-content:space-between;
+     align-items: center;
 }
 
 #showings div span:hover,#films div span:hover, #prices div span:hover  {
