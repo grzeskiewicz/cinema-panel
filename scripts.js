@@ -89,9 +89,11 @@
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
-
+         const groupArr = [];
          console.log(showings);
          for (const showing of showings) {
+             if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
+             group[showing['title']].push(showing);
              const optDiv = document.createElement("div");
              //optDiv.id = showing.id;
              const opt = document.createElement("p");
@@ -116,7 +118,7 @@
              });
          }
 
-
+console.log(groupArr);
          //console.log(filmSelector.options);
      });
 
@@ -139,7 +141,6 @@
 
          for (const film of films) {
              const optDiv = document.createElement("div");
-             //optDiv.id = film.id;
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
              modDiv.dataset.id = film.id;
@@ -161,7 +162,7 @@
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
                  const editingField = document.createElement('div');
                  editingField.innerHTML = "heheheh";
-                 insertAfter(editingField,optDiv);
+                 insertAfter(editingField, optDiv);
              });
 
          }
