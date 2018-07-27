@@ -283,6 +283,7 @@
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
+             document.querySelector('#showing-status').innerHTML="Showing created";
               setTimeout(function(){ showingCreate.querySelector('button').disabled=false; }, 3000); 
          }).catch(error => Promise.reject(new Error(error)));
  });
@@ -306,6 +307,7 @@ filmCreate.querySelector('button').disabled=true;
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
+             document.querySelector('#film-status').innerHTML="Film created";
             setTimeout(function(){ filmCreate.querySelector('button').disabled=false; }, 3000); 
          }).catch(error => Promise.reject(new Error(error)));
  });
