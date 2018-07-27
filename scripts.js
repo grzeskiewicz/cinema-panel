@@ -28,7 +28,7 @@
 
          const daysArray = calendarTable.querySelectorAll('tbody td');
          for (const day of daysArray) {
-             console.log(day.classList);
+           //  console.log(day.classList);
              if (!day.classList.contains('not-selectable')) {
                  day.addEventListener('click', function() {
                      pickedDate = new Date(this.dataset.date);
