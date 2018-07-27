@@ -151,15 +151,16 @@
          for (const price of prices) {
              const optDiv = document.createElement("div");
              const opt = document.createElement("p");
-             const span = document.createElement("span");
-             span.dataset.id = price.id;
-             span.innerHTML = `<i class="fa fa-trash"></i>`;
+               const modDiv = document.createElement("div");
+             modDiv.dataset.id = film.id;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.classList.add('modify');
              opt.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
              optDiv.appendChild(opt);
-             optDiv.appendChild(span);
+             optDiv.appendChild(modDiv);
              pricesDiv.appendChild(optDiv);
 
-             span.addEventListener('click', function() {
+             modDiv.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
                      // deletePrice(this.dataset.id);
                      pricesDiv.removeChild(optDiv);
@@ -219,15 +220,16 @@
              const optDiv = document.createElement("div");
              //optDiv.id = showing.id;
              const opt = document.createElement("p");
-             const span = document.createElement("span");
-             span.dataset.id = showing.id;
-             span.innerHTML = `<i class="fa fa-trash"></i>`;
+             const modDiv = document.createElement("div");
+             modDiv.dataset.id = film.id;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.classList.add('modify');
              opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
              optDiv.appendChild(opt);
-             optDiv.appendChild(span);
+             optDiv.appendChild(modDiv);
              showingsDiv.appendChild(optDiv);
 
-             span.addEventListener('click', function() {
+             modDiv.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                      deleteShowing(this.dataset.id);
                      showingsDiv.removeChild(optDiv);
