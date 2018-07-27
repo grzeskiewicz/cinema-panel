@@ -41,13 +41,14 @@ fieldset {
 #second-row p{
     text-align:center;
 }
-#second-row div {
+ {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
-#showings, #films {
+#showings, #films,#prices {
      display: inline-flex;
     flex-direction: column;
+    margin:1rem;
 }
 #showings div, #films div, #prices div {
     display: flex;
