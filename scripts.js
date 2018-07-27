@@ -78,6 +78,46 @@
  calendarCtrl.initCalendar();
 
 
+
+
+ //SHOWINGS  
+ 
+ fetch(request(API_URL + "showings", 'GET'))
+     .then(res => res.json())
+     .then(showings => {
+
+         console.log(showings);
+         for (const showing of showings) {
+             const optDiv = document.createElement("div");
+             //optDiv.id = showing.id;
+             const opt = document.createElement("p");
+             const modDiv = document.createElement("div");
+             modDiv.dataset.id = film.id;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.classList.add('modify');
+             opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+             optDiv.appendChild(opt);
+             optDiv.appendChild(modDiv);
+             showingsDiv.appendChild(optDiv);
+             modDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                 if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
+                     deleteShowing(modDiv.dataset.id);
+                     showingsDiv.removeChild(optDiv);
+                 } else {}
+
+             });
+             modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                 //funkcja
+             });
+         }
+
+
+         //console.log(filmSelector.options);
+     });
+
+
+//FILMS
+
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
      .then(films => {
@@ -105,18 +145,25 @@
              optDiv.appendChild(modDiv);
              filmsDiv.appendChild(optDiv);
 
-             modDiv.addEventListener('click', function() {
+             modDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     deleteFilm(this.dataset.id);
+                     deleteFilm(modDiv.dataset.id);
                      filmsDiv.removeChild(optDiv);
                  } else {}
 
+             });
+
+             modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                 //funkcja
              });
 
          }
 
      });
 
+
+
+//ROOMS
 
  fetch(request(API_URL + "rooms", 'GET'))
      .then(res => res.json())
@@ -133,6 +180,7 @@
      });
 
 
+//PRICES
 
  fetch(request(API_URL + "prices", 'GET'))
      .then(res => res.json())
@@ -151,7 +199,7 @@
          for (const price of prices) {
              const optDiv = document.createElement("div");
              const opt = document.createElement("p");
-               const modDiv = document.createElement("div");
+             const modDiv = document.createElement("div");
              modDiv.dataset.id = film.id;
              modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
              modDiv.classList.add('modify');
@@ -160,14 +208,16 @@
              optDiv.appendChild(modDiv);
              pricesDiv.appendChild(optDiv);
 
-             modDiv.addEventListener('click', function() {
+             modDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
                      // deletePrice(this.dataset.id);
                      pricesDiv.removeChild(optDiv);
                  } else {}
 
              });
-
+             modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                 //funkcja
+             });
          }
      });
 
@@ -208,40 +258,6 @@
 
 
 
-
- //SHOWINGS 
- //
- fetch(request(API_URL + "showings", 'GET'))
-     .then(res => res.json())
-     .then(showings => {
-
-         console.log(showings);
-         for (const showing of showings) {
-             const optDiv = document.createElement("div");
-             //optDiv.id = showing.id;
-             const opt = document.createElement("p");
-             const modDiv = document.createElement("div");
-             modDiv.dataset.id = film.id;
-             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
-             modDiv.classList.add('modify');
-             opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
-             optDiv.appendChild(opt);
-             optDiv.appendChild(modDiv);
-             showingsDiv.appendChild(optDiv);
-console.log(modDiv);
-             modDiv.querySelector('.fa-trash').addEventListener('click', function() {
-                 if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                     deleteShowing(this.dataset.id);
-                     showingsDiv.removeChild(optDiv);
-                 } else {}
-
-             });
-
-         }
-
-
-         //console.log(filmSelector.options);
-     });
 
 
 
