@@ -271,7 +271,7 @@
      const hour = momentTime.hour();
      const minute = momentTime.minute();
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
-     console.log(dateFixed);
+     showingCreate.querySelector('button').disabled=true;
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
@@ -283,6 +283,7 @@
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
+              setTimeout(function(){ showingCreate.querySelector('button').disabled=false; }, 3000); 
          }).catch(error => Promise.reject(new Error(error)));
  });
 
