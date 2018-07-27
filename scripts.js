@@ -16,6 +16,10 @@
      });
  }
 
+ function insertAfter(el, referenceNode) {
+     referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+ }
+
 
  let selectedMonthCopy = selectedMonth;
  let pickedDate = undefined;
@@ -155,7 +159,9 @@
              });
 
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                 //funkcja
+                 const editingField = document.createElement('div');
+                 editingField.innerHTML = "heheheh";
+                 insertAfter(editingField,filmsDiv);
              });
 
          }
@@ -284,10 +290,10 @@
          .then(result => {
              console.log(JSON.stringify(result));
              document.querySelector('#showing-status').innerHTML = "Showing created";
-             setTimeout(function() { 
-                showingCreate.querySelector('button').disabled = false; 
-                showingCreate.reset();
-            }, 3000);
+             setTimeout(function() {
+                 showingCreate.querySelector('button').disabled = false;
+                 showingCreate.reset();
+             }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
  });
 
