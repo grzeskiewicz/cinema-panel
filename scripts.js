@@ -94,6 +94,7 @@
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
+             
              const optDiv = document.createElement("div");
              //optDiv.id = showing.id;
              const opt = document.createElement("p");
@@ -119,7 +120,12 @@
          }
 
 console.log(groupArr);
-         //console.log(filmSelector.options);
+ const groupedShowingsArray = [];
+        for (let key in groupArr) {
+            titleList.push(key);
+            groupedShowingsArray.push(group[key]);
+        }
+         console.log(groupedShowingsArray);
      });
 
 
