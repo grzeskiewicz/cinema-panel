@@ -122,6 +122,7 @@
 console.log(groupArr);
  const groupedShowingsArray = [];
         for (let key in groupArr) {
+            console.log(key);
             groupedShowingsArray.push(groupArr[key]);
         }
          console.log(groupedShowingsArray);
