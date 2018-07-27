@@ -290,7 +290,8 @@
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-console.log(filmCreate.querySelector('button'));
+
+filmCreate.querySelector('button').disabled=true;
      const film = {
          title: filmCreate.title.value,
          director: filmCreate.director.value,
@@ -304,5 +305,6 @@ console.log(filmCreate.querySelector('button'));
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
+             filmCreate.querySelector('button').disabled=false;
          }).catch(error => Promise.reject(new Error(error)));
  });
