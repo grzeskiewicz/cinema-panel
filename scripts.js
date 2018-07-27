@@ -93,7 +93,7 @@
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
              modDiv.dataset.id = film.id;
-             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modDiv.classList.add('modify');
              opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
              optDiv.appendChild(opt);
@@ -101,6 +101,7 @@
              showingsDiv.appendChild(optDiv);
              modDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
+                    console.log (modDiv.dataset);
                      deleteShowing(modDiv.dataset.id);
                      showingsDiv.removeChild(optDiv);
                  } else {}
@@ -138,7 +139,7 @@
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
              modDiv.dataset.id = film.id;
-             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modDiv.classList.add('modify');
              opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
              optDiv.appendChild(opt);
@@ -201,7 +202,7 @@
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
              modDiv.dataset.id = film.id;
-             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="far fa-edit"></i>`;
+             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modDiv.classList.add('modify');
              opt.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
              optDiv.appendChild(opt);
