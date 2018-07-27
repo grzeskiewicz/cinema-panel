@@ -228,7 +228,7 @@
              optDiv.appendChild(opt);
              optDiv.appendChild(modDiv);
              showingsDiv.appendChild(optDiv);
-
+console.log(modDiv);
              modDiv.addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                      deleteShowing(this.dataset.id);
