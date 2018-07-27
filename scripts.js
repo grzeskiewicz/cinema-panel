@@ -92,7 +92,7 @@
              //optDiv.id = showing.id;
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
-             modDiv.dataset.id = film.id;
+             modDiv.dataset.id = showing.id;
              modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modDiv.classList.add('modify');
              opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
@@ -201,7 +201,7 @@
              const optDiv = document.createElement("div");
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
-             modDiv.dataset.id = film.id;
+             modDiv.dataset.id = price.id;
              modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modDiv.classList.add('modify');
              opt.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
