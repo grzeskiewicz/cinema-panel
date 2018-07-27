@@ -93,7 +93,7 @@
          console.log(showings);
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
-             group[showing['title']].push(showing);
+             groupArr[showing['title']].push(showing);
              const optDiv = document.createElement("div");
              //optDiv.id = showing.id;
              const opt = document.createElement("p");
