@@ -81,7 +81,7 @@
 
 
  //SHOWINGS  
- 
+
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
@@ -101,7 +101,7 @@
              showingsDiv.appendChild(optDiv);
              modDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                    console.log (modDiv.dataset);
+                     console.log(modDiv.dataset);
                      deleteShowing(modDiv.dataset.id);
                      showingsDiv.removeChild(optDiv);
                  } else {}
@@ -117,7 +117,7 @@
      });
 
 
-//FILMS
+ //FILMS
 
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
@@ -164,7 +164,7 @@
 
 
 
-//ROOMS
+ //ROOMS
 
  fetch(request(API_URL + "rooms", 'GET'))
      .then(res => res.json())
@@ -181,7 +181,7 @@
      });
 
 
-//PRICES
+ //PRICES
 
  fetch(request(API_URL + "prices", 'GET'))
      .then(res => res.json())
@@ -271,7 +271,7 @@
      const hour = momentTime.hour();
      const minute = momentTime.minute();
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
-     showingCreate.querySelector('button').disabled=true;
+     showingCreate.querySelector('button').disabled = true;
      const showing = {
          film: filmSelector.value,
          price: priceSelector.value,
@@ -283,8 +283,11 @@
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
-             document.querySelector('#showing-status').innerHTML="Showing created";
-              setTimeout(function(){ showingCreate.querySelector('button').disabled=false; }, 3000); 
+             document.querySelector('#showing-status').innerHTML = "Showing created";
+             setTimeout(function() { 
+                showingCreate.querySelector('button').disabled = false; 
+                showingCreate.reset();
+            }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
  });
 
@@ -293,7 +296,7 @@
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
 
-filmCreate.querySelector('button').disabled=true;
+     filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
          director: filmCreate.director.value,
@@ -307,7 +310,10 @@ filmCreate.querySelector('button').disabled=true;
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
-             document.querySelector('#film-status').innerHTML="Film created";
-            setTimeout(function(){ filmCreate.querySelector('button').disabled=false; }, 3000); 
+             document.querySelector('#film-status').innerHTML = "Film created";
+             setTimeout(function() {
+                 filmCreate.querySelector('button').disabled = false;
+                 filmCreate.reset();
+             }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
  });
