@@ -122,8 +122,7 @@
 console.log(groupArr);
  const groupedShowingsArray = [];
         for (let key in groupArr) {
-            titleList.push(key);
-            groupedShowingsArray.push(group[key]);
+            groupedShowingsArray.push(groupArr[key]);
         }
          console.log(groupedShowingsArray);
      });
