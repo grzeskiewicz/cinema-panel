@@ -305,6 +305,6 @@ filmCreate.querySelector('button').disabled=true;
          .then(res => res.json())
          .then(result => {
              console.log(JSON.stringify(result));
-             filmCreate.querySelector('button').disabled=false;
+            setTimeout(function(){ filmCreate.querySelector('button').disabled=false; }, 3000); 
          }).catch(error => Promise.reject(new Error(error)));
  });
