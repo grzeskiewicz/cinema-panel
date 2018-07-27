@@ -161,7 +161,7 @@
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
                  const editingField = document.createElement('div');
                  editingField.innerHTML = "heheheh";
-                 insertAfter(editingField,filmsDiv);
+                 insertAfter(editingField,optDiv);
              });
 
          }
