@@ -290,7 +290,7 @@
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-
+console.log(filmCreate.querySelector('button'));
      const film = {
          title: filmCreate.title.value,
          director: filmCreate.director.value,
