@@ -156,7 +156,7 @@ console.log(cln);
              modDiv.dataset.id = film.id;
              modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modDiv.classList.add('modify');
-             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Seats: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
              optDiv.appendChild(opt);
              optDiv.appendChild(modDiv);
              filmsDiv.appendChild(optDiv);
@@ -171,6 +171,10 @@ console.log(cln);
 
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
 cln.title.value=film.title;
+cln.director.value=film.director;
+cln.genre.value=film.genre;
+cln.length.value=film.length;
+cln.category.value=film.category;
                  insertAfter(cln, optDiv);
              });
 
