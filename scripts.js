@@ -170,7 +170,7 @@ console.log(cln);
              });
 
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
-
+cln.title.value=film.title;
                  insertAfter(cln, optDiv);
              });
 
