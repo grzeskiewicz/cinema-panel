@@ -136,7 +136,8 @@ console.log(groupArr);
      .then(films => {
          console.log(films);
 
-
+                 const editingField = document.createElement('div');
+                 editingField.innerHTML = "heheheh";
          for (const film of films) {
              const opt = document.createElement("option");
              opt.value = film.id;
@@ -166,8 +167,7 @@ console.log(groupArr);
              });
 
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                 const editingField = document.createElement('div');
-                 editingField.innerHTML = "heheheh";
+
                  insertAfter(editingField, optDiv);
              });
 
