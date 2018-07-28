@@ -137,7 +137,7 @@ console.log(groupArr);
          console.log(films);
 const cln = filmCreate.cloneNode(true);
 cln.id="film-edit";
-cln.button.textContent="Edit film";
+//cln.button.textContent="Edit film";
 console.log(cln);
         const editingField = document.createElement('div');
         editingField.innerHTML = "heheheh";
