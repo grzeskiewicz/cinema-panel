@@ -171,7 +171,7 @@ console.log(cln);
 
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
 
-                 insertAfter(editingField, cln);
+                 insertAfter(cln, optDiv);
              });
 
          }
