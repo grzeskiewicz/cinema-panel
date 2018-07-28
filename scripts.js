@@ -135,9 +135,10 @@ console.log(groupArr);
      .then(res => res.json())
      .then(films => {
          console.log(films);
-
-                 const editingField = document.createElement('div');
-                 editingField.innerHTML = "heheheh";
+const cln = filmCreate.cloneNode(true);
+console.log(cln);
+        const editingField = document.createElement('div');
+        editingField.innerHTML = "heheheh";
          for (const film of films) {
              const opt = document.createElement("option");
              opt.value = film.id;
