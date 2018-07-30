@@ -28,7 +28,7 @@
 
          const daysArray = calendarTable.querySelectorAll('tbody td');
          for (const day of daysArray) {
-           //  console.log(day.classList);
+             //  console.log(day.classList);
              if (!day.classList.contains('not-selectable')) {
                  day.addEventListener('click', function() {
                      pickedDate = new Date(this.dataset.date);
@@ -94,8 +94,8 @@
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
-             
-             const optDiv = document.createElement("div");
+
+            /*)) const optDiv = document.createElement("div");
              //optDiv.id = showing.id;
              const opt = document.createElement("p");
              const modDiv = document.createElement("div");
@@ -116,15 +116,20 @@
              });
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
                  //funkcja
-             });
+             });*/)
          }
 
-console.log(groupArr);
- const groupedShowingsArray = [];
-        for (let key in groupArr) {
-            console.log(key);
-            groupedShowingsArray.push(groupArr[key]);
-        }
+         console.log(groupArr);
+         const groupedShowingsArray = [];
+         for (let key in groupArr) {
+             console.log(key);
+             const filmGroupDiv=document.createElement('div');
+             const para=document.createElement('p');
+             p.innerHTML=key;
+             filmGroupDiv.appendChild(para);
+             showingsDiv.appendChild(filmGroupDiv);
+             groupedShowingsArray.push(groupArr[key]);
+         }
          console.log(groupedShowingsArray);
      });
 
@@ -135,12 +140,12 @@ console.log(groupArr);
      .then(res => res.json())
      .then(films => {
          console.log(films);
-const cln = filmCreate.cloneNode(true);
-cln.id="film-edit";
-//cln.button.textContent="Edit film";
-cln.querySelector('button').textContent="Edit film";
-        const editingField = document.createElement('div');
-        editingField.innerHTML = "heheheh";
+         const cln = filmCreate.cloneNode(true);
+         cln.id = "film-edit";
+         //cln.button.textContent="Edit film";
+         cln.querySelector('button').textContent = "Edit film";
+         const editingField = document.createElement('div');
+         editingField.innerHTML = "heheheh";
          for (const film of films) {
              const opt = document.createElement("option");
              opt.value = film.id;
@@ -170,11 +175,11 @@ cln.querySelector('button').textContent="Edit film";
              });
 
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
-cln.title.value=film.title;
-cln.director.value=film.director;
-cln.genre.value=film.genre;
-cln.length.value=film.length;
-cln.category.value=film.category;
+                 cln.title.value = film.title;
+                 cln.director.value = film.director;
+                 cln.genre.value = film.genre;
+                 cln.length.value = film.length;
+                 cln.category.value = film.category;
                  insertAfter(cln, optDiv);
              });
 
