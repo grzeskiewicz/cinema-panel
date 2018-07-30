@@ -91,7 +91,7 @@
      .then(showings => {
          const groupArr = [];
          console.log(showings);
-         const showingsListed = document.createElement('div');
+         
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
@@ -122,18 +122,19 @@
 
 
          const groupedShowingsArray = [];
-         for (let key in groupArr) {
+         for (let film in groupArr) {
              const filmTitles = document.createElement('div');
              filmTitles.classList.add('film-titles');
              const title = document.createElement('p');
-             title.innerHTML = `${key}`;
+             title.innerHTML = `${film}`;
              filmTitles.appendChild(title);
              showingsDiv.appendChild(filmTitles);
 
 
              filmTitles.addEventListener('click', function() {
-                 for (const showing of groupArr[key]) {
-console.log(key);
+                const showingsListed = document.createElement('div');
+                 for (const showing of groupArr[film]) {
+console.log(film);
                      const descriptionDiv = document.createElement("div");
                      //optDiv.id = showing.id;
                      const description = document.createElement("p");
@@ -144,7 +145,7 @@ console.log(key);
                      descriptionDiv.appendChild(description);
                      descriptionDiv.appendChild(modifyDiv);
                      showingsListed.appendChild(descriptionDiv);
-                    
+                      insertAfter(showingsListed, filmTitles);
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
@@ -157,8 +158,8 @@ console.log(key);
                          //funkcja
                      });
                  }
- insertAfter(showingsListed, filmTitles);
-showingsListed.innerHTML="";
+
+
              });
              // groupedShowingsArray.push(groupArr[key]);
          }
