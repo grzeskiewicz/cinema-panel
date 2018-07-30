@@ -128,6 +128,11 @@
              para.innerHTML=`${key}`;
              filmGroupDiv.appendChild(para);
              showingsDiv.appendChild(filmGroupDiv);
+
+
+             filmGroupDiv.addEventListener('click', function (){
+                console.log(groupArr[key]);
+             });
             // groupedShowingsArray.push(groupArr[key]);
          }
          console.log(groupedShowingsArray);
