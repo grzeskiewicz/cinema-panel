@@ -125,6 +125,7 @@
          const groupedShowingsArray = [];
          for (let key in groupArr) {
              const filmTitles = document.createElement('div');
+             filmTitles.id='film-titles';
              const title = document.createElement('p');
              title.innerHTML = `${key}`;
              filmTitles.appendChild(title);
