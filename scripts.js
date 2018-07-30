@@ -123,12 +123,12 @@
          const groupedShowingsArray = [];
          for (let key in groupArr) {
              console.log(key);
-            /* const filmGroupDiv=document.createElement('div');
+             const filmGroupDiv=document.createElement('div');
              const para=document.createElement('p');
-             p.innerHTML=key;
+             para.innerHTML=`${key}`;
              filmGroupDiv.appendChild(para);
              showingsDiv.appendChild(filmGroupDiv);
-             groupedShowingsArray.push(groupArr[key]);*/
+            // groupedShowingsArray.push(groupArr[key]);
          }
          console.log(groupedShowingsArray);
      });
