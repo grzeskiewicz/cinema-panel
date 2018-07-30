@@ -116,7 +116,7 @@
              });
              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
                  //funkcja
-             });*/)
+             });*/
          }
 
          console.log(groupArr);
