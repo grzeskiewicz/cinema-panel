@@ -144,7 +144,8 @@
                      opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                      optDiv.appendChild(opt);
                      optDiv.appendChild(modDiv);
-                     filmGroupDiv.appendChild(optDiv);
+                     showingsByFilmDiv.appendChild(optDiv);
+                     insertAfter(showingsByFilmDiv, filmGroupDiv);
                      modDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modDiv.dataset);
