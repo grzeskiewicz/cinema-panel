@@ -92,6 +92,7 @@
          const groupArr = [];
          console.log(showings);
          const showingsByFilmDiv = document.createElement('div');
+
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
@@ -120,20 +121,19 @@
               });*/
          }
 
-         console.log(groupArr);
+
          const groupedShowingsArray = [];
          for (let key in groupArr) {
-             console.log(key);
-             const filmGroupDiv = document.createElement('div');
-             const para = document.createElement('p');
-             para.innerHTML = `${key}`;
-             filmGroupDiv.appendChild(para);
-             showingsDiv.appendChild(filmGroupDiv);
+             const filmTitles = document.createElement('div');
+             const title = document.createElement('p');
+             title.innerHTML = `${key}`;
+             filmTitles.appendChild(title);
+             showingsDiv.appendChild(filmTitles);
 
 
-             filmGroupDiv.addEventListener('click', function() {
+             filmTitles.addEventListener('click', function() {
                  for (const showing of groupArr[key]) {
-
+console.log(key);
                      const optDiv = document.createElement("div");
                      //optDiv.id = showing.id;
                      const opt = document.createElement("p");
@@ -145,7 +145,7 @@
                      optDiv.appendChild(opt);
                      optDiv.appendChild(modDiv);
                      showingsByFilmDiv.appendChild(optDiv);
-                     insertAfter(showingsByFilmDiv, filmGroupDiv);
+                     insertAfter(showingsByFilmDiv, filmTitles);
                      modDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modDiv.dataset);
