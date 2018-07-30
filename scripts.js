@@ -132,7 +132,7 @@
 
 
              filmGroupDiv.addEventListener('click', function() {
-                 for (const showing of showinggroupArr[key]) {
+                 for (const showing of groupArr[key]) {
 
                      const optDiv = document.createElement("div");
                      //optDiv.id = showing.id;
