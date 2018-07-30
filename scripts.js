@@ -158,7 +158,7 @@ console.log(key);
                      });
                  }
  insertAfter(showingsListed, filmTitles);
-
+showingsListed.innerHTML="";
              });
              // groupedShowingsArray.push(groupArr[key]);
          }
