@@ -91,7 +91,7 @@
      .then(showings => {
          const groupArr = [];
          console.log(showings);
-         const showingsByFilmDiv = document.createElement('div');
+         const showingsListed = document.createElement('div');
 
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
@@ -143,8 +143,8 @@ console.log(key);
                      description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                      descriptionDiv.appendChild(description);
                      descriptionDiv.appendChild(modifyDiv);
-                     showingsByFilmDiv.appendChild(descriptionDiv);
-                     insertAfter(showingsByFilmDiv, filmTitles);
+                     showingsListed.appendChild(descriptionDiv);
+                     insertAfter(showingsListed, filmTitles);
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
@@ -162,7 +162,7 @@ console.log(key);
              });
              // groupedShowingsArray.push(groupArr[key]);
          }
-         console.log(groupedShowingsArray);
+        // console.log(groupedShowingsArray);
      });
 
 
@@ -172,47 +172,47 @@ console.log(key);
      .then(res => res.json())
      .then(films => {
          console.log(films);
-         const cln = filmCreate.cloneNode(true);
-         cln.id = "film-edit";
-         //cln.button.textContent="Edit film";
-         cln.querySelector('button').textContent = "Edit film";
+         const filmEditForm = filmCreate.cloneNode(true);
+         filmEditForm.id = "film-edit";
+         //filmEditForm.button.textContent="Edit film";
+         filmEditForm.querySelector('button').textContent = "Edit film";
          const editingField = document.createElement('div');
          editingField.innerHTML = "heheheh";
          for (const film of films) {
-             const opt = document.createElement("option");
-             opt.value = film.id;
-             opt.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
-             filmSelector.options.add(opt);
+             const option = document.createElement("option");
+             option.value = film.id;
+             option.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
+             filmSelector.options.add(option);
          }
 
 
          for (const film of films) {
-             const optDiv = document.createElement("div");
-             const opt = document.createElement("p");
+             const descriptionDiv = document.createElement("div");
+             const description = document.createElement("p");
              const modifyDiv = document.createElement("div");
              modifyDiv.dataset.id = film.id;
              modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modifyDiv.classList.add('modify');
-             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
-             optDiv.appendChild(opt);
-             optDiv.appendChild(modifyDiv);
-             filmsDiv.appendChild(optDiv);
+             description.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+             descriptionDiv.appendChild(description);
+             descriptionDiv.appendChild(modifyDiv);
+             filmsDiv.appendChild(descriptionDiv);
 
              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
                      deleteFilm(modifyDiv.dataset.id);
-                     filmsDiv.removeChild(optDiv);
+                     filmsDiv.removeChild(descriptionDiv);
                  } else {}
 
              });
 
              modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                 cln.title.value = film.title;
-                 cln.director.value = film.director;
-                 cln.genre.value = film.genre;
-                 cln.length.value = film.length;
-                 cln.category.value = film.category;
-                 insertAfter(cln, optDiv);
+                 filmEditForm.title.value = film.title;
+                 filmEditForm.director.value = film.director;
+                 filmEditForm.genre.value = film.genre;
+                 filmEditForm.length.value = film.length;
+                 filmEditForm.category.value = film.category;
+                 insertAfter(filmEditForm, descriptionDiv);
              });
 
          }
@@ -247,29 +247,29 @@ console.log(key);
 
 
          for (const price of prices) {
-             const opt = document.createElement("option");
-             opt.value = price.id;
-             opt.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
-             priceSelector.options.add(opt);
+             const option = document.createElement("option");
+             option.value = price.id;
+             option.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
+             priceSelector.options.add(option);
          }
 
 
          for (const price of prices) {
-             const optDiv = document.createElement("div");
-             const opt = document.createElement("p");
+             const descriptionDiv = document.createElement("div");
+             const description = document.createElement("p");
              const modifyDiv = document.createElement("div");
              modifyDiv.dataset.id = price.id;
              modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modifyDiv.classList.add('modify');
-             opt.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
-             optDiv.appendChild(opt);
-             optDiv.appendChild(modifyDiv);
-             pricesDiv.appendChild(optDiv);
+             description.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
+             descriptionDiv.appendChild(description);
+             descriptionDiv.appendChild(modifyDiv);
+             pricesDiv.appendChild(descriptionDiv);
 
              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
                      // deletePrice(this.dataset.id);
-                     pricesDiv.removeChild(optDiv);
+                     pricesDiv.removeChild(descriptionDiv);
                  } else {}
 
              });
