@@ -138,6 +138,7 @@ console.log(key);
                      //optDiv.id = showing.id;
                      const description = document.createElement("p");
                      const modifyDiv = document.createElement("div");
+                      modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
                      modifyDiv.classList.add('modify');
                      description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                      descriptionDiv.appendChild(description);
@@ -148,7 +149,7 @@ console.log(key);
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
                              deleteShowing(modifyDiv.dataset.id);
-                             showingsDiv.removeChild(optDiv);
+                             showingsDiv.removeChild(descriptionDiv);
                          } else {}
 
                      });
