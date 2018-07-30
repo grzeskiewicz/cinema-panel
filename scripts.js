@@ -143,7 +143,7 @@ console.log(key);
                      descriptionDiv.appendChild(description);
                      descriptionDiv.appendChild(modifyDiv);
                      showingsListed.appendChild(descriptionDiv);
-                     insertAfter(showingsListed, filmTitles);
+                    
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
@@ -156,7 +156,7 @@ console.log(key);
                          //funkcja
                      });
                  }
-
+ insertAfter(showingsListed, filmTitles);
 
              });
              // groupedShowingsArray.push(groupArr[key]);
