@@ -135,15 +135,15 @@
              filmTitles.addEventListener('click', function() {
                  for (const showing of groupArr[key]) {
 console.log(key);
-                     const optDiv = document.createElement("div");
+                     const descriptionDiv = document.createElement("div");
                      //optDiv.id = showing.id;
-                     const opt = document.createElement("p");
+                     const description = document.createElement("p");
                      const modifyDiv = document.createElement("div");
                      modifyDiv.classList.add('modify');
-                     opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
-                     optDiv.appendChild(opt);
-                     optDiv.appendChild(modifyDiv);
-                     showingsByFilmDiv.appendChild(optDiv);
+                     description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+                     descriptionDiv.appendChild(description);
+                     descriptionDiv.appendChild(modifyDiv);
+                     showingsByFilmDiv.appendChild(descriptionDiv);
                      insertAfter(showingsByFilmDiv, filmTitles);
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
