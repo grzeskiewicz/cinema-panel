@@ -97,26 +97,26 @@
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
 
-             /*)) const optDiv = document.createElement("div");
-              //optDiv.id = showing.id;
-              const opt = document.createElement("p");
-              const modDiv = document.createElement("div");
-              modDiv.dataset.id = showing.id;
-              modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-              modDiv.classList.add('modify');
-              opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
-              optDiv.appendChild(opt);
-              optDiv.appendChild(modDiv);
-              showingsDiv.appendChild(optDiv);
-              modDiv.querySelector('.fa-trash').addEventListener('click', function() {
+             /*)) const descriptionDiv = document.createElement("div");
+              //descriptionDiv.id = showing.id;
+              const description = document.createElement("p");
+              const modifyDiv = document.createElement("div");
+              modifyDiv.dataset.id = showing.id;
+              modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+              modifyDiv.classList.add('modify');
+              description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+              descriptionDiv.appendChild(description);
+              descriptionDiv.appendChild(modifyDiv);
+              showingsDiv.appendChild(descriptionDiv);
+              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                   if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                      console.log(modDiv.dataset);
-                      deleteShowing(modDiv.dataset.id);
-                      showingsDiv.removeChild(optDiv);
+                      console.log(modifyDiv.dataset);
+                      deleteShowing(modifyDiv.dataset.id);
+                      showingsDiv.removeChild(descriptionDiv);
                   } else {}
 
               });
-              modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+              modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                   //funkcja
               });*/
          }
@@ -135,27 +135,27 @@
              filmTitles.addEventListener('click', function() {
                  for (const showing of groupArr[key]) {
 console.log(key);
-                     const optDiv = document.createElement("div");
-                     //optDiv.id = showing.id;
-                     const opt = document.createElement("p");
-                     const modDiv = document.createElement("div");
-                     modDiv.dataset.id = showing.id;
-                     modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-                     modDiv.classList.add('modify');
-                     opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
-                     optDiv.appendChild(opt);
-                     optDiv.appendChild(modDiv);
-                     showingsByFilmDiv.appendChild(optDiv);
+                     const descriptionDiv = document.createElement("div");
+                     //descriptionDiv.id = showing.id;
+                     const description = document.createElement("p");
+                     const modifyDiv = document.createElement("div");
+                     modifyDiv.dataset.id = showing.id;
+                     modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                     modifyDiv.classList.add('modify');
+                     description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+                     descriptionDiv.appendChild(description);
+                     descriptionDiv.appendChild(modifyDiv);
+                     showingsByFilmDiv.appendChild(descriptionDiv);
                      insertAfter(showingsByFilmDiv, filmTitles);
-                     modDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                     modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                             console.log(modDiv.dataset);
-                             deleteShowing(modDiv.dataset.id);
-                             showingsDiv.removeChild(optDiv);
+                             console.log(modifyDiv.dataset);
+                             deleteShowing(modifyDiv.dataset.id);
+                             showingsDiv.removeChild(descriptionDiv);
                          } else {}
 
                      });
-                     modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                     modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                          //funkcja
                      });
                  }
@@ -181,40 +181,40 @@ console.log(key);
          const editingField = document.createElement('div');
          editingField.innerHTML = "heheheh";
          for (const film of films) {
-             const opt = document.createElement("option");
-             opt.value = film.id;
-             opt.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
-             filmSelector.options.add(opt);
+             const description = document.createElement("descriptionion");
+             description.value = film.id;
+             description.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
+             filmSelector.descriptionions.add(description);
          }
 
 
          for (const film of films) {
-             const optDiv = document.createElement("div");
-             const opt = document.createElement("p");
-             const modDiv = document.createElement("div");
-             modDiv.dataset.id = film.id;
-             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-             modDiv.classList.add('modify');
-             opt.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
-             optDiv.appendChild(opt);
-             optDiv.appendChild(modDiv);
-             filmsDiv.appendChild(optDiv);
+             const descriptionDiv = document.createElement("div");
+             const description = document.createElement("p");
+             const modifyDiv = document.createElement("div");
+             modifyDiv.dataset.id = film.id;
+             modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+             modifyDiv.classList.add('modify');
+             description.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+             descriptionDiv.appendChild(description);
+             descriptionDiv.appendChild(modifyDiv);
+             filmsDiv.appendChild(descriptionDiv);
 
-             modDiv.querySelector('.fa-trash').addEventListener('click', function() {
+             modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     deleteFilm(modDiv.dataset.id);
-                     filmsDiv.removeChild(optDiv);
+                     deleteFilm(modifyDiv.dataset.id);
+                     filmsDiv.removeChild(descriptionDiv);
                  } else {}
 
              });
 
-             modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+             modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                  cln.title.value = film.title;
                  cln.director.value = film.director;
                  cln.genre.value = film.genre;
                  cln.length.value = film.length;
                  cln.category.value = film.category;
-                 insertAfter(cln, optDiv);
+                 insertAfter(cln, descriptionDiv);
              });
 
          }
@@ -232,10 +232,10 @@ console.log(key);
 
 
          for (const room of rooms) {
-             const opt = document.createElement("option");
-             opt.value = room.id;
-             opt.text = `${room.id} Seats: ${room.seats}`;
-             roomSelector.options.add(opt);
+             const description = document.createElement("descriptionion");
+             description.value = room.id;
+             description.text = `${room.id} Seats: ${room.seats}`;
+             roomSelector.descriptionions.add(description);
          }
      });
 
@@ -249,33 +249,33 @@ console.log(key);
 
 
          for (const price of prices) {
-             const opt = document.createElement("option");
-             opt.value = price.id;
-             opt.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
-             priceSelector.options.add(opt);
+             const description = document.createElement("descriptionion");
+             description.value = price.id;
+             description.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
+             priceSelector.descriptionions.add(description);
          }
 
 
          for (const price of prices) {
-             const optDiv = document.createElement("div");
-             const opt = document.createElement("p");
-             const modDiv = document.createElement("div");
-             modDiv.dataset.id = price.id;
-             modDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-             modDiv.classList.add('modify');
-             opt.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
-             optDiv.appendChild(opt);
-             optDiv.appendChild(modDiv);
-             pricesDiv.appendChild(optDiv);
+             const descriptionDiv = document.createElement("div");
+             const description = document.createElement("p");
+             const modifyDiv = document.createElement("div");
+             modifyDiv.dataset.id = price.id;
+             modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+             modifyDiv.classList.add('modify');
+             description.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
+             descriptionDiv.appendChild(description);
+             descriptionDiv.appendChild(modifyDiv);
+             pricesDiv.appendChild(descriptionDiv);
 
-             modDiv.querySelector('.fa-trash').addEventListener('click', function() {
+             modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
                      // deletePrice(this.dataset.id);
-                     pricesDiv.removeChild(optDiv);
+                     pricesDiv.removeChild(descriptionDiv);
                  } else {}
 
              });
-             modDiv.querySelector('.fa-edit').addEventListener('click', function() {
+             modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                  //funkcja
              });
          }
