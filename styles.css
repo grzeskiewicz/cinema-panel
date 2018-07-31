@@ -3,6 +3,13 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    
+}
+
+#first-column{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: stretch;
 }
 
