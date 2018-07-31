@@ -50,7 +50,7 @@ fieldset {
     flex-direction: column;
     margin:1rem;
 }
-#showings-listed div, #films div, #prices div {
+#showings div, #showings-listed div, #films div, #prices div {
     display: flex;
     flex-direction: row;
     flex-flow:nowrap;
