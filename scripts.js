@@ -141,7 +141,8 @@
 
              filmTitles.addEventListener('click', function() {
 showingsListed.innerHTML="";
-sortShowings(groupArr[film]);
+const result=sortShowings(groupArr[film]);
+console.log(result;
                  for (const showing of groupArr[film]) {
                      const descriptionDiv = document.createElement("div");
                      const description = document.createElement("p");
