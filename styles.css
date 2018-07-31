@@ -14,7 +14,9 @@
 #first-row nth-child(3) {
     flex-basis: 30%;
 }
-
+hr {
+    width:80vw;
+}
 
 form {
     display: flex;
