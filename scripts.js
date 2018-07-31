@@ -23,6 +23,7 @@
 
   function sortShowings(showingsList) {
         showingsList = showingsList.sort((a, b) => {
+            console.log(a,b);
             return moment(a.date) - moment(b.date);
         });
     }
