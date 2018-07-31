@@ -16,12 +16,13 @@
 }
 
 #first-row::after {
-    content: "";
-    display: flex;
-    height: .1875rem;
-    width: 80vw;
-    margin: 1.5rem auto;
-    background-color: #444349;
+   display: block;
+  content:"";
+  background-color: #fff;
+  height: 1px;
+  width: 12.515625rem;
+  margin: .5rem auto;
+
 }
 
 form {
