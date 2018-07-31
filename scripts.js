@@ -91,7 +91,7 @@
      .then(showings => {
          const groupArr = [];
          console.log(showings);
-         
+const showingsListed = document.createElement('div');
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
@@ -132,20 +132,20 @@
 
 
              filmTitles.addEventListener('click', function() {
-                const showingsListed = document.createElement('div');
+                 
                  for (const showing of groupArr[film]) {
-console.log(film);
+                     console.log(film);
                      const descriptionDiv = document.createElement("div");
                      //optDiv.id = showing.id;
                      const description = document.createElement("p");
                      const modifyDiv = document.createElement("div");
-                      modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                     modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
                      modifyDiv.classList.add('modify');
                      description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                      descriptionDiv.appendChild(description);
                      descriptionDiv.appendChild(modifyDiv);
                      showingsListed.appendChild(descriptionDiv);
-                      insertAfter(showingsListed, filmTitles);
+                     insertAfter(showingsListed, filmTitles);
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
@@ -163,7 +163,7 @@ console.log(film);
              });
              // groupedShowingsArray.push(groupArr[key]);
          }
-        // console.log(groupedShowingsArray);
+         // console.log(groupedShowingsArray);
      });
 
 
