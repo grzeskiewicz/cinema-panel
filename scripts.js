@@ -130,9 +130,9 @@
              filmTitles.appendChild(title);
              showingsDiv.appendChild(filmTitles);
 
-const showingsListed = document.createElement('div');
+
              filmTitles.addEventListener('click', function() {
-                
+                const showingsListed = document.createElement('div');
                  for (const showing of groupArr[film]) {
 console.log(film);
                      const descriptionDiv = document.createElement("div");
