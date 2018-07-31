@@ -40,10 +40,8 @@ fieldset {
 
 #second-row p{
     text-align:center;
-}
- {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin:0 0.5rem;
+
 }
 #showings, #films,#prices {
      display: inline-flex;
