@@ -92,7 +92,7 @@
          const groupArr = [];
          console.log(showings);
          const showingsListed = document.createElement('div');
-         showingListed.id="showings-listed";
+         showingsListed.id="showings-listed";
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
