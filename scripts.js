@@ -87,8 +87,7 @@
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
  calendarCtrl.initCalendar();
-
-
+let showingsList;
 
 
  //SHOWINGS  
@@ -96,6 +95,7 @@
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
+        showingsList=showings;
          const groupArr = [];
          //console.log(showings);
          const showingsListed = document.createElement('div');
@@ -321,11 +321,23 @@ insertAfter(showingsListed, filmTitles);
 
 
 
-
-
-
-
  const showingCreate = document.querySelector('#showing-create');
+
+function validateShowings(e){
+    for (const showing of showingsList) {
+console.log(showing);
+    }
+      /*  var firstLetter = form.name.value[0];
+    }
+    if (firstLetter.toUpperCase() === "X") {
+        e.preventDefault();
+        alert("Your name is not allowed to start with X!");
+    }*/
+}
+
+
+
+ showingCreate.addEventListener('submit',validateShowings,false);
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
