@@ -330,7 +330,7 @@
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
 
      for (const showing of showingsList) {
-         console.log(moment(showing.date), moment(pickedDate));
+         console.log(moment(showing.date).format('DD.MM.YYYY'), moment(pickedDate).format('DD.MM.YYYY'));
      }
      /*  var firstLetter = form.name.value[0];
     }
