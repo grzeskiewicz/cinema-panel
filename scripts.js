@@ -97,7 +97,7 @@
      .then(res => res.json())
      .then(showings => {
          const groupArr = [];
-         console.log(showings);
+         //console.log(showings);
          const showingsListed = document.createElement('div');
          showingsListed.id="showings-listed";
          for (const showing of showings) {
@@ -141,7 +141,7 @@
 
              filmTitles.addEventListener('click', function() {
 showingsListed.innerHTML="";
-console.log(sortShowings(groupArr[film]));
+sortShowings(groupArr[film]);
                  for (const showing of groupArr[film]) {
                      const descriptionDiv = document.createElement("div");
                      const description = document.createElement("p");
