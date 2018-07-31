@@ -17,7 +17,7 @@
 
 #first-row::after {
     content: "";
-    display: block;
+    display: flex;
     height: .1875rem;
     width: 80vw;
     margin: 1.5rem auto;
