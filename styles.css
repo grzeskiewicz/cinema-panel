@@ -1,86 +1,109 @@
-
-#first-row{
-display: flex;
-flex-direction: row;
-flex-wrap:nowrap;
-justify-content: center;
-align-items: flex-start;
+#first-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-#first-row nth-child(1), #first-row nth-child(2) {
-    flex-basis:15%;
+#first-row nth-child(1),
+#first-row nth-child(2) {
+    flex-basis: 15%;
 }
-#first-row nth-child(3){
-    flex-basis:30%;
+
+#first-row nth-child(3) {
+    flex-basis: 30%;
+}
+
+#first-row::after {
+    content: "";
+    display: block;
+    height: .1875rem;
+    width: 80vw;
+    margin: 1.5rem auto;
+    background-color: #444349;
 }
 
 form {
-display:flex;
-flex-direction: column;
-justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
-form > *{
-    margin:auto;
+form>* {
+    margin: auto;
 }
 
 fieldset {
-    margin:2rem;
+    margin: 2rem;
 }
 
 
 #second-row {
-    display:flex;
-    flex-direction: row;
-    flex-flow:nowrap;
-    justify-content:flex-start;
-    font-size:0.8rem;
-}
-
-#second-row p{
-    text-align:center;
-    margin:0.5rem;
-
-}
-#showings, #films,#prices {
-     display: inline-flex;
-    flex-direction: column;
-    margin:1rem;
-}
-.film-titles, #showings-listed div, #films div, #prices div {
     display: flex;
     flex-direction: row;
-    flex-flow:nowrap;
-    justify-content:space-between;
-    border:1px solid grey;
+    flex-flow: nowrap;
+    justify-content: flex-start;
+    font-size: 0.8rem;
 }
 
+#second-row p {
+    text-align: center;
+    margin: 0.5rem;
+}
 
+#showings,
+#films,
+#prices {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 1rem;
+}
 
-#films .modify, #showings .modify, #prices .modify {
-    display:flex;
+.film-titles,
+#showings-listed div,
+#films div,
+#prices div {
+    display: flex;
     flex-direction: row;
-    flex-flow:nowrap;
-     justify-content:space-between;
-     align-items: center;
-}
-.modify i{
-    margin:0 10px;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    border: 1px solid grey;
 }
 
-.fa:hover  {
-    cursor:pointer;
-    -ms-transform: scale(1,1); /* IE 9 */
-    -webkit-transform: scale(1,1); /* Safari */
-    transform: scale(1,1);
+
+
+#films .modify,
+#showings .modify,
+#prices .modify {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.modify i {
+    margin: 0 10px;
+}
+
+.fa:hover {
+    cursor: pointer;
+    -ms-transform: scale(1, 1);
+    /* IE 9 */
+    -webkit-transform: scale(1, 1);
+    /* Safari */
+    transform: scale(1, 1);
+}
+
 
 
 
 
 
 /* CALENDAR CSS */
+
 #calendar {
     margin: auto;
     text-align: center;
@@ -109,7 +132,7 @@ td {
     text-align: center;
     line-height: 1.75rem;
     width: 1.75rem;
-    margin:2px;
+    margin: 2px;
 }
 
 thead td {
@@ -139,17 +162,19 @@ td.after {
 }
 
 .date-clicked {
-    background-color:orange;
+    background-color: orange;
 }
 
 .not-selectable {
-         background-color: #FFFFF0;
+    background-color: #FFFFF0;
+}
 
+.not-selectable:hover {
+    cursor: not-allowed;
+    background-color: #FFFFF0;
 }
-.not-selectable:hover{
-    cursor:not-allowed;
-    background-color:#FFFFF0;
-}
+
+
 /* TIME */
 
 legend {
@@ -159,9 +184,9 @@ legend {
 }
 
 .time-control {
-    display:flex;
+    display: flex;
     justify-content: center;
-    margin:1rem 0;
+    margin: 1rem 0;
 }
 
 .hours {
