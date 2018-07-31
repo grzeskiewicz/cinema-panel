@@ -91,7 +91,7 @@
      .then(showings => {
          const groupArr = [];
          console.log(showings);
-const showingsListed = document.createElement('div');
+         const showingsListed = document.createElement('div');
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
@@ -132,7 +132,7 @@ const showingsListed = document.createElement('div');
 
 
              filmTitles.addEventListener('click', function() {
-                 
+
                  for (const showing of groupArr[film]) {
                      console.log(film);
                      const descriptionDiv = document.createElement("div");
@@ -145,12 +145,12 @@ const showingsListed = document.createElement('div');
                      descriptionDiv.appendChild(description);
                      descriptionDiv.appendChild(modifyDiv);
                      showingsListed.appendChild(descriptionDiv);
-                     insertAfter(showingsListed, filmTitles);
+                     
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
                              deleteShowing(modifyDiv.dataset.id);
-                             showingsDiv.removeChild(descriptionDiv);
+                             showingsListed.removeChild(descriptionDiv);
                          } else {}
 
                      });
@@ -159,7 +159,7 @@ const showingsListed = document.createElement('div');
                      });
                  }
 
-
+insertAfter(showingsListed, filmTitles);
              });
              // groupedShowingsArray.push(groupArr[key]);
          }
@@ -172,13 +172,9 @@ const showingsListed = document.createElement('div');
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
      .then(films => {
-         console.log(films);
          const filmEditForm = filmCreate.cloneNode(true);
          filmEditForm.id = "film-edit";
-         //filmEditForm.button.textContent="Edit film";
          filmEditForm.querySelector('button').textContent = "Edit film";
-         const editingField = document.createElement('div');
-         editingField.innerHTML = "heheheh";
          for (const film of films) {
              const option = document.createElement("option");
              option.value = film.id;
