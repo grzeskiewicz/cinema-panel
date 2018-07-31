@@ -331,7 +331,7 @@
 
      for (const showing of showingsList) {
 
-         if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY')) {
+         if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
             console.log('hehe');
          }
      }
