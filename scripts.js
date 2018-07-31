@@ -21,11 +21,11 @@
  }
 
 
-  function sortShowings(showingsList) {
-        showingsList = showingsList.sort((a, b) => {
-            return moment(a.date) - moment(b.date);
-        });
-    }
+ function sortShowings(showingsList) {
+     showingsList = showingsList.sort((a, b) => {
+         return moment(a.date) - moment(b.date);
+     });
+ }
 
  let selectedMonthCopy = selectedMonth;
  let pickedDate = undefined;
@@ -86,7 +86,7 @@
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
  calendarCtrl.initCalendar();
-let showingsList;
+ let showingsList;
 
 
  //SHOWINGS  
@@ -94,11 +94,11 @@ let showingsList;
  fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => {
-        showingsList=showings;
+         showingsList = showings;
          const groupArr = [];
          //console.log(showings);
          const showingsListed = document.createElement('div');
-         showingsListed.id="showings-listed";
+         showingsListed.id = "showings-listed";
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
@@ -139,9 +139,9 @@ let showingsList;
 
 
              filmTitles.addEventListener('click', function() {
-showingsListed.innerHTML="";
-const result=sortShowings(groupArr[film]);
-console.log(result);
+                 showingsListed.innerHTML = "";
+                 const result = sortShowings(groupArr[film]);
+                 console.log(result);
                  for (const showing of groupArr[film]) {
                      const descriptionDiv = document.createElement("div");
                      const description = document.createElement("p");
@@ -153,7 +153,7 @@ console.log(result);
                      descriptionDiv.appendChild(description);
                      descriptionDiv.appendChild(modifyDiv);
                      showingsListed.appendChild(descriptionDiv);
-                     
+
                      modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                          if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
                              console.log(modifyDiv.dataset);
@@ -167,7 +167,7 @@ console.log(result);
                      });
                  }
 
-insertAfter(showingsListed, filmTitles);
+                 insertAfter(showingsListed, filmTitles);
              });
              // groupedShowingsArray.push(groupArr[key]);
          }
@@ -322,21 +322,27 @@ insertAfter(showingsListed, filmTitles);
 
  const showingCreate = document.querySelector('#showing-create');
 
-function validateShowings(e){
-    for (const showing of showingsList) {
-console.log(showing);
-    }
-      /*  var firstLetter = form.name.value[0];
+ function validateShowings(e) {
+     const time = document.querySelector('#appt-time');
+     const momentTime = moment(time.value, 'HH:mm');
+     const hour = momentTime.hour();
+     const minute = momentTime.minute();
+     const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
+
+     for (const showing of showingsList) {
+         console.log(showing.date, showing.room, roomSelector.value, dateFixed);
+     }
+     /*  var firstLetter = form.name.value[0];
     }
     if (firstLetter.toUpperCase() === "X") {
         e.preventDefault();
         alert("Your name is not allowed to start with X!");
     }*/
-}
+ }
 
 
 
- showingCreate.addEventListener('submit',validateShowings,false);
+ showingCreate.addEventListener('submit', validateShowings, false);
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
