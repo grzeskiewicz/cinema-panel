@@ -132,7 +132,7 @@
 
 
              filmTitles.addEventListener('click', function() {
-
+showingsListed.innerHTML="";
                  for (const showing of groupArr[film]) {
                      console.log(film);
                      const descriptionDiv = document.createElement("div");
