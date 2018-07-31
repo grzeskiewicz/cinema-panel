@@ -50,13 +50,15 @@ fieldset {
     flex-direction: column;
     margin:1rem;
 }
-#films div, #prices div {
+#showings-listed div, #films div, #prices div {
     display: flex;
     flex-direction: row;
     flex-flow:nowrap;
     justify-content:space-between;
     border:1px solid grey;
 }
+
+
 
 #films .modify, #showings .modify, #prices .modify {
     display:flex;
