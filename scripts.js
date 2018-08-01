@@ -333,7 +333,7 @@
      for (const showing of showingsList) {
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
-            console.log(showing.id, moment(showing.date).hour());
+            console.log(showing.id, moment(showing.date).hour(),moment(showing.date).minute());
          }
      }
      /*  var firstLetter = form.name.value[0];
