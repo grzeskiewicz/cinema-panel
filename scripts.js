@@ -143,6 +143,7 @@
                  const result = sortShowings(groupArr[film]);
                  console.log(result);
                  for (const showing of groupArr[film]) {
+                    console.log(moment(showing.date),showing.date);
                      const descriptionDiv = document.createElement("div");
                      const description = document.createElement("p");
                      const modifyDiv = document.createElement("div");
