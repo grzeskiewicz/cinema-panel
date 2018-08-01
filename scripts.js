@@ -333,7 +333,7 @@
      for (const showing of showingsList) {
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
-            console.log(moment(showing.date,'HH:mm').get('hour'));
+            console.log(moment(showing.date,'HH:mm').hour();
             console.log(moment(showing.date,'HH:mm').get('hour'),momentTime.get('hour'),showing.id);
          }
      }
