@@ -334,7 +334,7 @@
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
             console.log(moment(showing.date));
-            console.log(moment(showing.date,'HH:mm').get('hour'),momentTime.get('hour'),showing.id);
+            console.log(showing.id);
          }
      }
      /*  var firstLetter = form.name.value[0];
