@@ -332,7 +332,7 @@
      for (const showing of showingsList) {
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
-            console.log(showing.length,(moment(showing.date,'HH:mm')-momentTime)/3600);
+            console.log(showing.length,(moment(showing.date,'HH:mm')-momentTime));
          }
      }
      /*  var firstLetter = form.name.value[0];
