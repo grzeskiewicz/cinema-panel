@@ -342,6 +342,7 @@
          room: roomSelector.value,
          date: dateFixed
      };
+     if validateShowings() {
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newshowing`, 'POST', showing))
          .then(res => res.json())
@@ -353,6 +354,9 @@
                  showingCreate.reset();
              }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
+     } else {
+        alert("NO KURWA NIE");
+     }
  },false);
 
 
