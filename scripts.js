@@ -343,22 +343,22 @@
          date: dateFixed
      };
      if (validateShowings()) {
-     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
-     fetch(request(`${API_URL}newshowing`, 'POST', showing))
-         .then(res => res.json())
-         .then(result => {
-             console.log(JSON.stringify(result));
-             document.querySelector('#showing-status').innerHTML = "Showing created";
-             setTimeout(function() {
-                 showingCreate.querySelector('button').disabled = false;
-                 showingCreate.reset();
-             }, 3000);
-         }).catch(error => Promise.reject(new Error(error)));
+         // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+         fetch(request(`${API_URL}newshowing`, 'POST', showing))
+             .then(res => res.json())
+             .then(result => {
+                 console.log(JSON.stringify(result));
+                 document.querySelector('#showing-status').innerHTML = "Showing created";
+                 setTimeout(function() {
+                     showingCreate.querySelector('button').disabled = false;
+                     showingCreate.reset();
+                 }, 3000);
+             }).catch(error => Promise.reject(new Error(error)));
      } else {
-        alert("2 showings can't be in one room until first one is still on! Choose different time of showing.");
-        showingCreate.querySelector('button').disabled = false;
+         alert("2 showings can't be in one room until first one is still on! Choose different time of showing.");
+         showingCreate.querySelector('button').disabled = false;
      }
- },false);
+ }, false);
 
 
 
@@ -374,14 +374,14 @@
      for (const showing of showingsList) {
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room === roomSelector.value) {
-            const timeDifference=Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute())) ;
+             const timeDifference = Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute()));
              if (timeDifference < showing.length) {
-return false;
+                 return false;
+             }
+             // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
          }
-         // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
      }
- }
- return true;
+     return true;
  }
 
  const filmCreate = document.querySelector('#film-create');
