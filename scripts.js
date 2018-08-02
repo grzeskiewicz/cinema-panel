@@ -91,40 +91,16 @@
 
  //SHOWINGS  
 
- fetch(request(API_URL + "showings", 'GET'))
+ fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
      .then(showings => {
          showingsList = showings;
          const groupArr = [];
-         //console.log(showings);
          const showingsListed = document.createElement('div');
          showingsListed.id = "showings-listed";
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
              groupArr[showing['title']].push(showing);
-
-             /*)) const optDiv = document.createElement("div");
-              //optDiv.id = showing.id;
-              const opt = document.createElement("p");
-              const modifyDiv = document.createElement("div");
-              modifyDiv.dataset.id = showing.id;
-              modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-              modifyDiv.classList.add('modify');
-              opt.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
-              optDiv.appendChild(opt);
-              optDiv.appendChild(modifyDiv);
-              showingsDiv.appendChild(optDiv);
-              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
-                  if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                      console.log(modifyDiv.dataset);
-                      deleteShowing(modifyDiv.dataset.id);
-                      showingsDiv.removeChild(optDiv);
-                  } else {}
-
-              });
-              modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                  //funkcja
-              });*/
          }
 
 
@@ -170,9 +146,7 @@
 
                  insertAfter(showingsListed, filmTitles);
              });
-             // groupedShowingsArray.push(groupArr[key]);
          }
-         // console.log(groupedShowingsArray);
      });
 
 
