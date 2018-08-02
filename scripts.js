@@ -143,7 +143,7 @@
                  const result = sortShowings(groupArr[film]);
                  console.log(result);
                  for (const showing of groupArr[film]) {
-                    console.log(moment(showing.date),showing.date);
+                     console.log(moment(showing.date), showing.date);
                      const descriptionDiv = document.createElement("div");
                      const description = document.createElement("p");
                      const modifyDiv = document.createElement("div");
@@ -332,12 +332,14 @@
 
      for (const showing of showingsList) {
 
-         if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
-           console.log(Math.abs(Number(moment(showing.date).hour()*60+moment(showing.date).minute()) -  Number(dateFixed.hour()*60+ dateFixed.minute() ) ));
-           // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
+         if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room === roomSelector.value) {
+             if (Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute()))) < showing.length) {
+alert(" O KURWAAAA");
          }
+         // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
      }
-     /*  var firstLetter = form.name.value[0];
+ }
+ /*  var firstLetter = form.name.value[0];
     }
     if (firstLetter.toUpperCase() === "X") {
         e.preventDefault();
