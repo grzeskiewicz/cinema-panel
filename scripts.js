@@ -357,9 +357,9 @@
 
 
 
- showingCreate.addEventListener('submit', validateShowings, false);
+ //showingCreate.addEventListener('submit', validateShowings, false);
 
- function validateShowings(e) {
+ function validateShowings() {
      const time = document.querySelector('#appt-time');
      const momentTime = moment(time.value, 'HH:mm');
      const hour = momentTime.hour();
@@ -369,22 +369,13 @@
      for (const showing of showingsList) {
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room === roomSelector.value) {
-             if (Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute())) < showing.length) {
-
-                e.preventDefault();
-
-alert(" O KURWAAAA");
-break;
+             if (Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute())) < showing.length + 15) {
+return false;
          }
          // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
      }
  }
- /*  var firstLetter = form.name.value[0];
-    }
-    if (firstLetter.toUpperCase() === "X") {
-        e.preventDefault();
-        alert("Your name is not allowed to start with X!");
-    }*/
+ return true;
  }
 
  const filmCreate = document.querySelector('#film-create');
