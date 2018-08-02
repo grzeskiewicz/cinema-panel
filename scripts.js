@@ -380,7 +380,7 @@ break;
                  showingCreate.reset();
              }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
- });
+ },false);
 
  const filmCreate = document.querySelector('#film-create');
 
