@@ -355,7 +355,7 @@
              }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
      } else {
-        alert("NO KURWA NIE");
+        alert("2 showings can't be in one room until first one is still on! Choose different time of showing.");
         showingCreate.querySelector('button').disabled = false;
      }
  },false);
@@ -376,7 +376,6 @@
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room === roomSelector.value) {
             const timeDifference=Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute())) ;
              if (timeDifference < showing.length) {
-console.log("jestem tu",timeDifference,showing.length);
 return false;
          }
          // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
