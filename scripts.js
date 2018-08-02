@@ -342,7 +342,7 @@
          room: roomSelector.value,
          date: dateFixed
      };
-     if validateShowings() {
+     if (validateShowings()) {
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newshowing`, 'POST', showing))
          .then(res => res.json())
