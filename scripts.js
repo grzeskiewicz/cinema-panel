@@ -356,6 +356,7 @@
          }).catch(error => Promise.reject(new Error(error)));
      } else {
         alert("NO KURWA NIE");
+        showingCreate.querySelector('button').disabled = false;
      }
  },false);
 
