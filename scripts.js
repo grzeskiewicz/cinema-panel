@@ -336,8 +336,9 @@
              if (Math.abs(Number(moment(showing.date).hour() * 60 + moment(showing.date).minute()) - Number(dateFixed.hour() * 60 + dateFixed.minute())) < showing.length) {
 
                 e.preventDefault();
-                break;
+
 alert(" O KURWAAAA");
+break;
          }
          // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
      }
