@@ -333,7 +333,7 @@
      for (const showing of showingsList) {
 
          if (moment(showing.date).format('DD.MM.YYYY') === moment(pickedDate).format('DD.MM.YYYY') && showing.room ===roomSelector.value) {
-           console.log(moment(showing.date).hour()*60+moment(showing.date).minute() , dateFixed.hour()*60+ dateFixed.minute() );
+           console.log(moment(showing.date).hour()*60+moment(showing.date).minute() - dateFixed.hour()*60+ dateFixed.minute() );
            // console.log(moment(showing.date).hour(), moment(showing.date).minute() , dateFixed.hour(), dateFixed.minute() );
          }
      }
