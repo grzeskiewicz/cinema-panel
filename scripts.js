@@ -95,12 +95,12 @@ function getShowings(){
     fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => { 
-        console.log(showings);
         sho=showings;
      });
      return sho;
 }
-console.log(getShowings());
+const res=getShowings();
+console.log(res);
 
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
