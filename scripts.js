@@ -95,7 +95,7 @@ function getShowings(){
     fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => { 
-        sho=showings;
+        sho=[...showings];
      });
      console.log(sho);
      return sho;
