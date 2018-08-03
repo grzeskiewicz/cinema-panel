@@ -97,6 +97,7 @@ function getShowings(){
      .then(showings => { 
         sho=showings;
      });
+     console.log(sho);
      return sho;
 }
 const res=getShowings();
