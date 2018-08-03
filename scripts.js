@@ -97,7 +97,7 @@ function getShowings(){
         return showings;
      });
 }
-console.log(getShowings);
+console.log(getShowings());
 
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
