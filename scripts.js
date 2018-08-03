@@ -91,11 +91,13 @@
 
  //SHOWINGS  
 function getShowings(){
+ let sho;
     fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => { 
-        return showings;
+        sho=showings;
      });
+     return sho;
 }
 console.log(getShowings());
 
