@@ -98,8 +98,8 @@ function getShowings(){
         return showings;
      });
 }
-getShowings();
-
+const hehe=getShowings();
+console.log(hehe);
 
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
