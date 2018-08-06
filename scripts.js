@@ -96,7 +96,7 @@ function getShowings(){
      .then(res => res.json())
      .then(showings => { 
     console.log(showings,this);
-    return this.showings;
+    return showings;
      });
 
 }
