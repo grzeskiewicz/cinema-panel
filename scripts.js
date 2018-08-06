@@ -88,17 +88,16 @@
  calendarCtrl.initCalendar();
  let showingsList;
 
-
+ let sho;
  //SHOWINGS  
 function getShowings(){
- let sho;
+
     fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => { 
-    console.log(showings,this);
-    return showings;
+ sho=showings;
      });
-
+return sho;
 }
 const res=getShowings();
 console.log(res);
