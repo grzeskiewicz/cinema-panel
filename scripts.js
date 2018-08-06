@@ -97,6 +97,7 @@ fetch(request(API_URL + "showings", 'GET'))
      .then(showings => { 
         return showings;
      });
+     return this;
 }
 const hehe=getShowings();
 console.log(hehe);
