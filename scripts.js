@@ -95,10 +95,10 @@ function getShowings(){
     fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => { 
-        sho=[...showings];
+    console.log(showings,this);
+    return this.showings;
      });
-     console.log(sho);
-     return sho;
+
 }
 const res=getShowings();
 console.log(res);
