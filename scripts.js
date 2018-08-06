@@ -99,8 +99,8 @@ return fetch(request(API_URL + "showings", 'GET'))
      });
 
 }
-const hehe=getShowings().then(res=>{console.log(res)});
-//console.log(hehe);
+getShowings().then(res=>{console.log(res)});
+
 
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
