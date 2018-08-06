@@ -92,10 +92,10 @@
  //SHOWINGS  
 function getShowings(){
 
-   return fetch(request(API_URL + "showings", 'GET'))
+fetch(request(API_URL + "showings", 'GET'))
      .then(res => res.json())
      .then(showings => { 
-       // return showings;
+        return showings;
      });
 }
 const hehe=getShowings();
