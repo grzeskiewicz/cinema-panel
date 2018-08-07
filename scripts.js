@@ -111,6 +111,7 @@ getShowings().then(res=>{console.log(res)});
          showingsListed.id = "showings-listed";
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
+             console.log(Moment(showing.date));
              groupArr[showing['title']].push(showing);
          }
 
