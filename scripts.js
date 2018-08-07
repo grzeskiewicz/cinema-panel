@@ -109,9 +109,11 @@ getShowings().then(res=>{console.log(res)});
          const groupArr = [];
          const showingsListed = document.createElement('div');
          showingsListed.id = "showings-listed";
+         const today=moment('DD.MM.YYYY');
+         console.log(today);
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
-             console.log(moment() );
+            // if (showing.date > today)
              groupArr[showing['title']].push(showing);
          }
 
