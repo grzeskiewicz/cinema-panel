@@ -110,6 +110,10 @@ function refreshShowings() {
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
      .then(showings => {
+                 const showingEditForm = showingCreate.cloneNode(true);
+         showingEditForm.id = "showing-edit";
+         showingEditForm.querySelector('button').textContent = "Edit showing";
+
 loader.hidden=true;
          showingsList = showings;
          const groupArr = [];
@@ -162,7 +166,11 @@ loader.hidden=true;
 
                      });
                      modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                         //funkcja
+                                          showingEditForm.title.value = film.title;
+                 showingEditForm.director.value = film.director;
+                 showingEditForm.genre.value = film.genre;
+                 showingEditForm.length.value = film.length;
+                 insertAfter(showingEditForm, descriptionDiv);
                      });
                  }
 
