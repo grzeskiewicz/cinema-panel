@@ -166,7 +166,7 @@ loader.hidden=true;
 
                      });
                      modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                                          showingEditForm.title.value = film.title;
+                                          //showingEditForm.title.value = film.title;
                 // showingEditForm.director.value = film.director;
                 // showingEditForm.genre.value = film.genre;
                 // showingEditForm.length.value = film.length;
