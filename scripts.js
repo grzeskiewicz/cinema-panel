@@ -105,7 +105,7 @@ return fetch(request(API_URL + "showings", 'GET'))
 //getShowings().then(res=>{console.log(res)});
 
 function refreshShowings() {
-    showingsDiv2.innerHTML;
+    showingsDiv2.innerHTML="";
     loader.hidden=false;
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
