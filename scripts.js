@@ -83,6 +83,8 @@
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
  const showingsDiv = document.querySelector('#showings');
+  const showingsDiv2 = document.querySelector('#showings-2');
+  const showingsConstant=document.querySelector('#constant');
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
  const loader=document.querySelector('.loader');
@@ -103,7 +105,7 @@ return fetch(request(API_URL + "showings", 'GET'))
 //getShowings().then(res=>{console.log(res)});
 
 function refreshShowings() {
-    showingsDiv.innerHTML='  <p>Showings: </p><div class="loader"></div>';
+    showingsDiv2.innerHTML;
     loader.hidden=false;
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
@@ -131,7 +133,7 @@ loader.hidden=true;
              const title = document.createElement('p');
              title.innerHTML = `${film}`;
              filmTitles.appendChild(title);
-             showingsDiv.appendChild(filmTitles);
+             showingsDiv2.appendChild(filmTitles);
 
 
              filmTitles.addEventListener('click', function() {
