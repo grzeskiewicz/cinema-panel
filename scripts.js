@@ -85,6 +85,7 @@
  const showingsDiv = document.querySelector('#showings');
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
+ const loader=document.querySelector('.loader');
  calendarCtrl.initCalendar();
  let showingsList;
 
@@ -105,6 +106,7 @@ function refreshShowings() {
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
      .then(showings => {
+loader.hiddent=true;
          showingsList = showings;
          const groupArr = [];
          const showingsListed = document.createElement('div');
