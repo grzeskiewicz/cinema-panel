@@ -99,7 +99,7 @@ return fetch(request(API_URL + "showings", 'GET'))
      });
 
 }
-getShowings().then(res=>{console.log(res)});
+//getShowings().then(res=>{console.log(res)});
 
 
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
