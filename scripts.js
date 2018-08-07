@@ -101,7 +101,7 @@ return fetch(request(API_URL + "showings", 'GET'))
 }
 //getShowings().then(res=>{console.log(res)});
 
-
+function refreshShowings() {
  fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
      .then(res => res.json())
      .then(showings => {
@@ -164,8 +164,8 @@ return fetch(request(API_URL + "showings", 'GET'))
              });
          }
      });
-
-
+}
+refreshShowings();
  //FILMS
 
  fetch(request(API_URL + "films", 'GET'))
