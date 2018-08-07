@@ -111,8 +111,8 @@ getShowings().then(res=>{console.log(res)});
          showingsListed.id = "showings-listed";
          const today=moment();
          
-         today.hour=0;
-         today.minute=1;
+         today.hour()=0;
+         today.minute()=1;
          console.log(today);
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
