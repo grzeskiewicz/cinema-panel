@@ -113,8 +113,7 @@ getShowings().then(res=>{console.log(res)});
          console.log(today);
          for (const showing of showings) {
              if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
-             //if (showing.date > today)
-              groupArr[showing['title']].push(showing);
+             if (moment(showing.date) > today) groupArr[showing['title']].push(showing);
          }
 
 
