@@ -345,6 +345,7 @@ refreshShowings();
                  setTimeout(function() {
                      showingCreate.querySelector('button').disabled = false;
                      showingCreate.reset();
+                     refreshShowings();
                  }, 3000);
              }).catch(error => Promise.reject(new Error(error)));
      } else {
