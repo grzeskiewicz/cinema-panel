@@ -149,7 +149,7 @@ loader.hidden=true;
                      const descriptionDiv = document.createElement("div");
                      const description = document.createElement("p");
                      const modifyDiv = document.createElement("div");
-                     modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                     modifyDiv.innerHTML = `<i class="fa fa-trash"></i>`;
                      modifyDiv.classList.add('modify');
                      modifyDiv.dataset.id = showing.id;
                      description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
@@ -164,14 +164,6 @@ loader.hidden=true;
                              showingsListed.removeChild(descriptionDiv);
                          } else {}
 
-                     });
-                     modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                        console.log(showingEditForm.elements['film-select']);
-                                          //showingEditForm.title.value = film.title;
-                // showingEditForm.director.value = film.director;
-                // showingEditForm.genre.value = film.genre;
-                // showingEditForm.length.value = film.length;
-                 insertAfter(showingEditForm, descriptionDiv);
                      });
                  }
 
