@@ -284,6 +284,24 @@ refreshFilms();
      });
 
 
+//TICKETS
+ fetch(request(API_URL + "tickets", 'GET'))
+     .then(res => res.json())
+     .then(tickets => {
+         console.log(tickets);
+
+
+         for (const ticket of tickets) {
+            /* const opt = document.createElement("option");
+             opt.value = room.id;
+             opt.text = `${room.id} Seats: ${room.seats}`;
+             roomSelector.options.add(opt);*/
+         }
+     });
+
+
+
+
  const deleteShowing = function(id) {
      const show = { showid: id };
      fetch(request(API_URL + "deleteshowing", 'POST', show))
@@ -309,6 +327,17 @@ refreshFilms();
  const deletePrice = function(id) {
      const price = { priceid: id };
      fetch(request(API_URL + "deleteprice", 'POST', price))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         });
+
+ }
+
+
+  const deleteTicket = function(id) {
+     const ticket = { ticketid: id };
+     fetch(request(API_URL + "deleteticket", 'POST', ticket))
          .then(res => res.json())
          .then(result => {
              console.log(result);
