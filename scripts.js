@@ -83,98 +83,97 @@
  const roomSelector = document.querySelector('#room-select');
  const priceSelector = document.querySelector('#price-select');
  const showingsDiv = document.querySelector('#showings');
-  const showingsDiv2 = document.querySelector('#showings-2');
-  const showingsConstant=document.querySelector('#constant');
+ const showingsDiv2 = document.querySelector('#showings-2');
+ const showingsConstant = document.querySelector('#constant');
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
- const loader=document.querySelector('.loader');
+ const loader = document.querySelector('.loader');
  calendarCtrl.initCalendar();
  let showingsList;
 
 
  //SHOWINGS  
-function getShowings(){
+ function getShowings() {
 
-return fetch(request(API_URL + "showings", 'GET'))
-     .then(res => res.json())
-     .then(showings => { 
-        return showings;
-     });
+     return fetch(request(API_URL + "showings", 'GET'))
+         .then(res => res.json())
+         .then(showings => {
+             return showings;
+         });
 
-}
-//getShowings().then(res=>{console.log(res)});
+ }
+ //getShowings().then(res=>{console.log(res)});
 
-function refreshShowings() {
-    showingsDiv2.innerHTML="";
-    loader.hidden=false;
- fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
-     .then(res => res.json())
-     .then(showings => {
-                 const showingEditForm = showingCreate.cloneNode(true);
-         showingEditForm.id = "showing-edit";
-         showingEditForm.querySelector('button').textContent = "Edit showing";
+ function refreshShowings() {
+     showingsDiv2.innerHTML = "";
+     loader.hidden = false;
+     fetch(request(API_URL + "showings", 'GET')) //CHANGE THIS FUNCTION NOT TO REPEAT THE CODE AFTER CREATING SHOWING
+         .then(res => res.json())
+         .then(showings => {
 
-loader.hidden=true;
-         showingsList = showings;
-         const groupArr = [];
-         const showingsListed = document.createElement('div');
-         showingsListed.id = "showings-listed";
-         const today=moment();
-         
-         today.hour(0);
-         today.minute(1);
-         console.log(today);
-         for (const showing of showings) {
-             if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
-             if (moment(showing.date) > today) groupArr[showing['title']].push(showing);
-         }
+             loader.hidden = true;
+             showingsList = showings;
+             const groupArr = [];
+             const showingsListed = document.createElement('div');
+             showingsListed.id = "showings-listed";
+             const today = moment();
+
+             today.hour(0);
+             today.minute(1);
+             console.log(today);
+             for (const showing of showings) {
+                 if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
+                 if (moment(showing.date) > today) groupArr[showing['title']].push(showing);
+             }
 
 
-         const groupedShowingsArray = [];
-         for (let film in groupArr) {
-             const filmTitles = document.createElement('div');
-             filmTitles.classList.add('film-titles');
-             const title = document.createElement('p');
-             title.innerHTML = `${film}`;
-             filmTitles.appendChild(title);
-             showingsDiv2.appendChild(filmTitles);
+             const groupedShowingsArray = [];
+             for (let film in groupArr) {
+                 const filmTitles = document.createElement('div');
+                 filmTitles.classList.add('film-titles');
+                 const title = document.createElement('p');
+                 title.innerHTML = `${film}`;
+                 filmTitles.appendChild(title);
+                 showingsDiv2.appendChild(filmTitles);
 
 
-             filmTitles.addEventListener('click', function() {
-                 showingsListed.innerHTML = "";
-                 const result = sortShowings(groupArr[film]);
-                 console.log(result);
-                 for (const showing of groupArr[film]) {
-                     console.log(moment(showing.date), showing.date);
-                     const descriptionDiv = document.createElement("div");
-                     const description = document.createElement("p");
-                     const modifyDiv = document.createElement("div");
-                     modifyDiv.innerHTML = `<i class="fa fa-trash"></i>`;
-                     modifyDiv.classList.add('modify');
-                     modifyDiv.dataset.id = showing.id;
-                     description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
-                     descriptionDiv.appendChild(description);
-                     descriptionDiv.appendChild(modifyDiv);
-                     showingsListed.appendChild(descriptionDiv);
+                 filmTitles.addEventListener('click', function() {
+                     showingsListed.innerHTML = "";
+                     const result = sortShowings(groupArr[film]);
+                     console.log(result);
+                     for (const showing of groupArr[film]) {
+                         console.log(moment(showing.date), showing.date);
+                         const descriptionDiv = document.createElement("div");
+                         const description = document.createElement("p");
+                         const modifyDiv = document.createElement("div");
+                         modifyDiv.innerHTML = `<i class="fa fa-trash"></i>`;
+                         modifyDiv.classList.add('modify');
+                         modifyDiv.dataset.id = showing.id;
+                         description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+                         descriptionDiv.appendChild(description);
+                         descriptionDiv.appendChild(modifyDiv);
+                         showingsListed.appendChild(descriptionDiv);
 
-                     modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
-                         if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                             console.log(modifyDiv.dataset);
-                             deleteShowing(modifyDiv.dataset.id);
-                             showingsListed.removeChild(descriptionDiv);
-                         } else {}
+                         modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                             if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
+                                 console.log(modifyDiv.dataset);
+                                 deleteShowing(modifyDiv.dataset.id);
+                                 showingsListed.removeChild(descriptionDiv);
+                             } else {}
 
-                     });
-                 }
+                         });
+                     }
 
-                 insertAfter(showingsListed, filmTitles);
-             });
-         }
-     });
-}
-refreshShowings();
+                     insertAfter(showingsListed, filmTitles);
+                 });
+             }
+         });
+ }
+ refreshShowings();
  //FILMS
 
+
+function refreshFilms() {
  fetch(request(API_URL + "films", 'GET'))
      .then(res => res.json())
      .then(films => {
@@ -222,7 +221,9 @@ refreshShowings();
 
      });
 
+}
 
+refreshFilms();
 
  //ROOMS
 
@@ -405,6 +406,7 @@ refreshShowings();
              setTimeout(function() {
                  filmCreate.querySelector('button').disabled = false;
                  filmCreate.reset();
+                 refreshFilms();
              }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
  });
