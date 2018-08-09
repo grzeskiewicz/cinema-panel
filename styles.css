@@ -50,7 +50,7 @@ fieldset {
     font-size: 0.8rem;
 }
 
-#second-row p {
+#second-row p, #third-row p {
     text-align: center;
     margin: 0.5rem;
 }
