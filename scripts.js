@@ -87,6 +87,7 @@
  const showingsConstant = document.querySelector('#constant');
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
+  const ticketsDiv = document.querySelector('#tickets');
  const loader = document.querySelector('.loader');
  calendarCtrl.initCalendar();
  let showingsList;
