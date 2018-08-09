@@ -362,6 +362,7 @@ getTickets();
 
   const deleteTicket = function(id) {
      const ticket = { ticketid: id };
+     console.log(id);
      fetch(request(API_URL + "deleteticket", 'POST', ticket))
          .then(res => res.json())
          .then(result => {
