@@ -313,6 +313,7 @@ function getTickets(){
 
              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete the ticket?")) {
+                    console.log(this.dataset);
                       deleteTicket(this.dataset.id);
                      ticketsDiv.removeChild(descriptionDiv);
                  } else {}
