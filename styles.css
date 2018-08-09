@@ -41,7 +41,7 @@ fieldset {
 }
 
 
-#second-row {
+#second-row ,#third-row{
     display: flex;
     flex-direction: row;
     flex-flow: nowrap;
