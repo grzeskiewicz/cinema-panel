@@ -286,6 +286,7 @@ refreshFilms();
 
 
 //TICKETS
+function getTickets(){
  fetch(request(API_URL + "tickets", 'GET'))
      .then(res => res.json())
      .then(tickets => {
@@ -302,7 +303,7 @@ refreshFilms();
                           const descriptionDiv = document.createElement("div");
              const description = document.createElement("p");
              const modifyDiv = document.createElement("div");
-             modifyDiv.dataset.id = price.id;
+             modifyDiv.dataset.id = ticket.id;
              modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
              modifyDiv.classList.add('modify');
              description.innerHTML = `${ticket.id} || Film : ${ticket.title}  || Seat: ${ticket.seat} || Price: ${ticket.price}  ||  Customer: ${ticket.email}`;
@@ -312,7 +313,7 @@ refreshFilms();
 
              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete the ticket?")) {
-                     // deletePrice(this.dataset.id);
+                      deleteTicket(this.dataset.id);
                      ticketsDiv.removeChild(descriptionDiv);
                  } else {}
 
@@ -323,8 +324,8 @@ refreshFilms();
          }
      });
 
-
-
+}
+getTickets();
 
  const deleteShowing = function(id) {
      const show = { showid: id };
