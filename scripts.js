@@ -443,7 +443,7 @@ getTickets();
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-
+console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
