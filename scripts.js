@@ -87,7 +87,7 @@
  const showingsConstant = document.querySelector('#constant');
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
-  const ticketsDiv = document.querySelector('#tickets');
+ const ticketsDiv = document.querySelector('#tickets');
  const loader = document.querySelector('.loader');
  calendarCtrl.initCalendar();
  let showingsList;
@@ -174,57 +174,57 @@
  //FILMS
 
 
-function refreshFilms() {
- fetch(request(API_URL + "films", 'GET'))
-     .then(res => res.json())
-     .then(films => {
-         const filmEditForm = filmCreate.cloneNode(true);
-         filmEditForm.id = "film-edit";
-         filmEditForm.querySelector('button').textContent = "Edit film";
-         for (const film of films) {
-             const option = document.createElement("option");
-             option.value = film.id;
-             option.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
-             filmSelector.options.add(option);
-         }
+ function refreshFilms() {
+     fetch(request(API_URL + "films", 'GET'))
+         .then(res => res.json())
+         .then(films => {
+             const filmEditForm = filmCreate.cloneNode(true);
+             filmEditForm.id = "film-edit";
+             filmEditForm.querySelector('button').textContent = "Edit film";
+             for (const film of films) {
+                 const option = document.createElement("option");
+                 option.value = film.id;
+                 option.text = `ID: ${film.id} || Title: ${film.title} || Director: ${film.director} || Genre: ${film.genre} || Length: ${film.length}`;
+                 filmSelector.options.add(option);
+             }
 
 
-         for (const film of films) {
-             const descriptionDiv = document.createElement("div");
-             const description = document.createElement("p");
-             const modifyDiv = document.createElement("div");
-             modifyDiv.dataset.id = film.id;
-             modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-             modifyDiv.classList.add('modify');
-             description.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
-             descriptionDiv.appendChild(description);
-             descriptionDiv.appendChild(modifyDiv);
-             filmsDiv.appendChild(descriptionDiv);
+             for (const film of films) {
+                 const descriptionDiv = document.createElement("div");
+                 const description = document.createElement("p");
+                 const modifyDiv = document.createElement("div");
+                 modifyDiv.dataset.id = film.id;
+                 modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                 modifyDiv.classList.add('modify');
+                 description.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+                 descriptionDiv.appendChild(description);
+                 descriptionDiv.appendChild(modifyDiv);
+                 filmsDiv.appendChild(descriptionDiv);
 
-             modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
-                 if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     deleteFilm(modifyDiv.dataset.id);
-                     filmsDiv.removeChild(descriptionDiv);
-                 } else {}
+                 modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                     if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
+                         deleteFilm(modifyDiv.dataset.id);
+                         filmsDiv.removeChild(descriptionDiv);
+                     } else {}
 
-             });
+                 });
 
-             modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                 filmEditForm.title.value = film.title;
-                 filmEditForm.director.value = film.director;
-                 filmEditForm.genre.value = film.genre;
-                 filmEditForm.length.value = film.length;
-                 filmEditForm.category.value = film.category;
-                 insertAfter(filmEditForm, descriptionDiv);
-             });
+                 modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                     filmEditForm.title.value = film.title;
+                     filmEditForm.director.value = film.director;
+                     filmEditForm.genre.value = film.genre;
+                     filmEditForm.length.value = film.length;
+                     filmEditForm.category.value = film.category;
+                     insertAfter(filmEditForm, descriptionDiv);
+                 });
 
-         }
+             }
 
-     });
+         });
 
-}
+ }
 
-refreshFilms();
+ refreshFilms();
 
  //ROOMS
 
@@ -285,48 +285,48 @@ refreshFilms();
      });
 
 
-//TICKETS
-function getTickets(){
- fetch(request(API_URL + "tickets", 'GET'))
-     .then(res => res.json())
-     .then(tickets => {
-         console.log(tickets);
+ //TICKETS
+ function getTickets() {
+     fetch(request(API_URL + "tickets", 'GET'))
+         .then(res => res.json())
+         .then(tickets => {
+             console.log(tickets);
 
 
-         for (const ticket of tickets) {
-            /* const opt = document.createElement("option");
-             opt.value = room.id;
-             opt.text = `${room.id} Seats: ${room.seats}`;
-             roomSelector.options.add(opt);*/
+             for (const ticket of tickets) {
+                 /* const opt = document.createElement("option");
+                  opt.value = room.id;
+                  opt.text = `${room.id} Seats: ${room.seats}`;
+                  roomSelector.options.add(opt);*/
 
 
-                          const descriptionDiv = document.createElement("div");
-             const description = document.createElement("p");
-             const modifyDiv = document.createElement("div");
-             modifyDiv.dataset.id = ticket.id;
-             modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-             modifyDiv.classList.add('modify');
-             description.innerHTML = `${ticket.id} || Film : ${ticket.title}  || Seat: ${ticket.seat} || Price: ${ticket.price}  ||  Customer: ${ticket.email}`;
-             descriptionDiv.appendChild(description);
-             descriptionDiv.appendChild(modifyDiv);
-             ticketsDiv.appendChild(descriptionDiv);
+                 const descriptionDiv = document.createElement("div");
+                 const description = document.createElement("p");
+                 const modifyDiv = document.createElement("div");
+                 modifyDiv.dataset.id = ticket.id;
+                 modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                 modifyDiv.classList.add('modify');
+                 description.innerHTML = `${ticket.id} || Film : ${ticket.title}  || Seat: ${ticket.seat} || Price: ${ticket.price}  ||  Customer: ${ticket.email}`;
+                 descriptionDiv.appendChild(description);
+                 descriptionDiv.appendChild(modifyDiv);
+                 ticketsDiv.appendChild(descriptionDiv);
 
-             modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
-                 if (confirm("Are you sure you want to delete the ticket?")) {
-                    console.log(modifyDiv.dataset);
-                      deleteTicket(modifyDiv.dataset.id);
-                     ticketsDiv.removeChild(descriptionDiv);
-                 } else {}
+                 modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                     if (confirm("Are you sure you want to delete the ticket?")) {
+                         console.log(modifyDiv.dataset);
+                         deleteTicket(modifyDiv.dataset.id);
+                         ticketsDiv.removeChild(descriptionDiv);
+                     } else {}
 
-             });
-             modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                 //funkcja
-             });
-         }
-     });
+                 });
+                 modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                     //funkcja
+                 });
+             }
+         });
 
-}
-getTickets();
+ }
+ getTickets();
 
  const deleteShowing = function(id) {
      const show = { showid: id };
@@ -361,7 +361,7 @@ getTickets();
  }
 
 
-  const deleteTicket = function(id) {
+ const deleteTicket = function(id) {
      const ticket = { ticketid: id };
      console.log(id);
      fetch(request(API_URL + "deleteticket", 'POST', ticket))
@@ -443,7 +443,10 @@ getTickets();
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-console.log(filmCreate.imageUrl.value);
+//first upload image
+const uploadFile=document.querySelector('#upload-input');
+console.log(uploadFile);
+    // console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
