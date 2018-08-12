@@ -15,6 +15,15 @@
          body: JSON.stringify(dataset)
      });
  }
+ function requestData(url, method, data) {
+     return new Request(url, {
+         method: method,
+         headers: headers,
+         mode: 'cors',
+         data: data
+     });
+ }
+
 
  function insertAfter(el, referenceNode) {
      referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
@@ -449,7 +458,7 @@
          const formData = new FormData();
          const file = uploadFile.files[0];
          formData.append('uploads[]', file, file.name);
-         fetch(request(`${API_URL}upload`, 'POST', formData))
+         fetch(requestData(`${API_URL}upload`, 'POST', formData))
              .then(res => res.json())
              .then(result => {
 console.log(result);
