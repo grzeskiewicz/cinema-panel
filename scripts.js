@@ -445,7 +445,7 @@
      e.preventDefault();
 //first upload image
 const uploadFile=document.querySelector('#upload-input');
-console.log(uploadFile);
+console.log(uploadFile.files);
     // console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
