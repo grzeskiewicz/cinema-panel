@@ -443,10 +443,19 @@
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-//first upload image
-const uploadFile=document.querySelector('#upload-input');
-console.log(uploadFile.files.length);
-    // console.log(filmCreate.imageUrl.value);
+     //first upload image
+     const uploadFile = document.querySelector('#upload-input');
+     if (uploadFile.files.length > 0) {
+         const formData = new FormData();
+         const file = uploadFile.files[0];
+         formData.append('uploads[]', file, file.name);
+         fetch(request(`${API_URL}upload`, 'POST', formData))
+             .then(res => res.json())
+             .then(result => {
+console.log(result);
+             });
+     }
+     // console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
