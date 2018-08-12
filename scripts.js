@@ -457,6 +457,7 @@
      if (uploadFile.files.length > 0) {
          const formData = new FormData();
          const file = uploadFile.files[0];
+         console.log(file.name);
          formData.append('uploads[]', file, file.name);
          console.log(formData);
          fetch(requestData(`${API_URL}upload`, 'POST', formData))
