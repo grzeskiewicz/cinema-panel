@@ -458,6 +458,7 @@
          const formData = new FormData();
          const file = uploadFile.files[0];
          formData.append('uploads[]', file, file.name);
+         console.log(formData);
          fetch(requestData(`${API_URL}upload`, 'POST', formData))
              .then(res => res.json())
              .then(result => {
