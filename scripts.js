@@ -18,8 +18,6 @@
  function requestData(url, method, data) {
      return new Request(url, {
          method: method,
-         headers: headers,
-         mode: 'cors',
          data: data
      });
  }
