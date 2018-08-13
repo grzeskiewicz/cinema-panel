@@ -15,6 +15,7 @@
          body: JSON.stringify(dataset)
      });
  }
+
  function requestData(url, method, data) {
      return new Request(url, {
          method: method,
@@ -458,32 +459,42 @@
          console.log(file.name);
          formData.append('uploads[]', file, file.name);
          console.log(formData);
-         fetch(requestData(`${API_URL}upload`, 'POST', formData))
+         $.ajax({
+             url: 'https://cinema-node.herokuapp.com/upload',
+             type: 'POST',
+             data: formData,
+             processData: false,
+             contentType: false,
+             success: function(data) {
+                 console.log('upload successful!');
+             }
+         });
+         /* fetch(requestData(`${API_URL}upload`, 'POST', formData))
              .then(res => res.json())
              .then(result => {
 console.log(result);
-             });
+             }); */
      }
      // console.log(filmCreate.imageUrl.value);
-    /* filmCreate.querySelector('button').disabled = true;
-     const film = {
-         title: filmCreate.title.value,
-         director: filmCreate.director.value,
-         genre: filmCreate.genre.value,
-         length: filmCreate.length.value,
-         category: filmCreate.category.value,
-         imageurl: filmCreate.imageurl.value
-     };
-     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
-     fetch(request(`${API_URL}newfilm`, 'POST', film))
-         .then(res => res.json())
-         .then(result => {
-             console.log(JSON.stringify(result));
-             document.querySelector('#film-status').innerHTML = "Film created";
-             setTimeout(function() {
-                 filmCreate.querySelector('button').disabled = false;
-                 filmCreate.reset();
-                 refreshFilms();
-             }, 3000);
-         }).catch(error => Promise.reject(new Error(error))); */
+     /* filmCreate.querySelector('button').disabled = true;
+      const film = {
+          title: filmCreate.title.value,
+          director: filmCreate.director.value,
+          genre: filmCreate.genre.value,
+          length: filmCreate.length.value,
+          category: filmCreate.category.value,
+          imageurl: filmCreate.imageurl.value
+      };
+      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+      fetch(request(`${API_URL}newfilm`, 'POST', film))
+          .then(res => res.json())
+          .then(result => {
+              console.log(JSON.stringify(result));
+              document.querySelector('#film-status').innerHTML = "Film created";
+              setTimeout(function() {
+                  filmCreate.querySelector('button').disabled = false;
+                  filmCreate.reset();
+                  refreshFilms();
+              }, 3000);
+          }).catch(error => Promise.reject(new Error(error))); */
  });
