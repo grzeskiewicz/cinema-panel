@@ -465,7 +465,7 @@ console.log(result);
              });
      }
      // console.log(filmCreate.imageUrl.value);
-     filmCreate.querySelector('button').disabled = true;
+    /* filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
          director: filmCreate.director.value,
@@ -485,5 +485,5 @@ console.log(result);
                  filmCreate.reset();
                  refreshFilms();
              }, 3000);
-         }).catch(error => Promise.reject(new Error(error)));
+         }).catch(error => Promise.reject(new Error(error))); */
  });
