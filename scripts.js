@@ -342,10 +342,10 @@
                  const descriptionDiv = document.createElement("div");
                  const description = document.createElement("p");
                  const modifyDiv = document.createElement("div");
-                 modifyDiv.dataset.id = ticket.id;
+                 modifyDiv.dataset.id = customer.id;
                  modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
                  modifyDiv.classList.add('modify');
-                 description.innerHTML = `${customer.id} || Film : ${ticket.title}  || `;
+                 description.innerHTML = `${customer.id} || Film :  || `;
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
@@ -353,7 +353,7 @@
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
                          console.log(modifyDiv.dataset);
-                         deleteTicket(modifyDiv.dataset.id);
+                         deleteCustomer(modifyDiv.dataset.id);
                          customersDiv.removeChild(descriptionDiv);
                      } else {}
 
