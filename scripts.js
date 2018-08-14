@@ -426,6 +426,19 @@ getCustomers();
 
 
 
+ const ticketsByCustomer= function(id) {
+     const customer = { customerid: id };
+     console.log(id);
+     fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         });
+
+ }
+
+
+
 
  const showingCreate = document.querySelector('#showing-create');
 
