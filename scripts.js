@@ -345,7 +345,7 @@
                  modifyDiv.dataset.id = customer.id;
                  modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
                  modifyDiv.classList.add('modify');
-                 description.innerHTML = `${customer.id} || Film :  || `;
+                 description.innerHTML = `${customer.id} || E-mail : ${customer.email}   || Name : ${customer.name}  || Surename :  ${customer.surename} || Telephone : ${customer.telephone}   || `;
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
