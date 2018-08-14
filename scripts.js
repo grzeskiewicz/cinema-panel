@@ -511,7 +511,8 @@ getCustomers();
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     console.log(filmCreate.imageUrl.value);
+     console.log('heheheh!!!!');
+  /*   console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
@@ -532,5 +533,5 @@ getCustomers();
                  filmCreate.reset();
                  refreshFilms();
              }, 3000);
-         }).catch(error => Promise.reject(new Error(error)));
+         }).catch(error => Promise.reject(new Error(error)));*/
  });
