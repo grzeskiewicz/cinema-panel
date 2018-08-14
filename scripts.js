@@ -527,7 +527,7 @@ function uploadFile(file, signedRequest, url){
 
  function getSignedRequest(file){
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+  xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
   xhr.onreadystatechange = () => {
     if(xhr.readyState === 4){
       if(xhr.status === 200){
@@ -550,7 +550,7 @@ function uploadFile(file, signedRequest, url){
 
          const files = document.getElementById('file-input').files;
     const file = files[0];
-         console.log(file);
+         getSignedRequest(file);
   /*   console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
