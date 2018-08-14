@@ -330,7 +330,7 @@
  getTickets();
 
 
- function getCuostmers() {
+ function getCustomers() {
      fetch(request(API_URL + "customers", 'GET'))
          .then(res => res.json())
          .then(customers => {
@@ -365,7 +365,7 @@
          });
 
  }
-
+getCustomers();
 
 
  const deleteShowing = function(id) {
