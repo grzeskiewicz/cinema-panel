@@ -16,14 +16,6 @@
      });
  }
 
- function requestData(url, method, data) {
-     return new Request(url, {
-         method: method,
-         data: data
-     });
- }
-
-
  function insertAfter(el, referenceNode) {
      referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
  }
@@ -96,6 +88,7 @@
  const filmsDiv = document.querySelector('#films');
  const pricesDiv = document.querySelector('#prices');
  const ticketsDiv = document.querySelector('#tickets');
+ const customersDiv = document.querySelector('#customers');
  const loader = document.querySelector('.loader');
  calendarCtrl.initCalendar();
  let showingsList;
@@ -336,6 +329,45 @@
  }
  getTickets();
 
+
+ function getCuostmers() {
+     fetch(request(API_URL + "customers", 'GET'))
+         .then(res => res.json())
+         .then(customers => {
+             console.log(customers);
+
+
+             for (const customer of customers) {
+
+                 const descriptionDiv = document.createElement("div");
+                 const description = document.createElement("p");
+                 const modifyDiv = document.createElement("div");
+                 modifyDiv.dataset.id = ticket.id;
+                 modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                 modifyDiv.classList.add('modify');
+                 description.innerHTML = `${customer.id} || Film : ${ticket.title}  || `;
+                 descriptionDiv.appendChild(description);
+                 descriptionDiv.appendChild(modifyDiv);
+                 customersDiv.appendChild(descriptionDiv);
+
+                 modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                     if (confirm("Are you sure you want to delete this customer?")) {
+                         console.log(modifyDiv.dataset);
+                         deleteTicket(modifyDiv.dataset.id);
+                         customersDiv.removeChild(descriptionDiv);
+                     } else {}
+
+                 });
+                 modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                     //funkcja
+                 });
+             }
+         });
+
+ }
+
+
+
  const deleteShowing = function(id) {
      const show = { showid: id };
      fetch(request(API_URL + "deleteshowing", 'POST', show))
@@ -373,6 +405,18 @@
      const ticket = { ticketid: id };
      console.log(id);
      fetch(request(API_URL + "deleteticket", 'POST', ticket))
+         .then(res => res.json())
+         .then(result => {
+             console.log(result);
+         });
+
+ }
+
+
+ const deleteCustomer = function(id) {
+     const customer = { customerid: id };
+     console.log(id);
+     fetch(request(API_URL + "deletecustomer", 'POST', customer))
          .then(res => res.json())
          .then(result => {
              console.log(result);
@@ -451,50 +495,26 @@
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     //first upload image
-     const uploadFile = document.querySelector('#upload-input');
-     if (uploadFile.files.length > 0) {
-         const formData = new FormData();
-         const file = uploadFile.files[0];
-         console.log(file.name);
-         formData.append('uploads[]', file, file.name);
-         console.log(formData);
-         $.ajax({
-             url: 'https://cinema-node.herokuapp.com/upload',
-             type: 'POST',
-             data: formData,
-             processData: false,
-             contentType: false,
-             success: function(data) {
-                 console.log('upload successful!');
-             }
-         });
-         /* fetch(requestData(`${API_URL}upload`, 'POST', formData))
-             .then(res => res.json())
-             .then(result => {
-console.log(result);
-             }); */
-     }
-     // console.log(filmCreate.imageUrl.value);
-     /* filmCreate.querySelector('button').disabled = true;
-      const film = {
-          title: filmCreate.title.value,
-          director: filmCreate.director.value,
-          genre: filmCreate.genre.value,
-          length: filmCreate.length.value,
-          category: filmCreate.category.value,
-          imageurl: filmCreate.imageurl.value
-      };
-      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
-      fetch(request(`${API_URL}newfilm`, 'POST', film))
-          .then(res => res.json())
-          .then(result => {
-              console.log(JSON.stringify(result));
-              document.querySelector('#film-status').innerHTML = "Film created";
-              setTimeout(function() {
-                  filmCreate.querySelector('button').disabled = false;
-                  filmCreate.reset();
-                  refreshFilms();
-              }, 3000);
-          }).catch(error => Promise.reject(new Error(error))); */
+     console.log(filmCreate.imageUrl.value);
+     filmCreate.querySelector('button').disabled = true;
+     const film = {
+         title: filmCreate.title.value,
+         director: filmCreate.director.value,
+         genre: filmCreate.genre.value,
+         length: filmCreate.length.value,
+         category: filmCreate.category.value,
+         imageurl: filmCreate.imageUrl.value
+     };
+     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+     fetch(request(`${API_URL}newfilm`, 'POST', film))
+         .then(res => res.json())
+         .then(result => {
+             console.log(JSON.stringify(result));
+             document.querySelector('#film-status').innerHTML = "Film created";
+             setTimeout(function() {
+                 filmCreate.querySelector('button').disabled = false;
+                 filmCreate.reset();
+                 refreshFilms();
+             }, 3000);
+         }).catch(error => Promise.reject(new Error(error)));
  });

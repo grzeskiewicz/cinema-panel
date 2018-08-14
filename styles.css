@@ -41,7 +41,7 @@ fieldset {
 }
 
 
-#second-row ,#third-row{
+#second-row ,#third-row,#fourth-row{
     display: flex;
     flex-direction: row;
     flex-flow: nowrap;
@@ -50,7 +50,7 @@ fieldset {
     font-size: 0.8rem;
 }
 
-#second-row p, #third-row p {
+#second-row p, #third-row p, #fourth-row p {
     text-align: center;
     margin: 0.5rem;
 }
@@ -58,7 +58,9 @@ fieldset {
 #showings,
 #films,
 #prices,
-#tickets {
+#tickets,
+#customers,
+ {
     display: inline-flex;
     flex-direction: column;
     margin: 1rem;
@@ -68,7 +70,8 @@ fieldset {
 #showings-listed div,
 #films div,
 #prices div,
-#tickets div {
+#tickets div,
+#customers div {
     display: flex;
     flex-direction: row;
     flex-flow: nowrap;
@@ -81,7 +84,8 @@ fieldset {
 #films .modify,
 #showings .modify,
 #prices .modify ,
-#tickets .modify{
+#tickets .modify,
+#customers .modify{
     display: flex;
     flex-direction: row;
     flex-flow: nowrap;
