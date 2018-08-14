@@ -349,7 +349,7 @@
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-
+descriptionDiv.addEventListener('click',ticketsByCustomer(modifyDiv.dataset.id));
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
                          console.log(modifyDiv.dataset);
