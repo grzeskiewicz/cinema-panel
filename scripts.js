@@ -534,7 +534,7 @@ function uploadFile(file, signedRequest, url){
       if(xhr.status === 200){
         const response = JSON.parse(xhr.responseText);
         console.log(response);
-       // uploadFile(file, response.signedRequest, response.url);
+        uploadFile(file, response.signedRequest, response.url);
       }
       else{
         alert('Could not get signed URL.');
