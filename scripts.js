@@ -1,6 +1,6 @@
  import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
- const IMAGE_URL='https://cinema-node-bucket.s3.amazonaws.com/';
+ const IMAGE_URL = 'https://cinema-node-bucket.s3.amazonaws.com/';
  const headers = new Headers({
      'Accept': 'application/json',
      'Content-Type': 'application/json',
@@ -526,8 +526,8 @@
 
 
  function getSignedRequest(file) {
-    let valuex="1";
-    //let imgUrl;
+     let valuex = "1";
+     //let imgUrl;
      const xhr = new XMLHttpRequest();
      xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
      xhr.onreadystatechange = () => {
@@ -551,32 +551,30 @@
 
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-
      const files = document.getElementById('file-input').files;
      const file = files[0];
-     console.log(IMAGE_URL+file.name);
-getSignedRequest(file);
-const fileUrl=IMAGE_URL+file.name;
-     /*   console.log(filmCreate.imageUrl.value);
-        filmCreate.querySelector('button').disabled = true;
-        const film = {
-            title: filmCreate.title.value,
-            director: filmCreate.director.value,
-            genre: filmCreate.genre.value,
-            length: filmCreate.length.value,
-            category: filmCreate.category.value,
-            imageurl: filmCreate.imageUrl.value
-        };
-        // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
-        fetch(request(`${API_URL}newfilm`, 'POST', film))
-            .then(res => res.json())
-            .then(result => {
-                console.log(JSON.stringify(result));
-                document.querySelector('#film-status').innerHTML = "Film created";
-                setTimeout(function() {
-                    filmCreate.querySelector('button').disabled = false;
-                    filmCreate.reset();
-                    refreshFilms();
-                }, 3000);
-            }).catch(error => Promise.reject(new Error(error)));*/
+     getSignedRequest(file);
+     const fileUrl = IMAGE_URL + file.name;
+     console.log(filmCreate.imageUrl.value);
+     filmCreate.querySelector('button').disabled = true;
+     const film = {
+         title: filmCreate.title.value,
+         director: filmCreate.director.value,
+         genre: filmCreate.genre.value,
+         length: filmCreate.length.value,
+         category: filmCreate.category.value,
+         imageurl: fileUrl
+     };
+     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+     fetch(request(`${API_URL}newfilm`, 'POST', film))
+         .then(res => res.json())
+         .then(result => {
+             console.log(JSON.stringify(result));
+             document.querySelector('#film-status').innerHTML = "Film created";
+             setTimeout(function() {
+                 filmCreate.querySelector('button').disabled = false;
+                 filmCreate.reset();
+                 refreshFilms();
+             }, 3000);
+         }).catch(error => Promise.reject(new Error(error)));
  });
