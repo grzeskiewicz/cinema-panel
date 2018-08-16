@@ -542,7 +542,8 @@
          }
      };
      xhr.send();
-     console.log("KONIEC");
+     let valuex="heheheheheheasdasdqwe";
+     return valuex;
     // return imgUrl;
  }
 
