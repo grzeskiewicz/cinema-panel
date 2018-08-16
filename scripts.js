@@ -525,7 +525,7 @@
 
 
  function getSignedRequest(file) {
-    let imgUrl;
+    //let imgUrl;
      const xhr = new XMLHttpRequest();
      xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
      xhr.onreadystatechange = () => {
@@ -542,7 +542,7 @@
          }
      };
      xhr.send();
-     return imgUrl;
+    // return imgUrl;
  }
 
 
