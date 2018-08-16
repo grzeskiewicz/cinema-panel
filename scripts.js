@@ -542,6 +542,7 @@
          }
      };
      xhr.send();
+     console.log("KONIEC");
     // return imgUrl;
  }
 
