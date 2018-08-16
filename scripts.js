@@ -1,6 +1,5 @@
  import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
- const IMG_URL = 'https://cinema-node-bucket.s3.amazonaws.com/';
  const headers = new Headers({
      'Accept': 'application/json',
      'Content-Type': 'application/json',
