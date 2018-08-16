@@ -534,6 +534,7 @@
              if (xhr.status === 200) {
                  const response = JSON.parse(xhr.responseText);
                  valuex=response.url;
+                 console.log('TUTAJ 1 raz',valuex);
                  //imgUrl=response.url;
                  uploadFile(file, response.signedRequest, response.url);
                  
