@@ -534,19 +534,17 @@
              if (xhr.status === 200) {
                  const response = JSON.parse(xhr.responseText);
                  valuex=response.url;
-                 console.log('TUTAJ 1 raz',valuex);
+                 
                  //imgUrl=response.url;
                  uploadFile(file, response.signedRequest, response.url);
-                 
+                 return valuex;
              } else {
                  alert('Could not get signed URL.');
              }
          }
      };
      xhr.send();
-console.log(xhr.responseText);
-     return valuex;
-    // return imgUrl;
+
  }
 
 
