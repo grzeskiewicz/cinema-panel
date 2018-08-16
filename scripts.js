@@ -562,7 +562,7 @@
          genre: filmCreate.genre.value,
          length: filmCreate.length.value,
          category: filmCreate.category.value,
-         imageurl: fileUrl
+         imageurl: file.name
      };
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newfilm`, 'POST', film))
