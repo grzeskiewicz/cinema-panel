@@ -555,7 +555,6 @@
      const file = files[0];
      getSignedRequest(file);
      const fileUrl = IMAGE_URL + file.name;
-     console.log(filmCreate.imageUrl.value);
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
