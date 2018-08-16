@@ -1,6 +1,6 @@
  import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
-
+ const IMG_URL = 'https://cinema-node-bucket.s3.amazonaws.com/';
  const headers = new Headers({
      'Accept': 'application/json',
      'Content-Type': 'application/json',
@@ -349,10 +349,10 @@
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-descriptionDiv.addEventListener('click',function(){
-    ticketsByCustomer(modifyDiv.dataset.id);
-    console.log('hehe');
-});
+                 descriptionDiv.addEventListener('click', function() {
+                     ticketsByCustomer(modifyDiv.dataset.id);
+                     console.log('hehe');
+                 });
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
                          console.log(modifyDiv.dataset);
@@ -368,7 +368,7 @@ descriptionDiv.addEventListener('click',function(){
          });
 
  }
-getCustomers();
+ getCustomers();
 
 
  const deleteShowing = function(id) {
@@ -429,7 +429,7 @@ getCustomers();
 
 
 
- const ticketsByCustomer= function(id) {
+ const ticketsByCustomer = function(id) {
      const customer = { customerid: id };
      console.log(id);
      fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
@@ -507,42 +507,43 @@ getCustomers();
      return true;
  }
 
-function uploadFile(file, signedRequest, url){
-  const xhr = new XMLHttpRequest();
-  xhr.open('PUT', signedRequest);
-  xhr.onreadystatechange = () => {
-    if(xhr.readyState === 4){
-      if(xhr.status === 200){
-        console.log('YES', url);
-       // document.getElementById('preview').src = url;
-       // document.getElementById('avatar-url').value = url;
-      }
-      else{
-        alert('Could not upload file.');
-      }
-    }
-  };
-  xhr.send(file);
-}
+ function uploadFile(file, signedRequest, url) {
+     const xhr = new XMLHttpRequest();
+     xhr.open('PUT', signedRequest);
+     xhr.onreadystatechange = () => {
+         if (xhr.readyState === 4) {
+             if (xhr.status === 200) {
+                 console.log('YES', url);
+                 // document.getElementById('preview').src = url;
+                 // document.getElementById('avatar-url').value = url;
+             } else {
+                 alert('Could not upload file.');
+             }
+         }
+     };
+     xhr.send(file);
+ }
 
 
- function getSignedRequest(file){
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
-  xhr.onreadystatechange = () => {
-    if(xhr.readyState === 4){
-      if(xhr.status === 200){
-        const response = JSON.parse(xhr.responseText);
-        console.log(response);
-        uploadFile(file, response.signedRequest, response.url);
-      }
-      else{
-        alert('Could not get signed URL.');
-      }
-    }
-  };
-  xhr.send();
-}
+ function getSignedRequest(file) {
+    let imgUrl;
+     const xhr = new XMLHttpRequest();
+     xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
+     xhr.onreadystatechange = () => {
+         if (xhr.readyState === 4) {
+             if (xhr.status === 200) {
+                 const response = JSON.parse(xhr.responseText);
+                 console.log(response);
+                 uploadFile(file, response.signedRequest, response.url);
+                 imgUr=response.url;
+             } else {
+                 alert('Could not get signed URL.');
+             }
+         }
+     };
+     xhr.send();
+     return imgUrl;
+ }
 
 
  const filmCreate = document.querySelector('#film-create');
@@ -550,29 +551,30 @@ function uploadFile(file, signedRequest, url){
  filmCreate.addEventListener('submit', function(e) {
      e.preventDefault();
 
-         const files = document.getElementById('file-input').files;
-    const file = files[0];
-         getSignedRequest(file);
-  /*   console.log(filmCreate.imageUrl.value);
-     filmCreate.querySelector('button').disabled = true;
-     const film = {
-         title: filmCreate.title.value,
-         director: filmCreate.director.value,
-         genre: filmCreate.genre.value,
-         length: filmCreate.length.value,
-         category: filmCreate.category.value,
-         imageurl: filmCreate.imageUrl.value
-     };
-     // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
-     fetch(request(`${API_URL}newfilm`, 'POST', film))
-         .then(res => res.json())
-         .then(result => {
-             console.log(JSON.stringify(result));
-             document.querySelector('#film-status').innerHTML = "Film created";
-             setTimeout(function() {
-                 filmCreate.querySelector('button').disabled = false;
-                 filmCreate.reset();
-                 refreshFilms();
-             }, 3000);
-         }).catch(error => Promise.reject(new Error(error)));*/
+     const files = document.getElementById('file-input').files;
+     const file = files[0];
+   const imageUrl=  getSignedRequest(file);
+   console.log(imageUrl);
+     /*   console.log(filmCreate.imageUrl.value);
+        filmCreate.querySelector('button').disabled = true;
+        const film = {
+            title: filmCreate.title.value,
+            director: filmCreate.director.value,
+            genre: filmCreate.genre.value,
+            length: filmCreate.length.value,
+            category: filmCreate.category.value,
+            imageurl: filmCreate.imageUrl.value
+        };
+        // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
+        fetch(request(`${API_URL}newfilm`, 'POST', film))
+            .then(res => res.json())
+            .then(result => {
+                console.log(JSON.stringify(result));
+                document.querySelector('#film-status').innerHTML = "Film created";
+                setTimeout(function() {
+                    filmCreate.querySelector('button').disabled = false;
+                    filmCreate.reset();
+                    refreshFilms();
+                }, 3000);
+            }).catch(error => Promise.reject(new Error(error)));*/
  });
