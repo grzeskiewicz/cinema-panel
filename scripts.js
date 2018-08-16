@@ -513,7 +513,6 @@
          if (xhr.readyState === 4) {
              if (xhr.status === 200) {
                  console.log('YES', url);
-                 return url;
                  // document.getElementById('preview').src = url;
                  // document.getElementById('avatar-url').value = url;
              } else {
@@ -534,11 +533,9 @@
          if (xhr.readyState === 4) {
              if (xhr.status === 200) {
                  const response = JSON.parse(xhr.responseText);
-                 valuex=response.url;
-                 
                  //imgUrl=response.url;
                  uploadFile(file, response.signedRequest, response.url);
-                 return valuex;
+
              } else {
                  alert('Could not get signed URL.');
              }
@@ -556,8 +553,8 @@
 
      const files = document.getElementById('file-input').files;
      const file = files[0];
-   const imageUrl=  getSignedRequest(file);
-   console.log(imageUrl);
+     console.log(file);
+getSignedRequest(file);
      /*   console.log(filmCreate.imageUrl.value);
         filmCreate.querySelector('button').disabled = true;
         const film = {
