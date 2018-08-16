@@ -534,7 +534,7 @@
                  const response = JSON.parse(xhr.responseText);
                  console.log(response);
                  uploadFile(file, response.signedRequest, response.url);
-                 imgUr=response.url;
+                 imgUrl=response.url;
              } else {
                  alert('Could not get signed URL.');
              }
