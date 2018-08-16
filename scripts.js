@@ -513,6 +513,7 @@
          if (xhr.readyState === 4) {
              if (xhr.status === 200) {
                  console.log('YES', url);
+                 return url;
                  // document.getElementById('preview').src = url;
                  // document.getElementById('avatar-url').value = url;
              } else {
