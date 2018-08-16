@@ -1,5 +1,6 @@
  import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
+ const IMAGE_URL='https://cinema-node-bucket.s3.amazonaws.com';
  const headers = new Headers({
      'Accept': 'application/json',
      'Content-Type': 'application/json',
@@ -553,7 +554,7 @@
 
      const files = document.getElementById('file-input').files;
      const file = files[0];
-     console.log(file);
+     console.log(IMAGE_URL+file.name);
 getSignedRequest(file);
      /*   console.log(filmCreate.imageUrl.value);
         filmCreate.querySelector('button').disabled = true;
