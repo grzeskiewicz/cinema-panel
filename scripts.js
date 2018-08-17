@@ -216,10 +216,11 @@
                      filmEditForm.genre.value = film.genre;
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
+                     filmEditForm.uploads[].value=film.imageurl;
                      insertAfter(filmEditForm, descriptionDiv);
 
                      filmEditForm.addEventListener('submit', function(e) {
-                        e.preventDefault;
+
                          const filmEdit = {
                              id: film.id,
                              title: filmEditForm.title.value,
