@@ -218,7 +218,8 @@
                      filmEditForm.category.value = film.category;
                      insertAfter(filmEditForm, descriptionDiv);
 
-                     filmEditForm.addEventListener('submit', function() {
+                     filmEditForm.addEventListener('submit', function(e) {
+                        e.preventDefault;
                          const filmEdit = {
                              id: film.id,
                              title: filmEditForm.title.value,
