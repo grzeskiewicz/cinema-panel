@@ -216,7 +216,7 @@
                      filmEditForm.genre.value = film.genre;
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
-                     filmEditForm.upload.value=film.imageurl;
+                    // filmEditForm.upload.value=film.imageurl;
                      insertAfter(filmEditForm, descriptionDiv);
 
                      filmEditForm.addEventListener('submit', function(e) {
