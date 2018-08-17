@@ -217,6 +217,23 @@
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
                      insertAfter(filmEditForm, descriptionDiv);
+
+                     filmEditForm.addEventListener('submit', function() {
+                         const filmEdit = {
+                             id: film.id,
+                             title: filmEditForm.title.value,
+                             director: filmEditForm.director.value,
+                             genre: filmEditForm.genre.value,
+                             length: filmEditForm.length.value,
+                             category: filmEditForm.category.value,
+                         };
+                         console.log(filmEdit);
+                       /*  fetch(request(API_URL + "editfilm", 'POST', filmEdit))
+                             .then(res => res.json())
+                             .then(result => {
+                                 console.log(result);
+                             });*/
+                     });
                  });
 
              }
