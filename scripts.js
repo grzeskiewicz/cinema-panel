@@ -230,11 +230,11 @@ e.preventDefault();
                              category: filmEditForm.category.value,
                          };
                          console.log(filmEdit);
-                       /*  fetch(request(API_URL + "editfilm", 'POST', filmEdit))
+                         fetch(request(API_URL + "editfilm", 'POST', filmEdit))
                              .then(res => res.json())
                              .then(result => {
                                  console.log(result);
-                             });*/
+                             });
                      });
                  });
 
