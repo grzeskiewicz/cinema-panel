@@ -217,8 +217,8 @@
                      filmEditForm.genre.value = film.genre;
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
-                     
-                     insertAfter(filmEditForm,descriptionDiv);
+
+                     insertAfter(filmEditForm, descriptionDiv);
 
                      filmEditForm.addEventListener('submit', function(e) {
                          e.preventDefault();
@@ -382,7 +382,19 @@
 
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                     //funkcja
+                     const f = document.createElement("form");
+                     f.id = "edit-customer";
+                     const i = document.createElement("input"); //input element, text
+                     i.setAttribute('type', "text");
+                     i.setAttribute('name', "username");
+
+                     const s = document.createElement("input"); //input element, Submit button
+                     s.setAttribute('type', "submit");
+                     s.setAttribute('value', "Submit");
+
+                     f.appendChild(i);
+                     f.appendChild(s);
+                     insertAfter(f, descriptionDiv);
                  });
              }
          });
