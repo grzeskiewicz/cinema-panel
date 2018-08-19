@@ -359,7 +359,7 @@
              const label=document.createElement("label");
 
              f.id = "edit-customer";
-             label.value="ID: ";
+             label.innerHTML="ID: ";
              f.appendChild(label);
              const id = document.createElement("input"); //input element, text
              id.setAttribute('type', "text");
