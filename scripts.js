@@ -355,42 +355,7 @@
          .then(res => res.json())
          .then(customers => {
              console.log(customers);
-             const f = document.createElement("form");
-             const label=document.createElement("label");
-
-             f.id = "edit-customer";
-             label.innerHTML="ID: ";
-             f.appendChild(label);
-             const id = document.createElement("input"); //input element, text
-             id.setAttribute('type', "text");
-             id.setAttribute('name', "id");
-
-
-             const email = document.createElement("input"); //input element, text
-             email.setAttribute('type', "text");
-             email.setAttribute('name', "email");
-
-             const name = document.createElement("input"); //input element, text
-             name.setAttribute('type', "text");
-             name.setAttribute('name', "name");
-             const surename = document.createElement("input"); //input element, text
-             surename.setAttribute('type', "text");
-             surename.setAttribute('name', "surename");
-
-             const telephone = document.createElement("input"); //input element, text
-             telephone.setAttribute('type', "text");
-             telephone.setAttribute('name', "telephone");
-             //id,email,name,surename,telephone
-             const s = document.createElement("input"); //input element, Submit button
-             s.setAttribute('type', "submit");
-             s.setAttribute('value', "Submit");
-
-             f.appendChild(id);
-             f.appendChild(email);
-             f.appendChild(name);
-             f.appendChild(surename);
-             f.appendChild(telephone);
-             f.appendChild(s);
+            const editCustomerForm=document.querySelector('#edit-customer');
              for (const customer of customers) {
                  const descriptionDiv = document.createElement("div");
                  const description = document.createElement("p");
@@ -420,7 +385,7 @@
                      name.value=customer.name;
                      surename.value=customer.surename;
                      telephone.value=customer.telephone;
-                     insertAfter(f, descriptionDiv);
+                     insertAfter(editCustomerForm, descriptionDiv);
                  });
              }
          });
