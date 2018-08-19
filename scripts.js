@@ -355,7 +355,8 @@
          .then(res => res.json())
          .then(customers => {
              console.log(customers);
-
+             const f = document.createElement("form");
+             f.id = "edit-customer";
 
              for (const customer of customers) {
 
@@ -382,8 +383,7 @@
 
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                     const f = document.createElement("form");
-                     f.id = "edit-customer";
+
                      const i = document.createElement("input"); //input element, text
                      i.setAttribute('type', "text");
                      i.setAttribute('name', "username");
