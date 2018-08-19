@@ -382,7 +382,6 @@
                      console.log(customer);
                      editCustomerForm.style.display="flex";
                      
-                     editCustomerForm.id.value=customer.id;
                      editCustomerForm.email.value=customer.email;
                      editCustomerForm.name.value=customer.name;
                      editCustomerForm.surename.value=customer.surename;
