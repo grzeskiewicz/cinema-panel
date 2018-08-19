@@ -410,6 +410,11 @@
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                      console.log(customer);
+                     id.value=customer.id;
+                     email.value=customer.email;
+                     name.value=customer.name;
+                     surename.value=customer.surename;
+                     telephone.value=customer.telephone;
                      insertAfter(f, descriptionDiv);
                  });
              }
