@@ -380,8 +380,8 @@
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                      console.log(customer);
-                     editCustomerForm.style.display="block";
-                     editCustomerForm.
+                     editCustomerForm.style.display="flex";
+                     
                      editCustomerForm.id.value=customer.id;
                      editCustomerForm.email.value=customer.email;
                      editCustomerForm.name.value=customer.name;
