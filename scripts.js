@@ -217,10 +217,10 @@
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
                      filmEditForm.upload.remove();
-                     insertAfter(filmEditForm, descriptionDiv);
+                     insertAfter(descriptionDiv,filmEditForm);
 
                      filmEditForm.addEventListener('submit', function(e) {
-e.preventDefault();
+                         e.preventDefault();
                          const filmEdit = {
                              id: film.id,
                              title: filmEditForm.title.value,
