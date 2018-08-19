@@ -380,11 +380,13 @@
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                      console.log(customer);
-                    /* id.value=customer.id;
-                     email.value=customer.email;
-                     name.value=customer.name;
-                     surename.value=customer.surename;
-                     telephone.value=customer.telephone;*/
+                     editCustomerForm.style.display="block";
+                     editCustomerForm.
+                     editCustomerForm.id.value=customer.id;
+                     editCustomerForm.email.value=customer.email;
+                     editCustomerForm.name.value=customer.name;
+                     editCustomerForm.surename.value=customer.surename;
+                     editCustomerForm.telephone.value=customer.telephone;
                      insertAfter(editCustomerForm, descriptionDiv);
                  });
              }
