@@ -217,7 +217,7 @@
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
                      filmEditForm.upload.remove();
-                     insertAfter(descriptionDiv,filmEditForm);
+                     insertAfter(filmEditForm,descriptionDiv);
 
                      filmEditForm.addEventListener('submit', function(e) {
                          e.preventDefault();
