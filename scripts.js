@@ -182,6 +182,7 @@
              const filmEditForm = filmCreate.cloneNode(true);
              filmEditForm.id = "film-edit";
              filmEditForm.querySelector('button').textContent = "Edit film";
+             filmEditForm.upload.remove();
              for (const film of films) {
                  const option = document.createElement("option");
                  option.value = film.id;
@@ -216,7 +217,7 @@
                      filmEditForm.genre.value = film.genre;
                      filmEditForm.length.value = film.length;
                      filmEditForm.category.value = film.category;
-                     filmEditForm.upload.remove();
+                     
                      insertAfter(filmEditForm,descriptionDiv);
 
                      filmEditForm.addEventListener('submit', function(e) {
