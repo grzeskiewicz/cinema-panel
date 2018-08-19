@@ -368,7 +368,6 @@
              f.appendChild(i);
              f.appendChild(s);
              for (const customer of customers) {
-
                  const descriptionDiv = document.createElement("div");
                  const description = document.createElement("p");
                  const modifyDiv = document.createElement("div");
@@ -381,7 +380,6 @@
                  customersDiv.appendChild(descriptionDiv);
                  descriptionDiv.addEventListener('click', function() {
                      ticketsByCustomer(modifyDiv.dataset.id);
-                     console.log('hehe');
                  });
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
@@ -392,7 +390,7 @@
 
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-
+                    console.log(customer);
                      insertAfter(f, descriptionDiv);
                  });
              }
