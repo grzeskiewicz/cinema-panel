@@ -107,7 +107,9 @@ fieldset {
 }
 
 
-
+#edit-customer{
+    display:none;
+}
 
 
 
