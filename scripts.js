@@ -459,10 +459,8 @@
      const customer = { customerid: id };
      console.log(id);
     return fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
-         .then(res => res.json())
-         .then(result => {
-             return result;
-         });
+         .then(res => res.json());
+      
  }
 
 
