@@ -369,7 +369,7 @@
                  customersDiv.appendChild(descriptionDiv);
                  descriptionDiv.addEventListener('click', function() { // show tickets of customer
                      const tick=ticketsByCustomer(modifyDiv.dataset.id);
-                     console.log(tick);
+                    tick.then(result=>console.log(result));
 
                  });
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
