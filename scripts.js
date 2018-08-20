@@ -368,7 +368,8 @@
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
                  descriptionDiv.addEventListener('click', function() { // show tickets of customer
-                     ticketsByCustomer(modifyDiv.dataset.id);
+                     const tick=ticketsByCustomer(modifyDiv.dataset.id);
+                     console.log(tick);
 
                  });
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
