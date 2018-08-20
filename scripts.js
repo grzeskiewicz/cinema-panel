@@ -367,8 +367,9 @@
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-                 descriptionDiv.addEventListener('click', function() {
+                 descriptionDiv.addEventListener('click', function() { // show tickets of customer
                      ticketsByCustomer(modifyDiv.dataset.id);
+
                  });
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
@@ -459,7 +460,7 @@
      fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
          .then(res => res.json())
          .then(result => {
-             console.log(result);
+             return result;
          });
 
  }
