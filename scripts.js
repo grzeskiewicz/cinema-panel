@@ -309,7 +309,7 @@
  //TICKETS
  function getTicketsByCustomer(id) {
     const customer = { customerid: id };
-     fetch(request(API_URL + "ticketsbycustomer", 'POST'))
+     fetch(request(API_URL + "ticketsbycustomer", 'POST',customer))
          .then(res => res.json())
          .then(tickets => {
              console.log(tickets);
@@ -361,7 +361,7 @@
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-                 descriptionDiv.addEventListener('click', getTicketsByCustomer(modifyDiv.dataset.id));
+                 descriptionDiv.addEventListener('click', getTicketsByCustomer(modifyDiv.dataset.id);
 
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
