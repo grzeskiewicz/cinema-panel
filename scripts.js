@@ -307,20 +307,15 @@
 
 
  //TICKETS
- function getTickets() {
-     fetch(request(API_URL + "tickets", 'GET'))
+ function getTicketsByCustomer(id) {
+    const customer = { customerid: id };
+     fetch(request(API_URL + "ticketsbycustomer", 'POST'))
          .then(res => res.json())
          .then(tickets => {
              console.log(tickets);
 
 
              for (const ticket of tickets) {
-                 /* const opt = document.createElement("option");
-                  opt.value = room.id;
-                  opt.text = `${room.id} Seats: ${room.seats}`;
-                  roomSelector.options.add(opt);*/
-
-
                  const descriptionDiv = document.createElement("div");
                  const description = document.createElement("p");
                  const modifyDiv = document.createElement("div");
@@ -367,11 +362,8 @@
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-                 descriptionDiv.addEventListener('click', function() { // show tickets of customer
-                     const tick=ticketsByCustomer(modifyDiv.dataset.id);
-                    tick.then(result=>console.log(result));
+                 descriptionDiv.addEventListener('click', ticketsByCustomer(modifyDiv.dataset.id));
 
-                 });
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
                          console.log(modifyDiv.dataset);
@@ -451,16 +443,6 @@
              console.log(result);
          });
 
- }
-
-
-
- const ticketsByCustomer = function(id) {
-     const customer = { customerid: id };
-     console.log(id);
-    return fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
-         .then(res => res.json());
-      
  }
 
 
