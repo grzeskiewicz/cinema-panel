@@ -313,7 +313,7 @@
          .then(res => res.json())
          .then(tickets => {
              console.log(tickets);
-
+ticketsDiv.innerHTML="";
 
              for (const ticket of tickets) {
                  const descriptionDiv = document.createElement("div");
