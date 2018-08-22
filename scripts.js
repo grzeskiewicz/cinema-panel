@@ -361,7 +361,7 @@
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-                 descriptionDiv.addEventListener('click', funtion(){
+                 descriptionDiv.addEventListener('click', function(){
                     getTicketsByCustomer(modifyDiv.dataset.id);
                 });
 
