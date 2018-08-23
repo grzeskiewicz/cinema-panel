@@ -322,7 +322,7 @@ ticketsDiv.innerHTML="";
                  modifyDiv.dataset.id = ticket.id;
                  modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
                  modifyDiv.classList.add('modify');
-                 description.innerHTML = `${ticket.id} || Showing : ${ticket.showing}  || Seat: ${ticket.seat} || Price: ${ticket.price}  ||  Customer: ${ticket.email}`;
+                 description.innerHTML = `${ticket.id} || Film : ${ticket.title}  || Date: ${ticket.date}|| Room: ${ticket.room} || Seat: ${ticket.seat} || Price: ${ticket.price}  ||  Customer: ${ticket.email}`;
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  ticketsDiv.appendChild(descriptionDiv);
