@@ -349,6 +349,7 @@
 
 
  function getCustomers() {
+    customersDiv.innerHTML="";
      fetch(request(API_URL + "customers", 'GET'))
          .then(res => res.json())
          .then(customers => {
