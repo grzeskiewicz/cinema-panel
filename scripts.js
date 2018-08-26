@@ -151,6 +151,7 @@
                          modifyDiv.innerHTML = `<i class="fa fa-trash"></i>`;
                          modifyDiv.classList.add('modify');
                          modifyDiv.dataset.id = showing.id;
+                         console.log(showing);
                          description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                          descriptionDiv.appendChild(description);
                          descriptionDiv.appendChild(modifyDiv);
