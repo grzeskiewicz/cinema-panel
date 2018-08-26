@@ -387,7 +387,7 @@
                      editCustomerForm.addEventListener('submit', function(e) {
                          e.preventDefault();
                          const editCustomer = {
-                             id: 'lol',
+                             id: customer.id,
                              email: editCustomerForm.email.value,
                              name: editCustomerForm.name.value,
                              surename: editCustomerForm.surename.value,
