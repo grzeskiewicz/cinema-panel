@@ -176,6 +176,7 @@
 
 
  function refreshFilms() {
+     filmsDiv.innerHTML = "";
      fetch(request(API_URL + "films", 'GET'))
          .then(res => res.json())
          .then(films => {
@@ -266,6 +267,7 @@
 
  //PRICES
  function getPrices() {
+     pricesDiv.innerHTML = "";
      fetch(request(API_URL + "prices", 'GET'))
          .then(res => res.json())
          .then(prices => {
@@ -515,8 +517,6 @@
  }, false);
 
 
-
- //showingCreate.addEventListener('submit', validateShowings, false);
 
  function validateShowings() {
      const time = document.querySelector('#appt-time');
