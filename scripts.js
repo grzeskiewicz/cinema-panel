@@ -382,27 +382,30 @@
                      editCustomerForm.surename.value = customer.surename;
                      editCustomerForm.telephone.value = customer.telephone;
                      insertAfter(editCustomerForm, descriptionDiv);
+
+
+                     editCustomerForm.addEventListener('submit', function(e) {
+                         e.preventDefault();
+                         const editCustomer = {
+                             id: 'lol',
+                             email: editCustomerForm.email.value,
+                             name: editCustomerForm.name.value,
+                             surename: editCustomerForm.surename.value,
+                             telephone: editCustomerForm.telephone.value,
+
+                         };
+                         console.log(editCustomer);
+                         console.log(editCustomerForm);
+                         fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
+                             .then(res => res.json())
+                             .then(result => {
+                                 console.log(result);
+                             });
+                     });
                  });
 
 
-                 editCustomerForm.addEventListener('submit', function(e) {
-                     e.preventDefault();
-                     const editCustomer = {
-                         id: 'lol',
-                         email: editCustomerForm.email.value,
-                         name: editCustomerForm.name.value,
-                         surename: editCustomerForm.surename.value,
-                         telephone: editCustomerForm.telephone.value,
 
-                     };
-                     console.log(editCustomer);
-                     console.log(editCustomerForm);
-                     fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
-                         .then(res => res.json())
-                         .then(result => {
-                             console.log(result);
-                         });
-                 });
              }
          });
 
