@@ -265,47 +265,49 @@
 
 
  //PRICES
-
- fetch(request(API_URL + "prices", 'GET'))
-     .then(res => res.json())
-     .then(prices => {
-         console.log(prices);
-
-
-         for (const price of prices) {
-             const option = document.createElement("option");
-             option.value = price.id;
-             option.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
-             priceSelector.options.add(option);
-         }
+ function getPrices() {
+     fetch(request(API_URL + "prices", 'GET'))
+         .then(res => res.json())
+         .then(prices => {
+             console.log(prices);
 
 
-         for (const price of prices) {
-             const descriptionDiv = document.createElement("div");
-             const description = document.createElement("p");
-             const modifyDiv = document.createElement("div");
-             modifyDiv.dataset.id = price.id;
-             modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
-             modifyDiv.classList.add('modify');
-             description.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
-             descriptionDiv.appendChild(description);
-             descriptionDiv.appendChild(modifyDiv);
-             pricesDiv.appendChild(descriptionDiv);
-
-             modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
-                 if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     deletePrice(this.dataset.id);
-                     pricesDiv.removeChild(descriptionDiv);
-                 } else {}
-
-             });
-             modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                 //funkcja
-             });
-         }
-     });
+             for (const price of prices) {
+                 const option = document.createElement("option");
+                 option.value = price.id;
+                 option.text = `${price.id} Normal: ${price.normal} Discount: ${price.discount}`;
+                 priceSelector.options.add(option);
+             }
 
 
+             for (const price of prices) {
+                 const descriptionDiv = document.createElement("div");
+                 const description = document.createElement("p");
+                 const modifyDiv = document.createElement("div");
+                 modifyDiv.dataset.id = price.id;
+                 modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
+                 modifyDiv.classList.add('modify');
+                 description.innerHTML = `${price.id} || Price normal : ${price.normal}  || Price discount: ${price.discount}`;
+                 descriptionDiv.appendChild(description);
+                 descriptionDiv.appendChild(modifyDiv);
+                 pricesDiv.appendChild(descriptionDiv);
+
+                 modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                     if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
+                         deletePrice(this.dataset.id);
+                         pricesDiv.removeChild(descriptionDiv);
+                     } else {}
+
+                 });
+                 modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
+                     //funkcja
+                 });
+             }
+         });
+
+ }
+
+ getPrices();
  //TICKETS
  function getTicketsByCustomer(id) {
      const customer = { customerid: id };
@@ -603,6 +605,32 @@
                  filmCreate.querySelector('button').disabled = false;
                  filmCreate.reset();
                  refreshFilms();
+             }, 3000);
+         }).catch(error => Promise.reject(new Error(error)));
+ });
+
+
+
+
+ const priceCreate = document.querySelector('#price-create');
+
+ priceCreate.addEventListener('submit', function(e) {
+     e.preventDefault();
+     priceCreate.querySelector('button').disabled = true;
+     const price = {
+         normal: priceCreate['normal-price'].value,
+         discount: priceCreate.['discount-price'].value
+     };
+
+     fetch(request(`${API_URL}newprice`, 'POST', price))
+         .then(res => res.json())
+         .then(result => {
+             console.log(JSON.stringify(result));
+             document.querySelector('#price-status').innerHTML = "Price created";
+             setTimeout(function() {
+                 priceCreate.querySelector('button').disabled = false;
+                 priceCreate.reset();
+                 getPrices();
              }, 3000);
          }).catch(error => Promise.reject(new Error(error)));
  });
