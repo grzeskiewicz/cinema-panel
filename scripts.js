@@ -399,7 +399,7 @@
                          fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
                              .then(res => res.json())
                              .then(result => {
-                                 console.log(result);
+                                 getCustomers();
                              });
                      });
                  });
