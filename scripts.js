@@ -308,12 +308,12 @@
 
  //TICKETS
  function getTicketsByCustomer(id) {
-    const customer = { customerid: id };
-     fetch(request(API_URL + "ticketsbycustomer", 'POST',customer))
+     const customer = { customerid: id };
+     fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
          .then(res => res.json())
          .then(tickets => {
              console.log(tickets);
-ticketsDiv.innerHTML="";
+             ticketsDiv.innerHTML = "";
 
              for (const ticket of tickets) {
                  const descriptionDiv = document.createElement("div");
@@ -349,7 +349,7 @@ ticketsDiv.innerHTML="";
          .then(res => res.json())
          .then(customers => {
              console.log(customers);
-            const editCustomerForm=document.querySelector('#edit-customer');
+             const editCustomerForm = document.querySelector('#edit-customer');
              for (const customer of customers) {
                  const descriptionDiv = document.createElement("div");
                  const description = document.createElement("p");
@@ -361,9 +361,9 @@ ticketsDiv.innerHTML="";
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  customersDiv.appendChild(descriptionDiv);
-                 descriptionDiv.addEventListener('click', function(){
-                    getTicketsByCustomer(modifyDiv.dataset.id);
-                });
+                 descriptionDiv.addEventListener('click', function() {
+                     getTicketsByCustomer(modifyDiv.dataset.id);
+                 });
 
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
@@ -375,13 +375,32 @@ ticketsDiv.innerHTML="";
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
                      console.log(customer);
-                     editCustomerForm.style.display="flex";
-                     
-                     editCustomerForm.email.value=customer.email;
-                     editCustomerForm.name.value=customer.name;
-                     editCustomerForm.surename.value=customer.surename;
-                     editCustomerForm.telephone.value=customer.telephone;
+                     editCustomerForm.style.display = "flex";
+
+                     editCustomerForm.email.value = customer.email;
+                     editCustomerForm.name.value = customer.name;
+                     editCustomerForm.surename.value = customer.surename;
+                     editCustomerForm.telephone.value = customer.telephone;
                      insertAfter(editCustomerForm, descriptionDiv);
+                 });
+
+
+                 editCustomerForm.addEventListener('submit', function(e) {
+                     e.preventDefault();
+                     const editCustomer = {
+                         id: customer.id,
+                         email: editCustomerForm.email.value,
+                         name: editCustomerForm.name.value,
+                         surename: editCustomerForm.surename.value,
+                         telephone: editCustomerForm.telephone.value,
+
+                     };
+                     console.log(editCustomerForm);
+                     fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
+                         .then(res => res.json())
+                         .then(result => {
+                             console.log(result);
+                         });
                  });
              }
          });
