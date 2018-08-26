@@ -151,7 +151,6 @@
                          modifyDiv.innerHTML = `<i class="fa fa-trash"></i>`;
                          modifyDiv.classList.add('modify');
                          modifyDiv.dataset.id = showing.id;
-                         //console.log(showing);
                          description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${showing.room} || Seats: ${showing.seats}  || Price (normal/discount): ${showing.normal} / ${showing.discount}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                          descriptionDiv.appendChild(description);
                          descriptionDiv.appendChild(modifyDiv);
@@ -351,7 +350,7 @@
 
 
  function getCustomers() {
-    customersDiv.innerHTML="";
+     customersDiv.innerHTML = "";
      fetch(request(API_URL + "customers", 'GET'))
          .then(res => res.json())
          .then(customers => {
