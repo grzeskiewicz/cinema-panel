@@ -619,7 +619,7 @@
      priceCreate.querySelector('button').disabled = true;
      const price = {
          normal: priceCreate['normal-price'].value,
-         discount: priceCreate.['discount-price'].value
+         discount: priceCreate['discount-price'].value
      };
 
      fetch(request(`${API_URL}newprice`, 'POST', price))
