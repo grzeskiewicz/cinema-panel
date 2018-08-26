@@ -395,6 +395,7 @@
                          telephone: editCustomerForm.telephone.value,
 
                      };
+                     console.log(editCustomer);
                      console.log(editCustomerForm);
                      fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
                          .then(res => res.json())
