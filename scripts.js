@@ -162,6 +162,7 @@
                                  console.log(modifyDiv.dataset);
                                  deleteShowing(modifyDiv.dataset.id);
                                  showingsListed.removeChild(descriptionDiv);
+                                 refreshShowings();
                              } else {}
 
                          });
