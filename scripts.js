@@ -294,7 +294,7 @@
 
              modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                  if (confirm("Are you sure you want to delete this film? All the purchased tickets for this showings will be REMOVED!")) {
-                     // deletePrice(this.dataset.id);
+                     deletePrice(this.dataset.id);
                      pricesDiv.removeChild(descriptionDiv);
                  } else {}
 
