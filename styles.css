@@ -55,6 +55,7 @@ fieldset {
 
 #second-row p, #third-row p, #fourth-row p {
     color: #c9cccd;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0.5rem;
 }
