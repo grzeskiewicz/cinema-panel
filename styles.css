@@ -1,3 +1,6 @@
+body {
+    background-color: #1D2733;
+}
 #first-row {
     display: flex;
     flex-direction: row;
