@@ -152,7 +152,7 @@ td {
 }
 
 thead td {
-    color: #999;
+    color: #c9cccd;
     font-size: .75rem;
     text-transform: uppercase;
 }
@@ -169,7 +169,7 @@ tbody td:hover {
 
 td.before,
 td.after {
-    color: #999;
+   color: #c9cccd;
 }
 
 #next:hover,
