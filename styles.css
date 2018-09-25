@@ -88,7 +88,7 @@ fieldset {
     border: 1px solid grey;
 }
 
-.film-titles:hover {
+.film-titles:hover, #customers div {
     background-color: grey;
     cursor:pointer;
 }
