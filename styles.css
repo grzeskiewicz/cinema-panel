@@ -1,6 +1,10 @@
 body {
     background-color: #1D2733;
 }
+
+p{
+    cursor:default;
+}
 #first-row {
     display: flex;
     flex-direction: row;
