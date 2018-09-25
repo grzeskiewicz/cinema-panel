@@ -3,7 +3,7 @@ body {
 }
 
 p{
-    cursor:pointer;
+    cursor:default;
 }
 #first-row {
     display: flex;
