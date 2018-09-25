@@ -92,7 +92,7 @@ fieldset {
     background-color: grey;
     cursor:pointer;
 }
-.film-titles p {
+.film-titles p, #customers p {
     cursor:pointer;
 }
 
