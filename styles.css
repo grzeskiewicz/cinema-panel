@@ -124,10 +124,12 @@ fieldset {
     margin: auto;
     text-align: center;
     line-height: 2;
+
 }
 
 #calendar p {
     font-weight: 300;
+    color: #c9cccd;
 }
 
 
