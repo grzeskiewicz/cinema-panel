@@ -84,7 +84,9 @@ fieldset {
     border: 1px solid grey;
 }
 
-
+.film-titles:hover {
+    background-color: grey;
+}
 
 #films .modify,
 #showings .modify,
