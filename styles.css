@@ -92,6 +92,9 @@ fieldset {
     background-color: grey;
     cursor:pointer;
 }
+.film-titles p {
+    cursor:pointer;
+}
 
 #films .modify,
 #showings .modify,
