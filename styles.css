@@ -185,6 +185,7 @@ td.after {
 
 .not-selectable {
     background-color: #FFFFF0;
+    color:black;
 }
 
 .not-selectable:hover {
