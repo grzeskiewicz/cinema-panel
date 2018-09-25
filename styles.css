@@ -3,7 +3,7 @@ body {
 }
 
 p{
-    cursor:pointer;
+    cursor:default;
 }
 #first-row {
     display: flex;
@@ -90,6 +90,7 @@ fieldset {
 
 .film-titles:hover {
     background-color: grey;
+    cursor:pointer;
 }
 
 #films .modify,
