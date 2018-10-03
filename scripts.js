@@ -200,7 +200,7 @@
                  modifyDiv.dataset.id = film.id;
                  modifyDiv.innerHTML = `<i class="fa fa-trash"></i><i class="fa fa-edit"></i>`;
                  modifyDiv.classList.add('modify');
-                 description.innerHTML = `${film.id} || Film : ${film.title}  || Room: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
+                 description.innerHTML = `${film.id} || Title : ${film.title}  || Director: ${film.director} || Genre: ${film.genre}  ||  Length: ${film.length} || Category: ${film.category} `;
                  descriptionDiv.appendChild(description);
                  descriptionDiv.appendChild(modifyDiv);
                  filmsDiv.appendChild(descriptionDiv);
