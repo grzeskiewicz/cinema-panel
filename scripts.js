@@ -376,6 +376,7 @@
                          console.log(modifyDiv.dataset);
                          deleteCustomer(modifyDiv.dataset.id);
                          customersDiv.removeChild(descriptionDiv);
+                         editCustomerForm.reset();
                      } else {}
 
                  });
