@@ -569,7 +569,7 @@
                  const response = JSON.parse(xhr.responseText);
                  //imgUrl=response.url;
                  uploadFile(file, response.signedRequest, response.url);
-
+console.log("Jestem tutaj!");
              } else {
                  alert('Could not get signed URL.');
              }
