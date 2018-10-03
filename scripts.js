@@ -1,6 +1,6 @@
  import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
- const IMAGE_URL = 'https://cinema-node-bucket.s3.amazonaws.com/';
+ const IMAGE_URL = 'https://cinema-node-bucket.s3.amazonaws.com/'; 
  const headers = new Headers({
      'Accept': 'application/json',
      'Content-Type': 'application/json',
@@ -567,9 +567,7 @@
          if (xhr.readyState === 4) {
              if (xhr.status === 200) {
                  const response = JSON.parse(xhr.responseText);
-                 //imgUrl=response.url;
                  uploadFile(file, response.signedRequest, response.url);
-                 return response.url;
              } else {
                  alert('Could not get signed URL.');
              }
@@ -588,7 +586,6 @@
      const file = files[0];
      let hehe = getSignedRequest(file);
      console.log(hehe);
-     const fileUrl = IMAGE_URL + file.name;
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
@@ -596,7 +593,7 @@
          genre: filmCreate.genre.value,
          length: filmCreate.length.value,
          category: filmCreate.category.value,
-         imageurl: file.name
+         imageurl: IMAGE_URL+file.name
      };
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newfilm`, 'POST', film))
