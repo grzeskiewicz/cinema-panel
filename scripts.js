@@ -569,7 +569,7 @@
                  const response = JSON.parse(xhr.responseText);
                  //imgUrl=response.url;
                  uploadFile(file, response.signedRequest, response.url);
-console.log("Jestem tutaj!");
+                 return response.url;
              } else {
                  alert('Could not get signed URL.');
              }
@@ -586,7 +586,8 @@ console.log("Jestem tutaj!");
      e.preventDefault();
      const files = document.getElementById('file-input').files;
      const file = files[0];
-     getSignedRequest(file);
+     let hehe = getSignedRequest(file);
+     console.log(hehe);
      const fileUrl = IMAGE_URL + file.name;
      filmCreate.querySelector('button').disabled = true;
      const film = {
