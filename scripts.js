@@ -84,10 +84,11 @@
          }
 
          const minuteSelector = document.querySelector('#minute-select');
-         for (let i = 0; i <= 55; i = i + 15) {
+         for (let i = 0; i <= 55; i = i + 5) {
              const option = document.createElement("option");
              option.value = i;
-             option.text = i;
+             if (i===0) option.text = 00;
+            
              minuteSelector.options.add(option);
          }
      }
