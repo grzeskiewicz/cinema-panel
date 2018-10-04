@@ -7,7 +7,8 @@
  });
 
  const headersUp=new Headers({
-    'Content-Type': 'image'
+    'Accept': 'image/*',
+    'Content-Type': 'image/*'
  })
 
 
