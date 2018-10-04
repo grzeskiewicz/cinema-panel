@@ -144,7 +144,7 @@
 
              today.hour(0);
              today.minute(1);
-             console.log(today);
+             //console.log(today);
              for (const showing of showings) {
                  if (groupArr[showing['title']] === undefined) groupArr[showing['title']] = [];
                  if (moment(showing.date) > today) groupArr[showing['title']].push(showing);
@@ -164,9 +164,9 @@
                  filmTitles.addEventListener('click', function() {
                      showingsListed.innerHTML = "";
                      const result = sortShowings(groupArr[film]);
-                     console.log(result);
+                    // console.log(result);
                      for (const showing of groupArr[film]) {
-                         console.log(moment(showing.date), showing.date);
+                         //console.log(moment(showing.date), showing.date);
                          const descriptionDiv = document.createElement("div");
                          const description = document.createElement("p");
                          const modifyDiv = document.createElement("div");
@@ -180,7 +180,7 @@
 
                          modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                              if (confirm("Are you sure you want to delete this showing? All the purchased tickets for this showings will be REMOVED!")) {
-                                 console.log(modifyDiv.dataset);
+                                 //.log(modifyDiv.dataset);
                                  deleteShowing(modifyDiv.dataset.id);
                                  showingsListed.removeChild(descriptionDiv);
                                  refreshShowings();
@@ -254,11 +254,11 @@
                              length: filmEditForm.length.value,
                              category: filmEditForm.category.value,
                          };
-                         console.log(filmEdit);
+                        // console.log(filmEdit);
                          fetch(request(API_URL + "editfilm", 'POST', filmEdit))
                              .then(res => res.json())
                              .then(result => {
-                                 console.log(result);
+                                 //console.log(result);
                              });
                      });
                  });
@@ -276,7 +276,7 @@
  fetch(request(API_URL + "rooms", 'GET'))
      .then(res => res.json())
      .then(rooms => {
-         console.log(rooms);
+         //console.log(rooms);
 
 
          for (const room of rooms) {
@@ -294,7 +294,7 @@
      fetch(request(API_URL + "prices", 'GET'))
          .then(res => res.json())
          .then(prices => {
-             console.log(prices);
+            // console.log(prices);
 
 
              for (const price of prices) {
@@ -339,7 +339,7 @@
      fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
          .then(res => res.json())
          .then(tickets => {
-             console.log(tickets);
+            // console.log(tickets);
              ticketsDiv.innerHTML = "";
 
              for (const ticket of tickets) {
@@ -356,7 +356,7 @@
 
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete the ticket?")) {
-                         console.log(modifyDiv.dataset);
+                         //console.log(modifyDiv.dataset);
                          deleteTicket(modifyDiv.dataset.id);
                          ticketsDiv.removeChild(descriptionDiv);
                      } else {}
@@ -376,7 +376,7 @@
      fetch(request(API_URL + "customers", 'GET'))
          .then(res => res.json())
          .then(customers => {
-             console.log(customers);
+             //console.log(customers);
              const editCustomerForm = document.querySelector('#edit-customer');
              for (const customer of customers) {
                  const descriptionDiv = document.createElement("div");
@@ -395,7 +395,7 @@
 
                  modifyDiv.querySelector('.fa-trash').addEventListener('click', function() {
                      if (confirm("Are you sure you want to delete this customer?")) {
-                         console.log(modifyDiv.dataset);
+                         //console.log(modifyDiv.dataset);
                          deleteCustomer(modifyDiv.dataset.id);
                          customersDiv.removeChild(descriptionDiv);
                          editCustomerForm.reset();
@@ -403,7 +403,7 @@
 
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                     console.log(customer);
+                    // console.log(customer);
                      editCustomerForm.style.display = "flex";
 
                      editCustomerForm.email.value = customer.email;
@@ -423,8 +423,8 @@
                              telephone: editCustomerForm.telephone.value,
 
                          };
-                         console.log(editCustomer);
-                         console.log(editCustomerForm);
+                        // console.log(editCustomer);
+                        // console.log(editCustomerForm);
                          fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
                              .then(res => res.json())
                              .then(result => {
@@ -447,7 +447,7 @@
      fetch(request(API_URL + "deleteshowing", 'POST', show))
          .then(res => res.json())
          .then(result => {
-             console.log(result);
+            // console.log(result);
          });
 
  }
@@ -458,7 +458,7 @@
      fetch(request(API_URL + "deletefilm", 'POST', film))
          .then(res => res.json())
          .then(result => {
-             console.log(result);
+             //console.log(result);
          });
 
  }
@@ -469,7 +469,7 @@
      fetch(request(API_URL + "deleteprice", 'POST', price))
          .then(res => res.json())
          .then(result => {
-             console.log(result);
+             //console.log(result);
          });
 
  }
@@ -477,7 +477,7 @@
 
  const deleteTicket = function(id) {
      const ticket = { ticketid: id };
-     console.log(id);
+    // console.log(id);
      fetch(request(API_URL + "deleteticket", 'POST', ticket))
          .then(res => res.json())
          .then(result => {
@@ -489,11 +489,11 @@
 
  const deleteCustomer = function(id) {
      const customer = { customerid: id };
-     console.log(id);
+    // console.log(id);
      fetch(request(API_URL + "deletecustomer", 'POST', customer))
          .then(res => res.json())
          .then(result => {
-             console.log(result);
+             //console.log(result);
          });
 
  }
@@ -517,7 +517,7 @@
      const hour=document.querySelector('#hour-select').value;
      const minute=document.querySelector('#minute-select').value;
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
-     console.log(dateFixed);
+    // console.log(dateFixed);
      showingCreate.querySelector('button').disabled = true;
      const showing = {
          film: filmSelector.value,
@@ -649,7 +649,7 @@
      fetch(request(`${API_URL}newprice`, 'POST', price))
          .then(res => res.json())
          .then(result => {
-             console.log(JSON.stringify(result));
+             //console.log(JSON.stringify(result));
              document.querySelector('#price-status').innerHTML = "Price created";
              setTimeout(function() {
                  priceCreate.querySelector('button').disabled = false;
