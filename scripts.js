@@ -208,7 +208,7 @@
              filmEditForm.id = "film-edit";
              filmEditForm.querySelector('button').textContent = "Edit film";
              filmEditForm.upload.remove();
-             filmSelector.innerHTML = "";
+             filmSelector.innerHTML="";
              for (const film of films) {
                  const option = document.createElement("option");
                  option.value = film.id;
@@ -567,13 +567,12 @@
  }
 
  function uploadFile(file, signedRequest, url) {
-     /*  fetch(request(signedRequest, 'PUT'))
-           .then(res => {
-               console.log(res);
-               return res;
-           })
-           .catch(error => console.error(error));*/
-     const xhr = new XMLHttpRequest();
+         fetch(request(signedRequest, 'PUT',file))
+         .then(res => res.json())
+         .then(response => {
+             console.log(response);
+         }).catch(error => console.error(error));
+    /* const xhr = new XMLHttpRequest();
      xhr.open('PUT', signedRequest);
      xhr.onreadystatechange = () => {
          if (xhr.readyState === 4) {
@@ -586,7 +585,7 @@
              }
          }
      };
-     xhr.send(file);
+     xhr.send(file);*/
  }
 
 
