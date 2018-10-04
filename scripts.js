@@ -208,7 +208,7 @@
              filmEditForm.id = "film-edit";
              filmEditForm.querySelector('button').textContent = "Edit film";
              filmEditForm.upload.remove();
-             filmSelector.innerHTML="";
+             filmSelector.innerHTML = "";
              for (const film of films) {
                  const option = document.createElement("option");
                  option.value = film.id;
@@ -567,27 +567,29 @@
  }
 
  function uploadFile(file, signedRequest, url) {
-         fetch(request(signedRequest, 'PUT'))
+     fetch(request(signedRequest, 'PUT'))
          .then(res => {
-console.log(res);
-            return res.json();})
+             console.log(res);
+             return res;
+         })
          .then(response => {
              console.log(response);
-         }).catch(error => console.error(error));
-    /* const xhr = new XMLHttpRequest();
-     xhr.open('PUT', signedRequest);
-     xhr.onreadystatechange = () => {
-         if (xhr.readyState === 4) {
-             if (xhr.status === 200) {
-                 console.log('YES', url);
-                 // document.getElementById('preview').src = url;
-                 // document.getElementById('avatar-url').value = url;
-             } else {
-                 alert('Could not upload file.');
-             }
-         }
-     };
-     xhr.send(file);*/
+         })
+         .catch(error => console.error(error));
+     /* const xhr = new XMLHttpRequest();
+      xhr.open('PUT', signedRequest);
+      xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  console.log('YES', url);
+                  // document.getElementById('preview').src = url;
+                  // document.getElementById('avatar-url').value = url;
+              } else {
+                  alert('Could not upload file.');
+              }
+          }
+      };
+      xhr.send(file);*/
  }
 
 
