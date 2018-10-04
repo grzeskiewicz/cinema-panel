@@ -1,6 +1,6 @@
  import { calendarDiv, renderCalendar, calendard, yearNow, selectedMonth, monthNow, createCalendar } from './calendar.js';
  const API_URL = 'https://cinema-node.herokuapp.com/';
- const IMAGE_URL = 'https://cinema-node-bucket.s3.amazonaws.com/'; 
+ const IMAGE_URL = 'https://cinema-node-bucket.s3.amazonaws.com/';
  const headers = new Headers({
      'Accept': 'application/json',
      'Content-Type': 'application/json',
@@ -71,10 +71,25 @@
          });
      },
      initCalendar() {
-
          let calendarTable = renderCalendar(calendard);
          this.initListeners(calendarTable);
          this.initListenersMonths();
+         
+         const hourSelector = document.querySelector('#hour-select');
+         for (i = 10; i <= 22; i++) {
+             const option = document.createElement("option");
+             option.value = i;
+             option.text = i;
+             hourSelector.options.add(option);
+         }
+
+         const minuteSelector = document.querySelector('#minute-select');
+         for (i = 0; i <= 55; i = i + 15) {
+             const option = document.createElement("option");
+             option.value = i;
+             option.text = i;
+             minuteSelector.options.add(option);
+         }
      }
  }
 
@@ -594,7 +609,7 @@
          genre: filmCreate.genre.value,
          length: filmCreate.length.value,
          category: filmCreate.category.value,
-         imageurl: IMAGE_URL+file.name
+         imageurl: IMAGE_URL + file.name
      };
      // console.log(`${filmSelector.value} ${priceSelector.value} ${roomSelector.value}`);
      fetch(request(`${API_URL}newfilm`, 'POST', film))
