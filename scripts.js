@@ -208,6 +208,7 @@
              filmEditForm.id = "film-edit";
              filmEditForm.querySelector('button').textContent = "Edit film";
              filmEditForm.upload.remove();
+             filmSelector.innerHTML="";
              for (const film of films) {
                  const option = document.createElement("option");
                  option.value = film.id;
