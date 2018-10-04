@@ -567,6 +567,7 @@
  }
 
  function uploadFile(file, signedRequest, url) {
+        console.log(file);
          fetch(request(signedRequest, 'PUT',file))
          .then(res => res.json())
          .then(response => {
@@ -590,6 +591,7 @@
 
 
  function getSignedRequest(file) {
+
      fetch(request(`${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`, 'GET'))
          .then(res => res.json())
          .then(response => {
