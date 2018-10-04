@@ -547,10 +547,8 @@
 
 
  function validateShowings() {
-     const time = document.querySelector('#appt-time');
-     const momentTime = moment(time.value, 'HH:mm');
-     const hour = momentTime.hour();
-     const minute = momentTime.minute();
+     const hour=document.querySelector('#hour-select').value;
+     const minute=document.querySelector('#minute-select').value;
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
 
      for (const showing of showingsList) {
