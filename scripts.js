@@ -87,8 +87,9 @@
          for (let i = 0; i <= 55; i = i + 5) {
              const option = document.createElement("option");
              option.value = i;
-             if (i===0) option.text = '00';
-            option.text=i;
+             if (i == 0) { option.text = '00'; } else {
+                 option.text = i;
+             }
              minuteSelector.options.add(option);
          }
      }
