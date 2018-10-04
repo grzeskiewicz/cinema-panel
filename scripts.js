@@ -566,7 +566,12 @@
  }
 
  function uploadFile(file, signedRequest, url) {
-     const xhr = new XMLHttpRequest();
+         fetch(request(signedRequest, 'PUT'))
+         .then(res => res.json())
+         .then(response => {
+             console.log(response);
+         });
+    /* const xhr = new XMLHttpRequest();
      xhr.open('PUT', signedRequest);
      xhr.onreadystatechange = () => {
          if (xhr.readyState === 4) {
@@ -579,7 +584,7 @@
              }
          }
      };
-     xhr.send(file);
+     xhr.send(file);*/
  }
 
 
