@@ -74,9 +74,9 @@
          let calendarTable = renderCalendar(calendard);
          this.initListeners(calendarTable);
          this.initListenersMonths();
-         
+
          const hourSelector = document.querySelector('#hour-select');
-         for (i = 10; i <= 22; i++) {
+         for (let i = 10; i <= 22; i++) {
              const option = document.createElement("option");
              option.value = i;
              option.text = i;
@@ -84,7 +84,7 @@
          }
 
          const minuteSelector = document.querySelector('#minute-select');
-         for (i = 0; i <= 55; i = i + 15) {
+         for (let i = 0; i <= 55; i = i + 15) {
              const option = document.createElement("option");
              option.value = i;
              option.text = i;
