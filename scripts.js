@@ -37,8 +37,9 @@
              //  console.log(day.classList);
              if (!day.classList.contains('not-selectable')) {
                  day.addEventListener('click', function() {
+                     showingCreate.querySelector('button').disabled = false;
                      pickedDate = new Date(this.dataset.date);
-                     day.classList.add('date-clicked')
+                     day.classList.add('date-clicked');
                      for (const day2 of daysArray) {
                          if (day2.classList.contains('date-clicked') && day2 !== day) {
                              day2.classList.remove('date-clicked');
