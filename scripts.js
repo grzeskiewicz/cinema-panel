@@ -514,8 +514,8 @@
      const momentTime = moment(time.value, 'HH:mm');
      const hour = momentTime.hour();
      const minute = momentTime.minute();
-     const hour1=document.querySelector('#hour-select');
-     const minute1=document.querySelector('#minute-select');
+     const hour1=document.querySelector('#hour-select').value;
+     const minute1=document.querySelector('#minute-select').value;
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
      const dateFixed1= moment(pickedDate).set({ 'hour': hour1, 'minute': minute1 });
      console.log(dateFixed);
