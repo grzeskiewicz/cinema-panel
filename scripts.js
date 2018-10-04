@@ -619,8 +619,7 @@
      e.preventDefault();
      const files = document.getElementById('file-input').files;
      const file = files[0];
-     let hehe = getSignedRequest(file);
-     console.log(hehe);
+     getSignedRequest(file);
      filmCreate.querySelector('button').disabled = true;
      const film = {
          title: filmCreate.title.value,
