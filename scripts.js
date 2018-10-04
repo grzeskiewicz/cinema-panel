@@ -567,26 +567,26 @@
  }
 
  function uploadFile(file, signedRequest, url) {
-     fetch(request(signedRequest, 'PUT'))
-         .then(res => {
-             console.log(res);
-             return res;
-         })
-         .catch(error => console.error(error));
-     /* const xhr = new XMLHttpRequest();
-      xhr.open('PUT', signedRequest);
-      xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-              if (xhr.status === 200) {
-                  console.log('YES', url);
-                  // document.getElementById('preview').src = url;
-                  // document.getElementById('avatar-url').value = url;
-              } else {
-                  alert('Could not upload file.');
-              }
-          }
-      };
-      xhr.send(file);*/
+     /*  fetch(request(signedRequest, 'PUT'))
+           .then(res => {
+               console.log(res);
+               return res;
+           })
+           .catch(error => console.error(error));*/
+     const xhr = new XMLHttpRequest();
+     xhr.open('PUT', signedRequest);
+     xhr.onreadystatechange = () => {
+         if (xhr.readyState === 4) {
+             if (xhr.status === 200) {
+                 console.log('YES', url);
+                 // document.getElementById('preview').src = url;
+                 // document.getElementById('avatar-url').value = url;
+             } else {
+                 alert('Could not upload file.');
+             }
+         }
+     };
+     xhr.send(file);
  }
 
 
