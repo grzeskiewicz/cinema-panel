@@ -88,7 +88,7 @@
              const option = document.createElement("option");
              option.value = i;
              if (i===0) option.text = '00';
-            
+            option.text=i;
              minuteSelector.options.add(option);
          }
      }
