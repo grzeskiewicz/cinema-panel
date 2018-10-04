@@ -571,7 +571,22 @@
      return true;
  }
 
- function uploadFile(file, signedRequest, url) {
+function uploadFile(file, signedRequest, url) {
+  const options = {
+    method: 'PUT',
+    body: file
+  };
+  return fetch(signedRequest, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`${response.status}: ${response.statusText}`);
+      }
+      return url;
+    });
+}
+
+
+ /*function uploadFile(file, signedRequest, url) {
         console.log(file);
          fetch(request(signedRequest, 'PUT',file,headersUp))
          .then(res => res.json())
@@ -591,8 +606,8 @@
              }
          }
      };
-     xhr.send(file);*/
- }
+     xhr.send(file);
+ }*/
 
 
  function getSignedRequest(file) {
