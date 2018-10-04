@@ -510,8 +510,8 @@
 
  showingCreate.addEventListener('submit', function(e) {
      e.preventDefault();
-     const time = document.querySelector('#appt-time');
-     const momentTime = moment(time.value, 'HH:mm');
+     //const time = document.querySelector('#appt-time');
+     //const momentTime = moment(time.value, 'HH:mm');
     // const hour = momentTime.hour();
     // const minute = momentTime.minute();
      const hour=document.querySelector('#hour-select').value;
