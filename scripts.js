@@ -165,7 +165,7 @@
                  filmTitles.addEventListener('click', function() {
                      showingsListed.innerHTML = "";
                      const result = sortShowings(groupArr[film]);
-                    // console.log(result);
+                     // console.log(result);
                      for (const showing of groupArr[film]) {
                          //console.log(moment(showing.date), showing.date);
                          const descriptionDiv = document.createElement("div");
@@ -255,7 +255,7 @@
                              length: filmEditForm.length.value,
                              category: filmEditForm.category.value,
                          };
-                        // console.log(filmEdit);
+                         // console.log(filmEdit);
                          fetch(request(API_URL + "editfilm", 'POST', filmEdit))
                              .then(res => res.json())
                              .then(result => {
@@ -295,7 +295,7 @@
      fetch(request(API_URL + "prices", 'GET'))
          .then(res => res.json())
          .then(prices => {
-            // console.log(prices);
+             // console.log(prices);
 
 
              for (const price of prices) {
@@ -340,7 +340,7 @@
      fetch(request(API_URL + "ticketsbycustomer", 'POST', customer))
          .then(res => res.json())
          .then(tickets => {
-            // console.log(tickets);
+             // console.log(tickets);
              ticketsDiv.innerHTML = "";
 
              for (const ticket of tickets) {
@@ -404,7 +404,7 @@
 
                  });
                  modifyDiv.querySelector('.fa-edit').addEventListener('click', function() {
-                    // console.log(customer);
+                     // console.log(customer);
                      editCustomerForm.style.display = "flex";
 
                      editCustomerForm.email.value = customer.email;
@@ -424,8 +424,8 @@
                              telephone: editCustomerForm.telephone.value,
 
                          };
-                        // console.log(editCustomer);
-                        // console.log(editCustomerForm);
+                         // console.log(editCustomer);
+                         // console.log(editCustomerForm);
                          fetch(request(API_URL + "editcustomer", 'POST', editCustomer))
                              .then(res => res.json())
                              .then(result => {
@@ -448,7 +448,7 @@
      fetch(request(API_URL + "deleteshowing", 'POST', show))
          .then(res => res.json())
          .then(result => {
-            // console.log(result);
+             // console.log(result);
          });
 
  }
@@ -478,7 +478,7 @@
 
  const deleteTicket = function(id) {
      const ticket = { ticketid: id };
-    // console.log(id);
+     // console.log(id);
      fetch(request(API_URL + "deleteticket", 'POST', ticket))
          .then(res => res.json())
          .then(result => {
@@ -490,7 +490,7 @@
 
  const deleteCustomer = function(id) {
      const customer = { customerid: id };
-    // console.log(id);
+     // console.log(id);
      fetch(request(API_URL + "deletecustomer", 'POST', customer))
          .then(res => res.json())
          .then(result => {
@@ -513,12 +513,12 @@
      e.preventDefault();
      //const time = document.querySelector('#appt-time');
      //const momentTime = moment(time.value, 'HH:mm');
-    // const hour = momentTime.hour();
-    // const minute = momentTime.minute();
-     const hour=document.querySelector('#hour-select').value;
-     const minute=document.querySelector('#minute-select').value;
+     // const hour = momentTime.hour();
+     // const minute = momentTime.minute();
+     const hour = document.querySelector('#hour-select').value;
+     const minute = document.querySelector('#minute-select').value;
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
-    // console.log(dateFixed);
+     // console.log(dateFixed);
      showingCreate.querySelector('button').disabled = true;
      const showing = {
          film: filmSelector.value,
@@ -548,8 +548,8 @@
 
 
  function validateShowings() {
-     const hour=document.querySelector('#hour-select').value;
-     const minute=document.querySelector('#minute-select').value;
+     const hour = document.querySelector('#hour-select').value;
+     const minute = document.querySelector('#minute-select').value;
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
 
      for (const showing of showingsList) {
@@ -584,21 +584,26 @@
 
 
  function getSignedRequest(file) {
-     let valuex = "1";
-     //let imgUrl;
-     const xhr = new XMLHttpRequest();
-     xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
-     xhr.onreadystatechange = () => {
-         if (xhr.readyState === 4) {
-             if (xhr.status === 200) {
-                 const response = JSON.parse(xhr.responseText);
-                 uploadFile(file, response.signedRequest, response.url);
-             } else {
-                 alert('Could not get signed URL.');
-             }
-         }
-     };
-     xhr.send();
+     fetch(request(`${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`, 'GET'))
+         .then(res => res.json())
+         .then(response => {
+             console.log(response);
+             uploadFile(file, response.signedRequest, response.url);
+         });
+     /*
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
+      xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  const response = JSON.parse(xhr.responseText);
+                  uploadFile(file, response.signedRequest, response.url);
+              } else {
+                  alert('Could not get signed URL.');
+              }
+          }
+      };
+      xhr.send();*/
 
  }
 
