@@ -6,6 +6,10 @@
      'Content-Type': 'application/json',
  });
 
+ const headersUp=new Headers({
+    'Content-Type': 'image'
+ })
+
 
  function request(url, method, dataset, headerz) {
      return new Request(url, {
