@@ -572,9 +572,6 @@
              console.log(res);
              return res;
          })
-         .then(response => {
-             console.log(response);
-         })
          .catch(error => console.error(error));
      /* const xhr = new XMLHttpRequest();
       xhr.open('PUT', signedRequest);
