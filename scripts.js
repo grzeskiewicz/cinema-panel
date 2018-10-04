@@ -586,53 +586,13 @@ function uploadFile(file, signedRequest, url) {
 }
 
 
- /*function uploadFile(file, signedRequest, url) {
-        console.log(file);
-         fetch(request(signedRequest, 'PUT',file,headersUp))
-         .then(res => res.json())
-         .then(response => {
-             console.log(response);
-         }).catch(error => console.error(error));
-    /* const xhr = new XMLHttpRequest();
-     xhr.open('PUT', signedRequest);
-     xhr.onreadystatechange = () => {
-         if (xhr.readyState === 4) {
-             if (xhr.status === 200) {
-                 console.log('YES', url);
-                 // document.getElementById('preview').src = url;
-                 // document.getElementById('avatar-url').value = url;
-             } else {
-                 alert('Could not upload file.');
-             }
-         }
-     };
-     xhr.send(file);
- }*/
-
-
  function getSignedRequest(file) {
-
      fetch(request(`${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`, 'GET'))
          .then(res => res.json())
          .then(response => {
              console.log(response);
              uploadFile(file, response.signedRequest, response.url);
          }).catch(error => console.error(error));
-     /*
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', `${API_URL}sign-s3?file-name=${file.name}&file-type=${file.type}`);
-      xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-              if (xhr.status === 200) {
-                  const response = JSON.parse(xhr.responseText);
-                  uploadFile(file, response.signedRequest, response.url);
-              } else {
-                  alert('Could not get signed URL.');
-              }
-          }
-      };
-      xhr.send();*/
-
  }
 
 
