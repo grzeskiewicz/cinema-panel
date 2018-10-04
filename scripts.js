@@ -568,7 +568,9 @@
 
  function uploadFile(file, signedRequest, url) {
          fetch(request(signedRequest, 'PUT'))
-         .then(res => res.json())
+         .then(res => {
+console.log(res);
+            return res.json();})
          .then(response => {
              console.log(response);
          }).catch(error => console.error(error));
