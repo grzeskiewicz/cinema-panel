@@ -70,11 +70,7 @@
              calendarCtrl.initListenersMonths();
          });
      },
-     initCalendar() {
-         let calendarTable = renderCalendar(calendard);
-         this.initListeners(calendarTable);
-         this.initListenersMonths();
-
+     initTimeSelect() {
          const hourSelector = document.querySelector('#hour-select');
          for (let i = 10; i <= 22; i++) {
              const option = document.createElement("option");
@@ -94,6 +90,13 @@
              }
              minuteSelector.options.add(option);
          }
+     },
+     initCalendar() {
+         let calendarTable = renderCalendar(calendard);
+         this.initListeners(calendarTable);
+         this.initListenersMonths();
+         this.initTimeSelect();
+
      }
  }
 
@@ -511,7 +514,12 @@
      const momentTime = moment(time.value, 'HH:mm');
      const hour = momentTime.hour();
      const minute = momentTime.minute();
+     const hour1=document.querySelector('#hour-select');
+     const minute1=document.querySelector('#minute-select');
      const dateFixed = moment(pickedDate).set({ 'hour': hour, 'minute': minute });
+     const dateFixed1= moment(pickedDate).set({ 'hour': hour1, 'minute': minute1 });
+     console.log(dateFixed);
+     console.log('other',dateFixed1);
      showingCreate.querySelector('button').disabled = true;
      const showing = {
          film: filmSelector.value,
