@@ -90,7 +90,7 @@ fieldset {
 }
 
 .film-titles {
-    margin:1rem;
+    margin:1rem 0;
 }
 
 .film-titles:hover, #customers div:hover {
