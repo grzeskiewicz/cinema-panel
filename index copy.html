@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Cinema Admin Panel" />
+    <title>Cinema</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Oxygen" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="first-row" class="row">
+        <div class="first-column">
+            <fieldset id="film">
+                <legend>Create film</legend>
+                <form id="film-create">
+                    <input type="text" name="title" placeholder="Title" required autofocus />
+                    <input type="text" name="director" placeholder="Director" required />
+                    <input type="text" name="genre" placeholder="Genre" required />
+                    <input type="text" name="length" placeholder="Length" required />
+                    <input type="text" name="category" placeholder="Category" required />
+                    <input id="file-input" type="file" name="myImage" />
+                    <button type="submit">Create film</button>
+                </form>
+                <label id="film-status"></label>
+            </fieldset>
+        </div>
+        <div class="second-column">
+            <div id="films">
+                <p>Films:</p>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div id="second-row" class="row">
+        <div class="first-column">
+            <fieldset id="price">
+                <legend>Create price</legend>
+                <form id="price-create">
+                    <input type="text" name="normal-price" placeholder="Normal price" required />
+                    <input type="text" name="discount-price" placeholder="Discount price" required />
+                    <button type="submit">Create prices</button>
+                </form>
+                <label id="price-status"></label>
+            </fieldset>
+        </div>
+        <div class="second-column">
+            <div id="prices">
+                <p>Prices:</p>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div id="third-row" class="row">
+        <div class="first-column">
+            <fieldset id="time-select">
+                <legend>Appointment details</legend>
+                <form id="showing-create">
+                    <select name="film-select" id="film-select"></select>
+                    <select name="room-select" id="room-select"></select>
+                    <select name="price-select" id="price-select"></select>
+                    <div id="calendar"></div>
+                    <p id="date-cal"></p>
+                    <div class="time-control">
+                        <select name="hour-select" id="hour-select"></select>
+                        <select name="minute-select" id="minute-select"></select>
+                    </div>
+                    <button type="submit" disabled>Create showing</button>
+                </form>
+                <label id="showing-status"></label>
+                <table id="scheduled-rooms"></table>
+            </fieldset>
+        </div>
+        <div class="second-column">
+            <div id="showings">
+                <div id="constant">
+                    <div class="loader"></div>
+                </div>
+                <div id="showings-2"></div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div id="fourth-row" class="row">
+        <div id="customers"></div>
+        <form id="edit-customer" hidden>
+            <label for="email">E-mail</label>
+            <input type="text" name="email" placeholder="Email" required />
+            <label for="name"></label>
+            <input type="text" name="name" placeholder="Name" required />
+            <label for="surename"></label>
+            <input type="text" name="surename" placeholder="Surename" required />
+            <label for="telephone"></label>
+            <input type="text" name="telephone" placeholder="Telephone" required />
+            <button type="submit">Edit customer</button>
+        </form>
+        <div id="tickets"></div>
+    </div>
+    <script src="scripts.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+</body>
+
+</html>

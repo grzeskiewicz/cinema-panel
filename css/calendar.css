@@ -1,0 +1,85 @@
+/* CALENDAR CSS */
+
+#month{
+    font-size: 1.1rem;
+    margin:0.1rem;
+}
+
+#date-cal{
+    font-size: 1.1rem;
+    margin:0;
+}
+
+#calendar {
+    margin: auto;
+    text-align: center;
+    line-height: 2;
+color: #c9cccd;
+}
+
+#calendar p {
+    font-weight: 300;
+
+}
+
+
+.today {
+    background-color: grey;
+}
+
+#calendar table {
+    vertical-align: top;
+    border-collapse: collapse;
+}
+
+#calendar tbody tr:hover {
+   /* background-color: #fff;*/
+}
+
+#calendar td {
+    text-align: center;
+   /* line-height: 1.75rem;
+    width: 1.75rem;*/
+    margin: 2px;
+    padding:0.9rem;
+}
+
+#calendar thead td {
+    color: #c9cccd;
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+#calendar tbody td {
+    font-size: .875rem;
+}
+
+#calendar tbody td:hover {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#calendar td.before,
+#calendar td.after {
+   color: #c9cccd;
+}
+
+#next:hover,
+#previous:hover {
+    background-color: orange;
+}
+
+.date-clicked {
+    background-color: orange;
+}
+
+.not-selectable {
+    background-color: #FFFFF0;
+    color:black;
+}
+
+.not-selectable:hover {
+    cursor: not-allowed;
+   
+}
