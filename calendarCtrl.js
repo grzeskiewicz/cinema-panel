@@ -8,14 +8,13 @@ let selectedMonthCopy = selectedMonth;
 const showingCreate = document.querySelector('#showing-create-form');
 
 
-
 const calendarCtrl = {
     initTimetable() {
         const table = [];
         for (let h = 10; h <= 23; h++) { //tablica godziny x sale
             if (!table[h]) table[h] = [];
             for (let m = 0; m <= 55; m = m + 5) {
-                table[h][m] = '';
+                table[h][m] = { o: '', times: '' };
             }
         }
         return table;
@@ -51,12 +50,26 @@ const calendarCtrl = {
                 (m === 0 || m === 30) ? td.textContent = `${h}:${m === 0 ? '0' + m : m}` : td.textContent = '';
                 tr.appendChild(td);
                 for (const room of rooms) {
-
                     const tdroom = document.createElement('td');
                     tdroom.className = "room";
-                    if (roomOccupancy[room.id][h][m] === '') tdroom.className = tdroom.className + " free";
-                    if (roomOccupancy[room.id][h][m] === 'X') tdroom.className = tdroom.className + " occupied";
+                    if (roomOccupancy[room.id][h][m].o === '') {
+                        tdroom.className = tdroom.className + " free";
+                    }
+                    if (roomOccupancy[room.id][h][m].o === 'X') {
+                        if ((h===roomOccupancy[room.id][h][m].times.hStart) && (m===roomOccupancy[room.id][h][m].times.mStart)) console.log("START")
+                        tdroom.className = tdroom.className + " occupied";
+                        tdroom.addEventListener('mousemove', (e) => {
+                            const showing=roomOccupancy[room.id][h][m].showing;
+                            tdroom.className = tdroom.className + " tooltip";
+                            tdroom.dataset.tooltip = ` ID:${showing.id} Showing:${showing.title} T:${showing.length}`;
+                            const tooltip = document.createElement('label');
+                            tooltip.classList.add('tooltipBubble');
+                            tooltip.innerHTML = tdroom.dataset.tooltip;
+                            tdroom.appendChild(tooltip);
+                        });
+                    }
                     tr.appendChild(tdroom);
+
                 }
                 tbodyMain.appendChild(tr);
             }
@@ -79,11 +92,17 @@ const calendarCtrl = {
                         let hFinish = Number(moment(finish).format('H'));
                         let mFinish = Number(moment(finish).format('m'));
                         if (hStart > hFinish) { hFinish = 23; mFinish = 59; }//?
+                        const times = {
+                            hStart: hStart,
+                            mStart: mStart,
+                            hFinish: hFinish,
+                            mFinish: mFinish
+                        }
                         for (let hour = hStart; hour <= hFinish; hour++) {
                             for (let minute = 0; minute <= 45; minute = minute + 15) {
-                                if (hour === hStart && minute >= mStart) table[hour][minute] = 'X';
-                                if (hour === hFinish && minute <= mFinish) table[hour][minute] = 'X';
-                                if (hour !== hStart && hour !== hFinish) table[hour][minute] = 'X';
+                                if (hour === hStart && minute >= mStart) table[hour][minute] = { o: 'X', times: times, showing:showing };
+                                if (hour === hFinish && minute <= mFinish) table[hour][minute] = { o: 'X', times: times, showing:showing };
+                                if (hour !== hStart && hour !== hFinish) table[hour][minute] = { o: 'X', times: '' };
                                 // if (hour === hFinish && minute === mFinish) console.log("KONIEC");
                             }
                         }

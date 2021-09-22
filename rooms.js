@@ -1,5 +1,5 @@
 import { API_URL, request } from './apiConnection.js';
-const romanNum = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+const roomABC = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
 const roomSelector = document.querySelector('#room-select');
 
@@ -18,7 +18,7 @@ function getRooms() {
             for (const room of rooms) {
                 const opt = document.createElement("option");
                 opt.value = room.id;
-                opt.text = `${romanNum[room.id]} Seats: ${room.seats}`;
+                opt.text = `${roomABC[room.id]} Seats: ${room.seats}`;
                 roomSelector.options.add(opt);
             }
             return rooms;

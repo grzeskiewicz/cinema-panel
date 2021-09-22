@@ -1,5 +1,8 @@
 body {
   background-color: #1d2733;
+  margin:0;
+  padding:0;
+  overflow:hidden;
 }
 
 p {
@@ -36,11 +39,14 @@ nav li.active {
 #films, #prices,#customers,#tickets  {
   border-collapse: collapse;
 }
+
+/*#films tr:nth-child(even), #prices tr:nth-child(even),#customers tr:nth-child(even),#tickets tr:nth-child(even){background-color: #f2f2f2;}*/
+
 #films th, #films td, #prices th, #prices td, #customers th, #customers td, #tickets th, #tickets td {
-  border: 1px solid #ddd;
-  padding:0.5rem;
+  border-bottom: 1px solid #ddd;
+  padding:0.7rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 
@@ -78,7 +84,7 @@ form > * {
 }
 
 fieldset {
-  color: white;
+  color: #ddd;
 }
 
 #showing-creation {
@@ -118,7 +124,7 @@ fieldset {
 }*/
 
 .film-titles:hover,
-#customers tr:hover {
+#customers tbody tr:hover, #tickets tbody tr:hover, #films tbody tr:hover, #prices tbody tr:hover    {
   background-color: grey;
   cursor: pointer;
 }
@@ -224,6 +230,7 @@ legend {
 
 .occupied {
   background-color: red;
+  cursor:crosshair;
 }
 
 #uploadPreview {
@@ -231,6 +238,50 @@ legend {
   height: auto;
 }
 
+.tooltip {
+  position: relative;
+}
+
+.tooltip:focus>label,
+.tooltip:hover>label {
+    opacity: 1;
+    margin: 0;
+}
+
+label.tooltipBubble {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  font-family: 'Arial';
+  font-size: 1rem;
+  background: #2b3534;
+  padding: 0.5rem 1rem;
+  bottom: 105%;
+  line-height: 1em;
+  pointer-events: none;
+}
+
+
+
+label.tooltipBubble:after {
+  content: '';
+  display: block;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #2b3534;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -2.5px;
+}
+
+.tooltipBubble {
+  margin-bottom: -.5em;
+  transition: .1s all linear;
+  opacity: 0;
+}
 
 
 

@@ -1,7 +1,7 @@
 import { API_URL, request } from './apiConnection.js'
 import { pickedDate, calendarCtrl } from './calendarCtrl.js';
 
-const romanNum = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+const roomABC = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
 
 const showingsDiv2 = document.querySelector('#showings-2');
@@ -85,7 +85,7 @@ function refreshShowings() {
                         modifyDiv.innerHTML = `<i class="fa fa-trash"></i>`;
                         modifyDiv.classList.add('modify');
                         modifyDiv.dataset.id = showing.id;
-                        description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${romanNum[showing.room]} || Seats: ${showing.seats}  || Price (normal/discount): ${showing.normal} / ${showing.discount}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
+                        description.innerHTML = `${showing.id} || Film : ${showing.title}  || Room: ${roomABC[showing.room]} || Seats: ${showing.seats}  || Price (normal/discount): ${showing.normal} / ${showing.discount}  ||  Date: ${moment(showing.date).format('DD.MM.YYYY. HH:mm')}`;
                         descriptionDiv.appendChild(description);
                         descriptionDiv.appendChild(modifyDiv);
                         showingsListed.appendChild(descriptionDiv);

@@ -1,6 +1,6 @@
 import { API_URL, request } from './apiConnection.js';
 import { validateForm } from './scripts.js';
-const romanNum = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+const roomABC = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
 
 
@@ -107,7 +107,7 @@ function getTicketsByCustomer(id) {
                 const deleteIcon = document.createElement("td");
                 deleteIcon.dataset.id = ticket.id;
                 deleteIcon.innerHTML = `<i class="fa fa-trash"></i>`;
-                description.innerHTML = `<td>${ticket.title}</td><td>${moment(ticket.date).format('DD.MM.YYYY HH:mm')}</td><td>${romanNum[ticket.room]}</td><td>${ticket.seat}</td><td>${ticket.price}</td><td>${ticket.email}</td>`;
+                description.innerHTML = `<td>${ticket.title}</td><td>${moment(ticket.date).format('DD.MM.YYYY HH:mm')}</td><td>${roomABC[ticket.room]}</td><td>${ticket.seat}</td><td>${ticket.price}</td><td>${ticket.email}</td>`;
                 ticketsTable.querySelector('tbody').appendChild(description);
 
                 deleteIcon.addEventListener('click', function () {
